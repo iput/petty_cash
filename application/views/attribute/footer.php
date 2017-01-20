@@ -1,4 +1,4 @@
-</div>
+ </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
@@ -46,91 +46,13 @@
 <!-- <script src="<?php echo base_url()."assets/dist/js/pages/dashboard.js"; ?>"></script> -->
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url()."assets/dist/js/demo.js"; ?>"></script>
-<script type="text/javascript" src="<?php echo base_url("assets/plugins/datatables/js/dataTables.foundation.js"); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url("assets/plugins/datatables/js/jquery.dataTables.min.js"); ?>"></script>
-<script src="<?php echo base_url("assets/bootstrap/js/multi-step-modal.js"); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url()."assets/plugins/datatables/js/dataTables.bootstrap.min.js"; ?>"></script>
+<script type="text/javascript" src="<?php echo base_url()."assets/plugins/datatables/js/dataTables.material.min.js"; ?>"></script>
+<script type="text/javascript" src="<?php echo base_url()."assets/plugins/datatables/js/dataTables.semanticui.min.js"; ?>"></script>
+<script type="text/javascript" src="<?php echo base_url()."assets/plugins/datatables/js/jquery.dataTables.js"; ?>"></script>
+<script type="text/javascript" url="<?php echo base_url()."assets/plugins/highchart/highcharts.js"; ?>"></script>
+<script type="text/javascript" url="<?php echo base_url()."assets/plugins/highchart/exporting.js"; ?>"></script>
 
-<script type="text/javascript" src ="<?php echo  base_url('assets/plugins/highchart/highcharts.js'); ?>"></script>
-
-
- <script type="text/javascript">
-     $(function(){
-        <?php 
-foreach ($report as $result) {
-     $bulan[] = $result->tanggal;
-     $nilai[] = $result->jumlahPengeluaran;
- } ?>
-        $('#laporan_statistik').highcharts({
-            chart: {
-                type : 'column',
-                margin : 75,
-                options3d: {
-                    enabled : false,
-                    alpha : 5,
-                    beta : 15,
-                    depth : 30
-                }
-            },
-            title: {
-                text : 'Laporan Statistik',
-                style: {
-                    fontSize : '18px',
-                    fontFamily : 'Verdana, sans-serif'
-                }
-            },
-            subtitle : {
-                text : 'Data Pengeluaran',
-                style : {
-                 fontSize : '18px',
-                    fontFamily : 'Verdana, sans-serif'   
-                }
-            },
-            plotOptions : {
-                column : {
-                    depth : 15
-                }
-            },
-            credits: {
-                enabled : false
-            },
-            xAxis: {
-                categories : <?php echo json_encode($bulan); ?>
-            },
-            exporting: {
-                enabled : false
-            },
-            yAxis: {
-                 min: 0, max: 140,
-                title:{
-                    text: 'Jumlah'
-                },
-            },
-            tooltip:{
-                formatter: function(){
-                    return 'Nilai dari <b>'+this.x+'</b> adalah <b>'+Highchart.numberFormat(this.y,0)+'</b>, pada '+this.series.name;
-                }
-            },
-            series: [{
-                name : 'Laporan Statistik Pengeluaran',
-                data: <?php echo json_encode($nilai); ?>,
-                shadow : true,
-                dataLabels : {
-                    enabled : true,
-                    color : '#045396',
-                    align: 'center',
-                    formatter: function(){
-                        return Highchart.numberFormat(this.y, 0);
-                    },
-                    y: 0,
-                    style:{
-                        fontSize : '18px',
-                    fontFamily : 'Verdana, sans-serif'   
-                    }
-                }
-            }]
-        });
-     });
- </script>
 <script>
 sendEvent = function(sel, step) {
     $(sel).trigger('next.m.' + step);
@@ -329,7 +251,5 @@ sendEvent = function(sel, step) {
     });
 });
 </script>
-
-
 </body>
 </html>
