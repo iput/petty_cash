@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Data Master Pengeluaran </title>
+  <title>Petty Cash | Membantu mengatur keuangan anda</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -23,7 +23,7 @@
     <div class="row">
       <div class="col-xs-12">
         <h2 class="page-header">
-          <i class="fa fa-paw"></i> Petty Cash | Membantu mengatur keuangan anda
+          <i class="fa fa-paw"></i> Data Master Pengeluaran 
           <small class="pull-right">Date: <?php echo date('Y-m-d'); ?></small>
         </h2>
       </div>
@@ -75,13 +75,7 @@
           </tbody>
         </table>
       </div>
-      <!-- /.col -->
-    </div>
-    <!-- /.row -->
-
-    <div class="row">
-      <!-- accepted payments column -->
-      <!-- /.col -->
+      <!-- /.col -->      
     </div>
     <!-- /.row -->
   </section>

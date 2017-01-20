@@ -4,8 +4,15 @@ header('Content-Disposition : attachment; filename=master_pengeluaran.xls');
 header('Pragma : no-chace');
 header('Expires: 0');
  ?>
+
  <table border="1px" width="75%">
  	<thead>
+ 		<tr>
+ 			<th colspan="8">Data transkrip pengeluaran</th>
+ 		</tr>
+ 		<tr>
+ 			<th colspan="8"></th>
+ 		</tr>
  		<tr>
  			<th>No</th>
  			<th>Nama Project</th>

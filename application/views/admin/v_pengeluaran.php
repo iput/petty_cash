@@ -7,9 +7,6 @@
 
     <section class="content">
         <div class="box">
-            <div class="box-header with-border bg-success">
-            </div>
-
             <!-- awal box body -->
             <div class="box-body">
 
@@ -31,7 +28,7 @@
                 </div>
 
                 <!-- form_modal pengeluaran baru-->
-                <form class="modal fade form-horizontal" id="form_pengeluaran" method="POST" action=" <?php echo base_url('C_pengeluaran/insert_pengeluaran/simpan_pengeluaran')?>" enctype="multipart/form-data">
+                <form class="modal fade form-horizontal" id="form_pengeluaran" method="POST" action=" <?php echo base_url('C_pengeluaran/insert_data/simpan_pengeluaran')?>" enctype="multipart/form-data">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header bg-primary">
