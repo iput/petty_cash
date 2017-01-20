@@ -20,6 +20,7 @@ class C_pengeluaran extends CI_Controller {
 
     public function index() {
 
+       if ($this->session->userdata('username') && $this->session->userdata('idUser')){
         $data_u['idUser'] = $this->m_get->get_user();
         $data_tampil['pengeluaran'] = $this->m_pengeluaran->select_data();
 
@@ -27,6 +28,10 @@ class C_pengeluaran extends CI_Controller {
         $this->load->view('admin/v_pengeluaran', $data_u);
         $this->load->view('tabel/tabel_pengeluaran', $data_tampil);
         $this->load->view('attribute/footer');
+        }
+        else{
+          $this->load->view('v_login');
+        }
     }
 
     public function tampilid()

@@ -9,6 +9,9 @@ class C_login extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        $this->load->model('Mod_login'); 
+        $this->load->model('m_user');
+
     }
 
     public function index() {
@@ -22,11 +25,10 @@ class C_login extends CI_Controller {
 
     public function login_process()
     {
-    	$idUser="";
+        $idUser="";
         $huser = "";
         $hpass = "";
         $hlevel = "";
-        $xpass = "";
         $user = $this->input->post('txt_log_user');
         $pass = $this->input->post('txt_log_password');
         $level = $this->input->post('cb_log_level');
@@ -59,6 +61,37 @@ class C_login extends CI_Controller {
             redirect('c_login/index');
         }
     }
+
+    public function admin_page() {
+        $data= $this->m_user->getAllUser();
+        if ($this->session->userdata('username')) {
+            $this->load->view('attribute/header');
+            $this->load->view('admin/v_index', array('data' => $data));
+            $this->load->view('attribute/footer');
+        } else {
+            redirect('C_login/index');
+        }
+    }
+    public function user_page() {
+        if ($this->session->userdata('idUser')) {
+            $this->load->view('attribute/header_user');
+            $this->load->view('user/u_beranda');
+            $this->load->view('attribute/footer_user');
+        } else {
+            redirect('');
+        }
+    }
+
+     public function logout() {
+        $this->session->sess_destroy();
+        redirect(c_login / index);
+    }
+
+
+
+
+
+
 
 }
 

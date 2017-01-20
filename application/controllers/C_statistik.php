@@ -13,11 +13,16 @@ class C_statistik extends CI_Controller {
     }
 
     public function index() {
-    	 $data['report'] = $this->m_statistik->report();
+    	if ($this->session->userdata('username') && $this->session->userdata('idUser')){
+         $data['report'] = $this->m_statistik->report();
 
         $this->load->view('attribute/header');
         $this->load->view('admin/v_statistik');
         $this->load->view('attribute/footer', $data);
+        }
+        else {
+            $this->load->view('v_login');
+        }
     }
 
 }

@@ -38,30 +38,33 @@
             </div>
 
             <div class="register-box-body">
-                <p class="login-box-msg">Pemulihan Kata Sandi</p>
-                <p class="login-box-msg">Masukkan Username dan Password Anda</p>
+                <p class="login-box-msg">Reset Password</p>
+                
+                <?php echo form_open('Welcome/action_reset') ; ?>
 
-                <form action="<?php echo base_url('welcome/send_email');?>" method="post">
-                    <label>Username</label>
-                    <div class="form-group has-feedback">
-                        <input type="text" name="txt_username" class="form-control" placeholder="Username">
-                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                    </div>
-                    <label>Email</label>
-                    <div class="form-group has-feedback">
-                        <input type="text" name="txt_email" class="form-control" placeholder="email address">
-                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-8">
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-xs-8">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat" onclick="return confirm('Apakah anda yakin data yang anda masukan sudah valid ?');">Kirim Konfirmasi Sandi</button>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                </form>
+        <table border="0">
+        <tr>
+            <td>Username</td>
+            <td><?php echo form_input(array('name' => 'username', 'id' => 'username', 'value' => set_value('text', ''), 'maxlength' => '100', 'size' => '50', 'style' => 'width:100%')); ?></td>
+        </tr>
+        <tr>
+            <td>User Email</td>
+            <td><?php echo form_input(array('name' => 'email', 'id' => 'email', 'value' => set_value('email', ''), 'maxlength' => '100', 'size' => '50', 'style' => 'width:100%')); ?></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><?php echo form_password(array('name' => 'password1', 'id' => 'password1', 'value' => set_value('password1', ''), 'maxlength' => '100', 'size' => '50', 'style' => 'width:100%')); ?></td>
+        </tr>
+        <tr>
+            <td>Confirm Password</td>
+            <td><?php echo form_password(array('name' => 'password2', 'id' => 'password2', 'value' => set_value('password2', ''), 'maxlength' => '100', 'size' => '50', 'style' => 'width:100%')); ?></td>
+        </tr>
+        
+    <!--     <?php echo form_hidden('code', $code) ; ?> -->
+    </table>
+    <?php echo form_submit('submit', 'Submit'); ?>
+    or <?php echo anchor('form', 'cancel'); ?>
+        <?php echo form_close(); ?>
 
                 <a href="<?php echo base_url("c_login/index"); ?>" class="text-center">Kembali ke menu </a>
             </div>

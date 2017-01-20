@@ -38,5 +38,19 @@ defined('BASEPATH')OR exit('No direct script access allowed');
  		}
  		return $project;
  	}
+
+ 	public function get_userproject($id) {
+
+
+        // $this->db->order_by('idPengeluaran','ASC');
+        // $data_project = $this->db->get_where('tb_pengeluaran',array('idUser'=>$id_user));
+        $this->db->select('tb_project.namaProject, tb_project.idProject');
+        $this->db->from('tb_project');
+        $this->db->join('tb_data', 'tb_data.idProject=tb_project.idProject');
+        $this->db->join('tb_user', 'tb_user.idUser=tb_data.idUser');
+        $this->db->where("tb_user.idUser", $id);
+        $data_project = $this->db->get();
+        return $data_project->result_array();
+    }
  	
  } ?>

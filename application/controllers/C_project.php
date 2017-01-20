@@ -12,18 +12,43 @@ class C_Project extends CI_Controller {
     }
 
     public function index() {
+        if ($this->session->userdata('username') && $this->session->userdata('idUser')){
         $this->load->view('attribute/header');
         $this->load->view('admin/v_project');
         $this->load->view('tabel/tabel_project');
         $this->load->view('attribute/footer');
+        }
+        else{
+          $this->load->view('v_login');
+        }
     }
 
     public function user_project()
     {
-    	$this->load->view('attribute/header');
-        $this->load->view('admin/v_Uproject');
-        $this->load->view('tabel/tabel_Uproject');
-        $this->load->view('attribute/footer');	
+    	if ($this->session->userdata('username') && $this->session->userdata('idUser')){
+        $data['idProject']= $this->m_project->get_namaproject();
+        $user = $this->m_user->getAllUser();
+        $this->load->view('attribute/header');
+        $this->load->view('admin/v_Uproject', $data);
+        $this->load->view('tabel/tabel_Uproject', array('user' => $user));
+        $this->load->view('attribute/footer');
+        }
+        else{
+          $this->load->view('v_login');
+        }   
+    }
+    public function insert_tbdata(){
+        $field = array(
+            'idProject' => $this->input->post('idProject'),
+            'idUser' => $this->input->post('idUser')  
+        );
+        $result=$this->m_user->addUser('tb_data', $field);
+        $msg['success']=FALSE;         
+        if ($result){
+        $msg['success']=TRUE;
+        redirect('C_project/user_project');
+        }
+        echo json_encode($msg);
     }
 
 }

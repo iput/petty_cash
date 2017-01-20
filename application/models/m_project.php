@@ -57,4 +57,11 @@ defined('BASEPATH')OR exit('No direct script access allowed');
  		$result_delete = $this->db->delete($tabel, $parameter);
  		return $result_delete;
  	}
+ 	//menampilkan nama proyek di combobox
+ 	public function get_namaproject() {
+        $this->db->order_by('namaProject', 'ASC');
+        $username = $this->db->get('tb_project');
+        return $username->result_array();
+    }
+
  } ?>
