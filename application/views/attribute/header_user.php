@@ -1,10 +1,9 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-
-  <title>Petty Cash | Rencanakan keuangan anda</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Petty Cash | Rencanakan keuangan anda</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -30,11 +29,16 @@
   <link rel="stylesheet" href="<?php echo base_url()."assets/plugins/daterangepicker/daterangepicker.css"; ?>">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?php echo base_url()."assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"; ?>">
-<!-- data table -->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/plugins/datatables/css/dataTables.bootstrap.min.css"); ?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/plugins/datatables/css/dataTables.material.min.css"); ?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/plugins/datatables/css/dataTables.semanticui.min.css"); ?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/plugins/datatables/css/jquery.dataTables.css"); ?>">
+
+  <link rel="stylesheet" href="<?php echo base_url()."assets/plugins/jvectormap/jquery-jvectormap-1.2.2.css"; ?>">
+ <script type="text/javascript" src="<?php echo base_url()."assets/plugins/jQuery/jquery-2.2.3.min.js"; ?>"></script>
+ <script type="text/javascript" src="<?php echo base_url()."assets/plugins/jQuertMaskMoney/jquery.maskMoney.min.js"; ?>"></script>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -56,7 +60,7 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-
+          
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -70,17 +74,17 @@
 
                 <p>
                   <?php echo $this->session->userdata('username');?>
-                  <small>Petty Cash | V.1</small>
+                  <small>PP Sabillurrosyad | Gasek</small>
                 </p>
               </li>
-
+              
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
                   <a href="#" class="btn btn-default btn-flat">Profilku</a>
                 </div>
                 <div class="pull-right">
-                  <a href="<?php echo base_url('c_login/logout');?>" class="btn btn-default btn-flat">Keluar</a>
+                  <a href="<?php echo base_url("c_login"); ?>" class="btn btn-default btn-flat">Keluar</a>
                 </div>
               </li>
             </ul>
@@ -100,46 +104,34 @@
         </div>
         <div class="pull-left info">
           <p><?php echo $this->session->userdata('username');?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <a href="#"><i class="fa fa-user"></i>User Petty Cash</a>
         </div>
       </div>
-
+      
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MENU NAVIGASI UTAMA</li>
         <li class="treeview">
-          <a href="<?php echo base_url("Welcome/index"); ?>">
+          <a href="<?php echo base_url("s_beranda/index"); ?>">
             <i class="fa fa-home"></i> <span>Beranda</span>
           </a>
         </li>
         <li class="treeview">
-          <a href="">
-            <i class="fa fa-files-o"></i>
-            <span>Data Project</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url("c_project/index"); ?>"><i class="fa fa-calendar"></i> Data Project</a></li>
-            <li><a href="<?php echo base_url("c_project/user_project"); ?>"><i  class="fa fa-users"></i>Data Pengguna Porject</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="<?php echo base_url("C_user/index"); ?>">
-            <i class="fa fa-users"></i> <span>Data User</span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="<?php echo base_url("C_pengeluaran/index"); ?>">
-            <i class="fa fa-pie-chart"></i>
+          <a href="<?php echo base_url("s_pengeluaran/index"); ?>">
+            <i class="fa fa-edit"></i>
             <span>Pengeluaran</span>
           </a>
         </li>
         <li class="treeview">
-          <a href="<?php echo base_url("C_statistik/index"); ?>">
-            <i class="fa fa-area-chart"></i>
+          <a href="<?php echo base_url("s_statistik/index"); ?>">
+            <i class="fa fa-fw fa-bar-chart-o"></i>
             <span>Statistik</span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="<?php echo base_url("s_setting/index"); ?>">
+            <i class="fa fa-gears"></i>
+            <span>Setting</span>
           </a>
         </li>
     </section>

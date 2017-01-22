@@ -52,7 +52,7 @@
             <div class="login-box-body">
                 <p class="login-box-msg">Gunakan akun anda untuk akses Petty Cash</p>
 
-                <form action="" method="post">
+                <form action="<?php echo base_url('c_login/login_process');?>" method="post">
                     <div class="form-group has-feedback">
                         <input type="text"  name="txt_log_user" class="form-control" placeholder="username anda">
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
