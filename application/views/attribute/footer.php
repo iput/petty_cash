@@ -47,8 +47,6 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url() . "assets/dist/js/demo.js"; ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables/js/dataTables.bootstrap.min.js"; ?>"></script>
-<script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables/js/dataTables.semanticui.min.js"; ?>"></script>
-<script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables/js/jquery.dataTables.min.js"; ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables/js/jquery.dataTables.min.js"; ?>"></script>
 
 <script>
@@ -202,7 +200,7 @@
     });
 </script>
 
-<!-- tabel -->
+<!-- data tabel -->
 <script type="text/javascript">
     $(function() {
         $('#tabel_user').dataTable();
@@ -214,6 +212,9 @@
 
     $(function() {
         $('#tabel_bag_pengeluaran').dataTable();
+    });
+    $(function(){
+        $('#tabel_project').dataTable();
     });
 </script>
 

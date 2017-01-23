@@ -30,7 +30,7 @@ class M_project extends CI_Model {
     public function update_sisa($tabel, $data_sisa, $parameter) {
         $this->db->where('idProject', $parameter);
         $this->db->update($tabel, $data_project);
-        if ($this->db->affect_rows() > 0) {
+        if ($this->db->affected_rows() > 0) {
             return true;
         } else {
             return false;
@@ -43,8 +43,14 @@ class M_project extends CI_Model {
     }
 
     public function update_data_project($tabel, $data_update, $parameter) {
-        $result_update = $this->db->update($tabel, $data_update, $parameter);
-        return $result_update;
+        $this->db->where('idProject', $parameter);
+        $this->db->update($tabel, $data_update);
+        if($this->db->affected_rows() > 0){
+            return true;
+        }else{
+            return false;
+        }
+        
     }
 
     public function delete_data_project($tabel, $parameter) {

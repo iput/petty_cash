@@ -31,7 +31,7 @@
         <!-- bootstrap wysihtml5 - text editor -->
         <link rel="stylesheet" href="<?php echo base_url() . "assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"; ?>">
         <!-- data table -->
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/plugins/datatables/css/dataTables.bootstrap.min.css"); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/plugins/datatables/css/jquery.dataTables.min.css"); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/plugins/datatables/css/jquery.dataTables_themeroller.css"); ?>">
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
