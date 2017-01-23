@@ -29,6 +29,7 @@
         <link rel="stylesheet" href="<?php echo base_url() . "assets/plugins/daterangepicker/daterangepicker.css"; ?>">
         <!-- bootstrap wysihtml5 - text editor -->
         <link rel="stylesheet" href="<?php echo base_url() . "assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"; ?>">
+        <link rel="icon" type="image/png" href="<?php echo base_url('gambar/logo/logo.png'); ?>">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,7 +46,7 @@
     <body class="hold-transition login-page">
         <div class="login-box">
             <div class="login-logo">
-                <a href="../../index2.html"><b>PETTY</b>-CASH</a>
+                <a href="<?php echo base_url('c_login'); ?>"><b><img src="<?php echo base_url('gambar/logo/logo.png'); ?>" style="width: 50px; height: 50px; margin-bottom: 20px;">&nbsp;PETTY</b>-CASH</a>
             </div>
             <!-- /.login-logo -->
             <div class="login-box-body">

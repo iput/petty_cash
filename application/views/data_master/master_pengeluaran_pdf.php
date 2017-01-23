@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <h2 class="page-header">
-                            <i class="fa fa-paw"></i> Data Master Pengeluaran 
+                            <i class="fa fa-leaf"></i> Data Master Pengeluaran 
                             <small class="pull-right">Date: <?php echo date('Y-m-d'); ?></small>
                         </h2>
                     </div>
