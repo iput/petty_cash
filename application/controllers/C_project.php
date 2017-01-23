@@ -9,7 +9,7 @@ class C_Project extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->load->model('m_project');
+        $this->load->model(array('m_project', 'm_user'));
     }
 
     public function index() {
