@@ -13,7 +13,7 @@
                     <th>Operasi</th>
                 </tr>
                </thead>
-               <tbody>
+               <tbody id="tag_project">
                    <?php foreach ($project as $row): ?>
                        <tr>
                            <td><?php echo $row['idProject']; ?></td>
@@ -22,8 +22,8 @@
                            <td><?php echo $row['settingAnggaran']; ?></td>
                            <td><?php echo $row['sisa']; ?></td>
                            <td>
-                               <a href="<?php echo base_url('C_project/edit_project/'.$row['idProject']); ?>" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
-                               <a href="<?php echo base_url('C_project/hapus/'.$row['idProject']); ?>" class="btn btn-danger" onclick=" return confirm('apakah anda yakin ingin menghapus data terkait ?');"><span class="glyphicon glyphicon-remove"></span></a>
+                               <a href="javascript:;" data="<?php echo $row['idProject']; ?>" class="btn btn-info btn_edit_project"><span class="fa fa-pencil-square"></span></a>
+                               <a href="<?php echo base_url('C_project/delete_project/'.$row['idProject']); ?>" class="btn btn-danger" onclick=" return confirm('apakah anda yakin ingin menghapus data terkait ?');"><span class="glyphicon glyphicon-remove"></span></a>
                            </td>
                        </tr>
                    <?php endforeach ?>

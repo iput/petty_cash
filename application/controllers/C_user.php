@@ -1,6 +1,6 @@
 <?php
 
-defined('BASEPATH')OR exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * 
@@ -32,7 +32,7 @@ class C_user extends CI_Controller {
     }
 
     public function insert_registrasi($parameter) {
-        
+
         if ($parameter == "simpan_data") {
             $post = $this->input->post();
 
@@ -61,17 +61,15 @@ class C_user extends CI_Controller {
             'email' => $this->input->post('txt_email'),
             'password' => $this->input->post('txt_password'),
             'level' => $this->input->post('combo_level')
-        );   
-        $result=$this->m_user->addUser('tb_user', $field);
-        $msg['success']=FALSE;         
-        if ($result){
-        $msg['success']=TRUE;
-        redirect('C_user/index');
+        );
+        $result = $this->m_user->addUser('tb_user', $field);
+        $msg['success'] = FALSE;
+        if ($result) {
+            $msg['success'] = TRUE;
+            redirect('C_user/index');
         }
         echo json_encode($msg);
-        
     }
-
 
     public function do_delete($id) {
         $result = $this->m_user->delete_data($id);
@@ -87,7 +85,7 @@ class C_user extends CI_Controller {
             'level' => $this->input->post('combo_level')
         );
         $result = $this->m_user->update_data('tb_user', $field, $id);
-        if ($result){
+        if ($result) {
             redirect('c_user/index');
         }
     }
