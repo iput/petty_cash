@@ -27,6 +27,7 @@ class Welcome extends CI_Controller {
 			$this->load->model('m_user');
 			$this->load->model('Mod_login');
 			$this->load->library('form_validation');
+			date_default_timezone_set("Asia/Jakarta");
 		}
 
 	public function index()
@@ -45,19 +46,36 @@ class Welcome extends CI_Controller {
         }
 	}
 
-	public function reset_password(){
-		$this->load->view('reset_password');
+	public function reset_password($idUser){
+		$hasil ='';
+		$jam = '';
+		$jamskr = date("H:i:s"); 
+		$data = $this->Mod_login->get_jamreset($idUser);
+		foreach ($data as $d) {
+			$jam = $d['jam'];
+		}
+		$hasil = strtotime($jamskr) - strtotime($jam);
+		//hasil dalam bentuk seconds
+		if ($hasil <= 200){
+		$this->load->view('reset_password');	
+		}
+		else{
+		$this->load->view('welcome_message');	
+		}
+		
 	}
 //RESET PASSWORD
 
 	public function send_email(){
 		$huser=''; 
 		$hemail='';
+		$idUser='';
 		$user = $this->input->post('txt_username');
 		$to_email = $this->input->post('txt_email');
 
 		$data = $this->Mod_login->getemail($user, $to_email);
 		foreach ($data as $d) {
+			$idUser = $d['idUser'];
 			$huser = $d['username'];
 			$hemail = $d['email'];
 		}
@@ -73,16 +91,21 @@ class Welcome extends CI_Controller {
   			'charset' => 'iso-8859-1',
   			'wordwrap' => TRUE
 			);
-		$message = 'klik disini untuk reset password '. base_url('Welcome/reset_password');
+		$message = 'klik disini untuk reset password '. base_url('Welcome/reset_password/'.$idUser);
         $this->load->library('email', $config);
       	$this->email->set_newline("\r\n");
       	$this->email->from('gangsantri26@gmail.com'); // change it to yours
       	$this->email->to($to_email);// change it to yours
-      	$this->email->subject('Percobaan');
+      	$this->email->subject('Reset Password Petty Cash');
       	$this->email->message($message);
       			if($this->email->send())
      		{
-      			echo 'Email sent.';
+     			$field = array(
+     				'idUser' => $idUser,
+     				'jam' => date("H:i:s")
+     				);
+      			$this->Mod_login->save_reset('tb_reset', $field);
+      			echo 'Email Sent';
      		}
      			else
     		{

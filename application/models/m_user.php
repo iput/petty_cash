@@ -7,11 +7,12 @@ class M_user extends CI_Model {
     function __construct() {
         parent::__construct();
     }
-    public function select_data($where="")
+    public function select_data($username, $email)
     {
-      $data = $this->db->query("select * from tb_user ".$where);
+      $data = $this->db->query("select * from tb_user where username='".$username."' or email='".$email."'");
       return $data->result_array();
     }
+    
     public function getAllUser($param = "") {
         $query = $this->db->query("SELECT * FROM tb_user " .$param);
         return $query->result_array();
@@ -24,7 +25,6 @@ class M_user extends CI_Model {
         else {
             return false;
         }
-
     }
 
     public function update_data($tabel_update, $data_update, $param) {
