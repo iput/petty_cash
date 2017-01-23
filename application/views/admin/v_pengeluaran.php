@@ -20,7 +20,7 @@
                             <span class="caret"></span>
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
-                        <ul class="dropdown-menu bg-success">
+                        <ul class="dropdown-menu">
                             <li><a href="<?php echo base_url('C_pengeluaran/cetak_excel'); ?>"><span class="fa fa-file-excel-o"></span> Excel</a></li>
                             <li><a href="<?php echo base_url('C_pengeluaran/cetak_pdf'); ?>" target="blank" ><span class="fa fa-file-pdf-o"></span> PDF</a></li>
                         </ul>
@@ -72,10 +72,16 @@
                                         <input type="file" name="filefoto" size="20">
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-8">
+                                        <button type="button" class="btn btn-danger btn-flat" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Tutup</button>
+                                        <button type="submit" class="btn btn-primary btn-flat"><span class="glyphicon glyphicon-save"></span>&nbsp;Simpan</button>        
+                                    </div>
+                                </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger btn-flat" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Tutup</button>
-                                <button type="submit" class="btn btn-primary btn-flat"><span class="glyphicon glyphicon-save"></span>&nbsp;Simpan</button>
+                                
                             </div>
                         </div>
                     </div>
