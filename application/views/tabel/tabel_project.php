@@ -10,10 +10,24 @@
                     <th>Anggaran Proyek</th>
                     <th>Periode Proyek</th>
                     <th>Sisa Anggaran</th>
-                    <th>Pengguna</th>
                     <th>Operasi</th>
                 </tr>
                </thead>
+               <tbody>
+                   <?php foreach ($project as $row): ?>
+                       <tr>
+                           <td><?php echo $row['idProject']; ?></td>
+                           <td><?php echo $row['namaProject']; ?></td>
+                           <td><?php echo $row['anggaran']; ?></td>
+                           <td><?php echo $row['settingAnggaran']; ?></td>
+                           <td><?php echo $row['sisa']; ?></td>
+                           <td>
+                               <a href="<?php echo base_url('C_project/edit_project/'.$row['idProject']); ?>" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
+                               <a href="<?php echo base_url('C_project/hapus/'.$row['idProject']); ?>" class="btn btn-danger" onclick=" return confirm('apakah anda yakin ingin menghapus data terkait ?');"><span class="glyphicon glyphicon-remove"></span></a>
+                           </td>
+                       </tr>
+                   <?php endforeach ?>
+               </tbody>
             </table>
 
     </div>

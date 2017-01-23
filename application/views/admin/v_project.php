@@ -21,7 +21,7 @@
             </div>
 
             <!-- form tambah project -->
-            <form class="modal fade form-horizontal" id="project_baru" method="POST" action="">
+            <form class="modal fade form-horizontal" id="project_baru" method="POST" action="<?php echo base_url('C_project/insert_project/simpan_project'); ?>">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header bg-primary">
@@ -44,7 +44,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3">Kategori Anggaran</label>
                                     <div class="col-md-8">
-                                        <select class="form-control col-md-6" name="combo_kategori">
+                                        <select class="form-control col-md-6" name="combo_anggaran">
                                         <option value="">Pilih Setting Anggaran</option>
                                         <option value="hari">Harian</option>
                                         <option value="bulan">Bulanan</option>

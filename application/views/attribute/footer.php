@@ -47,11 +47,9 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url()."assets/dist/js/demo.js"; ?>"></script>
 <script type="text/javascript" src="<?php echo base_url()."assets/plugins/datatables/js/dataTables.bootstrap.min.js"; ?>"></script>
-<script type="text/javascript" src="<?php echo base_url()."assets/plugins/datatables/js/dataTables.material.min.js"; ?>"></script>
 <script type="text/javascript" src="<?php echo base_url()."assets/plugins/datatables/js/dataTables.semanticui.min.js"; ?>"></script>
-<script type="text/javascript" src="<?php echo base_url()."assets/plugins/datatables/js/jquery.dataTables.js"; ?>"></script>
-<script type="text/javascript" url="<?php echo base_url()."assets/plugins/highchart/highcharts.js"; ?>"></script>
-<script type="text/javascript" url="<?php echo base_url()."assets/plugins/highchart/exporting.js"; ?>"></script>
+<script type="text/javascript" src="<?php echo base_url()."assets/plugins/datatables/js/jquery.dataTables.min.js"; ?>"></script>
+
 
 <script>
 sendEvent = function(sel, step) {
