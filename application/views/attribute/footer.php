@@ -259,14 +259,13 @@
                 data : {id: id},
                 async : false,
                 dataType : 'json',
-                success: function(data){
-                    console.log(data);
-                    for (i = 0; i < data.length; i++) {
-                        $('input[name =id_project]').val(data[i].idProject);
-                        $('input[name =edit_nama_project]').val(data[i].namaProject);
-                        $('input[name =edit_jumlah_anggaran]').val(data[i].anggaran);
-                        $('select[name =edit_seting_anggaran]').val(data[i].settingAnggaran);
-                        $('input[name =edit_sisa_project]').val(data[i].sisa);
+                success: function(data_p){
+                    for (i = 0; i < data_p.length; i++) {
+                        $('input[name =id_project]').val(data_p[i].idProject);
+                        $('input[name =edit_nama_project]').val(data_p[i].namaProject);
+                        $('input[name =edit_jumlah_anggaran]').val(data_p[i].anggaran);
+                        $('select[name =edit_seting_anggaran]').val(data_p[i].settingAnggaran);
+                        $('input[name =edit_sisa_project]').val(data_p[i].sisa);
                     }
                 },
                 error : function(data_in){

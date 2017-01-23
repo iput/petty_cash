@@ -72,10 +72,6 @@
                     </div>
                 </form>
                 <a href="<?php echo base_url("c_login/lupa_password"); ?>">Saya Lupa Kata sandi saya</a><br>
-<<<<<<< HEAD
-
-=======
->>>>>>> df9c4164f9393df7ab3877879d5051477a95eb08
             </div>
             <!-- /.login-box-body -->
         </div>
