@@ -9,23 +9,20 @@ class C_login extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->load->model('Mod_login'); 
+        $this->load->model('Mod_login');
         $this->load->model('m_user');
-
     }
 
     public function index() {
         $this->load->view('v_login');
     }
 
-    public function lupa_password()
-    {
+    public function lupa_password() {
         $this->load->view('v_lupa_sandi');
     }
 
-    public function login_process()
-    {
-        $idUser="";
+    public function login_process() {
+        $idUser = "";
         $huser = "";
         $hpass = "";
         $hlevel = "";
@@ -64,7 +61,7 @@ class C_login extends CI_Controller {
     }
 
     public function admin_page() {
-        $data= $this->m_user->getAllUser();
+        $data = $this->m_user->getAllUser();
         if ($this->session->userdata('username')) {
             $this->load->view('attribute/header');
             $this->load->view('admin/v_index', array('data' => $data));
@@ -73,6 +70,7 @@ class C_login extends CI_Controller {
             redirect('C_login/index');
         }
     }
+
     public function user_page() {
         if ($this->session->userdata('idUser')) {
             $this->load->view('attribute/header_user');
@@ -83,16 +81,10 @@ class C_login extends CI_Controller {
         }
     }
 
-     public function logout() {
+    public function logout() {
         $this->session->sess_destroy();
         redirect(c_login / index);
     }
-
-
-
-
-
-
 
 }
 

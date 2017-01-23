@@ -47,14 +47,13 @@
             <div class="register-box-body">
                 <p class="login-box-msg">Daftar Sebagai member Baru</p>
                 <?php
-           if($this->session->userdata('message') != null)
-           {
-            echo '<div class="alert alert-success" role="alert">';
-               echo '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
-               echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : '';
-               echo '</div>';
-           }
-            ?>
+                if ($this->session->userdata('message') != null) {
+                    echo '<div class="alert alert-success" role="alert">';
+                    echo '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+                    echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : '';
+                    echo '</div>';
+                }
+                ?>
                 <form id="form_register" action="<?php echo base_url("C_user/insert_registrasi/simpan_data"); ?>" method="post">
                     <div class="form-group has-feedback">
                         <input type="text" name="reg_username" class="form-control" placeholder="user name" required>
