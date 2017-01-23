@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div id="container">
 	<h1>Halaman Reset Password Tidak Tersedia</h1>
-
+	<h1><?php echo $error?>
 	<div id="body">
 		<p>reset password hanya bisa dilakukan setelah 1 jam konfirmasi email</p>
 
