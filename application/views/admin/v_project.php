@@ -14,7 +14,7 @@
         </div>
         <!-- box header end -->
 
-        <!-- box body -->
+        <!-- box body --> 
         <div class="box-body">
             <div col-md-2" style="margin: 10px;">
                  <button type="button" class="btn btn-primary btn-flat" data-toggle="modal" data-target="#project_baru"><span class="fa fa-plus"></span> Tambah Proyek</button>
@@ -57,11 +57,15 @@
                                     <input type="text" name="txt_sisa_angg" class="form-control col-md-6" placeholder="Rp.">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-8">
+                                <button type="button" class="btn btn-danger btn-flat" data-dismiss="modal"><span class=" fa fa-close"></span> Tutup</button>
+                                <button type="submit" class="btn btn-primary btn-flat" onsubmit=" return alert('data berhasil disimpan');"><span class="fa fa-save"></span> Simpan</button>
+                            </div>
+                         </div>                            
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger btn-flat" data-dismiss="modal"><span class=" fa fa-close"></span> Tutup</button>
-                            <button type="submit" class="btn btn-primary btn-flat" onsubmit=" return alert('data berhasil disimpan');"><span class="fa fa-save"></span> Simpan</button>
-                        </div>
+
                     </div>
                 </div>
             </form>
