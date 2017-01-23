@@ -14,7 +14,7 @@
         <!-- awal body -->
         <div class="box-body">
             <div class="col-md-1" style="margin: 10px;">
-                <button class="btn btn-primary btn-flat" id ="btnAdd"><span class="glyphicon glyphicon-plus"></span> Add User</button>
+                <button class="btn btn-primary btn-flat" id ="btnAdd"><span class="glyphicon glyphicon-plus"></span> Tambah Pengguna</button>
             </div>
 
             <!-- modal -->
