@@ -39,7 +39,7 @@ class C_login extends CI_Controller {
         }
 
         if ($hlevel == 'admin') {
-            if ($user == $huser || $user == $hemail && $pass = $hpass) {
+            if ($user == $huser && $pass == $hpass || $user == $hemail && $pass == $hpass) {
                 $this->session->set_userdata('username', $huser);
                 $this->session->set_userdata('idUser', $idUser);
                 redirect('c_login/admin_page');
@@ -47,7 +47,7 @@ class C_login extends CI_Controller {
                 redirect('c_login/index');
             }
         } else if ($hlevel == 'user') {
-            if ($user == $huser || $user == $hemail && $pass = $hpass) {
+            if ($user == $huser && $pass == $hpass || $user == $hemail && $pass == $hpass) {
                 $this->session->set_userdata('username', $huser);
                 $this->session->set_userdata('idUser', $idUser);
                 redirect('c_login/user_page');
