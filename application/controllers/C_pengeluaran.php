@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- *
+ * 
  */
 class C_pengeluaran extends CI_Controller {
 
@@ -93,7 +93,7 @@ class C_pengeluaran extends CI_Controller {
             'foto' => "data");
         $hasil = $this->m_pengeluaran->update_pengeluaran('tb_pengeluaran', $data_update, $id_pengeluaran);
 
-        if ($hasil) {
+        if ($hasil>=0) {
             redirect('C_pengeluaran/index');
         }
     }

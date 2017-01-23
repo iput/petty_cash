@@ -65,58 +65,53 @@
                     </div>
                 </div>
             </form>
+
 <div class="modal fade" id="edit_project" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header bg-primary">
                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-                <h3>edit data pengeluaran</h3>
+                <h3>edit data Project</h3>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal"  method="POST" id="form_edit_pengeluaran">
+                <form class="form-horizontal"  method="POST" id="form_edit_project">
                     <div class="form-group">
-                        <input type="hidden" name="id_data_pengeluaran" id="id_pengeluaran">
-                        <label class="control-label col-md-3">Jumlah Pengeluaran</label>
-                        <div class="col-md-8">
-                        <input type="text" name="edit_nilai_pengeluaran" id="edit_nilai_pengeluaran" class="form-control col-md-6" placeholder="Rp.">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Nama Pengguna</label>
-                        <div class="col-md-8">
-                        <select class="form-control" name="edit_nama_user" id="edit_nama_user">
-                            <?php foreach ($idUser as $data): ?>
-                                <option value="<?php echo $data['idUser']; ?>"><?php echo $data['username']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
+                        <input type="hidden" name="id_project" id="id_id_project">
                         <label class="control-label col-md-3">Nama project</label>
+                        <div class="col-md-8">
+                        <input type="text" name="edit_nama_project" class="form-control col-md-6" placeholder="Rp.">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Anggaran</label>
+                        <div class="col-md-8">
+                        <input type="text" name="edit_jumlah_anggaran" class="form-control col-md-6" placeholder="Rp.">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Kategori Anggaran</label>
                             <div class="col-md-8">
-                                <select class="form-control" name="edit_nama_project" id="edit_nama_project">
+                                <select class="form-control" name="edit_seting_anggaran" id="edit_seting_anggaran">
+                                <option value=null>Pilih Setting Anggaran</option>
+                                <option value="hari">Harian</option>
+                                <option value="bulan">Bulanan</option>
                                 </select>
                             </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3">Keterangan pengeluaran</label>
+                        <label class="control-label col-md-3">Sisa Anggaran</label>
                         <div class="col-md-8">
-                            <textarea name="edit_keterangan_pengeluaran" rows="4" cols="80" class="form-control"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Foto Pengeluaran</label>
-                        <div class="col-md-8">
-                            <input type="file" name="edit_foto" value="">
+                            <input type="text" name="edit_sisa_project" class="form-control col-md-6" placeholder="Rp.">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-3"></div>
                         <div class="col-md-8">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Batal</button>
-                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span> Perbarui</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-remove"></span>&nbsp;Batal</button>
+                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-save"></span>&nbsp;Perbarui</button>
                         </div>
                     </div>
+                    
                 </form>
             </div>
         </div>

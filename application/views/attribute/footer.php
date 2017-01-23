@@ -249,9 +249,31 @@
         });
 
         $('#tag_project').on('click', '.btn_edit_project', function() {
-            var id_project = $(this).attr('data');
+            var id = $(this).attr('data');
             $('#edit_project').modal('show');
-
+            $('#form_edit_project').attr('action', '<?php echo base_url('C_project/update_project'); ?>');
+            $.ajax({
+                type : 'ajax',
+                url : '<?php echo base_url('C_project/tampil_id'); ?>',
+                method : 'GET',
+                data : {id: id},
+                async : false,
+                dataType : 'json',
+                success: function(data){
+                    console.log(data);
+                    for (i = 0; i < data.length; i++) {
+                        $('input[name =id_project]').val(data[i].idProject);
+                        $('input[name =edit_nama_project]').val(data[i].namaProject);
+                        $('input[name =edit_jumlah_anggaran]').val(data[i].anggaran);
+                        $('select[name =edit_seting_anggaran]').val(data[i].settingAnggaran);
+                        $('input[name =edit_sisa_project]').val(data[i].sisa);
+                    }
+                },
+                error : function(data_in){
+                    console.log(data_in);
+                    alert('data Tidak bisa ditampilkan');
+                }
+            });
         });
     });
 </script>

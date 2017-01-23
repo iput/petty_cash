@@ -82,7 +82,6 @@
                 </form>
 
                 <a href="<?php echo base_url("c_login/lupa_password"); ?>">Saya Lupa Kata sandi saya</a><br>
-                <a href="<?php echo base_url("c_registrasi/index"); ?>" class="text-center">Daftarkan anggota baru</a>
 
             </div>
             <!-- /.login-box-body -->

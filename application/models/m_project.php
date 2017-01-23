@@ -59,6 +59,12 @@ class M_project extends CI_Model {
         return $username->result_array();
     }
 
+    public function tampil_id($parameter)
+    {
+        $query = $this->db->query("select * from tb_project where idProject=". $parameter);
+        return $query->result_array();
+    }
+
 }
 
 ?>

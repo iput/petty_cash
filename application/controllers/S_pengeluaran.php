@@ -84,7 +84,7 @@ class S_pengeluaran extends CI_Controller {
             $sisa2 = "";
             $config['upload_path'] = './gambar/';
             $config['allowed_types'] = 'bmp|jpg|png|jpeg';
-            $config['max_size'] = 100;
+            $config['max_size'] = 200;
             $config['max_width'] = 1024;
             $config['max_height'] = 768;
             $this->load->library('upload', $config);
