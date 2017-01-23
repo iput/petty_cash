@@ -192,9 +192,34 @@
                 }
             });
         });
-//Fungsi Hapus
 
-        //GET ALL USER
+//Simpan data pengelola proyek
+        $('#dataUser').on('click','.btpilih', function(){        
+        var level = $('select[name=combo_level]');    
+        var url = $('#formProyek').attr('action');
+        var id = $(this).attr('data');
+        var idProject = level.val();
+        var postData = {
+            'idUser' : id,
+            'idProject' : idProject
+        };
+        console.log(url);
+        console.log(postData);
+        $.ajax({
+            type : 'ajax',
+            method : 'post',
+            data : postData, 
+            dataType : 'json',
+            async : false,
+            success : function(response){
+                console.log(response);
+            },
+            error : function(fafa){
+                console.log(fafa);               
+            }
+
+        });
+        });
 
 
     });
