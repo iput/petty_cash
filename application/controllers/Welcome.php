@@ -67,20 +67,17 @@ class Welcome extends CI_Controller {
 //RESET PASSWORD
 
 	public function send_email(){
-		$huser=''; 
 		$hemail='';
 		$idUser='';
-		$user = $this->input->post('txt_username');
 		$to_email = $this->input->post('txt_email');
 
-		$data = $this->Mod_login->getemail($user, $to_email);
+		$data = $this->Mod_login->getemail($to_email);
 		foreach ($data as $d) {
 			$idUser = $d['idUser'];
-			$huser = $d['username'];
 			$hemail = $d['email'];
 		}
 
-		if ($user == $huser && $to_email == $hemail){
+		if ($to_email == $hemail){
 			$config = array(
 			'protocol' => 'smtp',
   			'smtp_host' => 'ssl://smtp.googlemail.com',

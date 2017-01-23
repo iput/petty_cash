@@ -39,7 +39,7 @@
 
             <div class="register-box-body">
                 <p class="login-box-msg">Pemulihan Kata Sandi</p>
-                <p class="login-box-msg">Masukkan Username dan Password Anda</p>
+                <p class="login-box-msg">Masukkan Alamat Email Anda</p>
 
                 <form action="<?php echo base_url('welcome/send_email');?>" method="post">
                     <label>Email</label>

@@ -14,8 +14,8 @@ class Mod_login extends CI_Model {
         $query = $this->db->query("select * from tb_user where username='" . $user . "' or email='".$user."' and password='" . $pass . "'");
          return $query->result_array();
     }
-    public function getemail($username, $email){
-        $query = $this->db->query("select idUser, username, email from tb_user where username = '".$username."' and email='".$email."'");
+    public function getemail($email){
+        $query = $this->db->query("select idUser, email from tb_user where email='".$email."'");
         return $query->result_array();
     }
 
