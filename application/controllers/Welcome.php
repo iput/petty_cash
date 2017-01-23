@@ -35,7 +35,7 @@ class Welcome extends CI_Controller {
 
 		if ($this->session->userdata('username') && $this->session->userdata('idUser')){
 
-		$data = $this->m_user->select_data();
+		$data = $this->m_user->getAllUser();
 
 		$this->load->view('attribute/header');
 		$this->load->view('admin/v_index', array('data'=>$data));

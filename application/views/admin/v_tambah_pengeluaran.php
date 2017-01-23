@@ -58,8 +58,8 @@
                 <div class="form-group">
                     <div class="col-md-4"></div>
                     <div class="col-md-8">
-                        <a href="<?php echo base_url('C_pengeluaran/index'); ?>" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;Kembali</a>
-                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span>&nbsp;Tambah</button>
+                        <a href="<?php echo base_url('C_pengeluaran/index'); ?>" class="btn btn-danger btn-flat"><span class="glyphicon glyphicon-remove"></span>&nbsp;Kembali</a>
+                        <button type="submit" class="btn btn-primary btn-flat"><span class="glyphicon glyphicon-save"></span>&nbsp;Tambah</button>
                     </div>
                 </div>
             </form>

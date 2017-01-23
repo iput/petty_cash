@@ -68,7 +68,7 @@
             </form>              
             <div class="row">
                 <div class="col-xs-4col-md-3 navbar-right" style="padding-left: 400px">
-                    <a href="<?php echo base_url("s_pengeluaran"); ?>" type="button" class="btn btn-primary">
+                    <a href="<?php echo base_url("s_pengeluaran"); ?>" type="button" class="btn btn-primary btn-flat">
                         <span class="fa fa-plus"></span> 
                         Tambah Pengeluaran</a>
                 </div>

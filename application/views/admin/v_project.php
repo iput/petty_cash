@@ -17,7 +17,7 @@
         <!-- box body -->
         <div class="box-body">
             <div col-md-2" style="margin: 10px;">
-                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#project_baru"><span class="fa fa-plus"></span> Tambah Proyek</button>
+                 <button type="button" class="btn btn-primary btn-flat" data-toggle="modal" data-target="#project_baru"><span class="fa fa-plus"></span> Tambah Proyek</button>
             </div>
 
             <!-- form tambah project -->
@@ -59,8 +59,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class=" fa fa-close"></span> Tutup</button>
-                            <button type="submit" class="btn btn-primary" onsubmit=" return alert('data berhasil disimpan');"><span class="fa fa-save"></span> Simpan</button>
+                            <button type="button" class="btn btn-danger btn-flat" data-dismiss="modal"><span class=" fa fa-close"></span> Tutup</button>
+                            <button type="submit" class="btn btn-primary btn-flat" onsubmit=" return alert('data berhasil disimpan');"><span class="fa fa-save"></span> Simpan</button>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
             <div class="modal-body">
                 <form class="form-horizontal"  method="POST" id="form_edit_project">
                     <div class="form-group">
-                        <input type="hidden" name="id_project" id="id_id_project">
+                        <input type="hidden" name="id_project" id="id_project">
                         <label class="control-label col-md-3">Nama project</label>
                         <div class="col-md-8">
                         <input type="text" name="edit_nama_project" class="form-control col-md-6" placeholder="Rp.">
@@ -107,8 +107,8 @@
                     <div class="form-group">
                         <div class="col-md-3"></div>
                         <div class="col-md-8">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-remove"></span>&nbsp;Batal</button>
-                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-save"></span>&nbsp;Perbarui</button>
+                            <button type="button" class="btn btn-danger btn-flat" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-remove"></span>&nbsp;Batal</button>
+                            <button type="submit" class="btn btn-primary btn-flat"><span class="glyphicon glyphicon-floppy-save"></span>&nbsp;Perbarui</button>
                         </div>
                     </div>
                     

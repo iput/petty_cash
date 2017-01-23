@@ -84,15 +84,11 @@ class C_user extends CI_Controller {
             $msg['success'] = TRUE;
             redirect('C_user/index');
         }
-<<<<<<< HEAD
         echo json_encode($msg);    
         }
     }
-=======
-        echo json_encode($msg);
-    }
 
->>>>>>> 8aaa07b5e3bc1678e32fd51d80c213558669e2ca
+    
     public function do_delete($id) {
         $result = $this->m_user->delete_data($id);
         redirect('C_user/index');
