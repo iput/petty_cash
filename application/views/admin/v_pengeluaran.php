@@ -11,16 +11,16 @@
             <div class="box-body">
 
                 <div class="col-md-2" style="margin: 10px;">
-                    <button type="button" id="btn_buat_pengeluaran_baru" class="btn btn-primary" data-toggle="modal" data-target="#form_pengeluaran"><span class="fa fa-plus"></span> Tambah Pengeluaran</button>
+                    <button type="button" id="btn_buat_pengeluaran_baru" class="btn btn-primary btn-flat" data-toggle="modal" data-target="#form_pengeluaran"><span class="fa fa-plus"></span> Tambah Pengeluaran</button>
                 </div>
                 <div class="col-md-1.75 pull-right" style="margin: 10px;">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default">Cetak Dokumen</button>
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" haspopup="true" aria-expanded="false">
+                        <button type="button" class="btn btn-default btn-flat">Cetak Dokumen</button>
+                        <button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" haspopup="true" aria-expanded="false">
                             <span class="caret"></span>
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu bg-success">
                             <li><a href="<?php echo base_url('C_pengeluaran/cetak_excel'); ?>"><span class="fa fa-file-excel-o"></span> Excel</a></li>
                             <li><a href="<?php echo base_url('C_pengeluaran/cetak_pdf'); ?>" target="blank" ><span class="fa fa-file-pdf-o"></span> PDF</a></li>
                         </ul>
@@ -74,8 +74,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Tutup</button>
-                                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span>&nbsp;Simpan</button>
+                                <button type="button" class="btn btn-danger btn-flat" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Tutup</button>
+                                <button type="submit" class="btn btn-primary btn-flat"><span class="glyphicon glyphicon-save"></span>&nbsp;Simpan</button>
                             </div>
                         </div>
                     </div>
@@ -129,8 +129,8 @@
                                     <div class="form-group">
                                         <div class="col-md-3"></div>
                                         <div class="col-md-8">
-                                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Batal</button>
-                                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span> Perbarui</button>
+                                            <button type="button" class="btn btn-danger btn-flat" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Batal</button>
+                                            <button type="submit" class="btn btn-primary btn-flat"><span class="glyphicon glyphicon-refresh"></span> Perbarui</button>
                                         </div>
                                     </div>
                                 </form>

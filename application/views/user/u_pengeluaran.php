@@ -54,7 +54,7 @@
 
                 <tr>
                     <td></td>
-                    <td colspan="2"><button type="submit" name="btnsave" class="btn btn-default">
+                    <td colspan="2"><button type="submit" name="btnsave" class="btn btn-default btn-flat">
                             <span class="glyphicon glyphicon-save"></span> 
                             &nbsp; Simpan
                         </button>

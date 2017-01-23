@@ -14,7 +14,7 @@
         <!-- awal body -->
         <div class="box-body">
             <div class="col-md-1" style="margin: 10px;">
-                <button class="btn btn-primary" id ="btnAdd"><span class="glyphicon glyphicon-plus"></span> Add User</button>
+                <button class="btn btn-primary btn-flat" id ="btnAdd"><span class="glyphicon glyphicon-plus"></span> Add User</button>
             </div>
 
             <!-- modal -->
@@ -60,8 +60,8 @@
                                 <div class="form-group">
                                     <div class="col-md-3"></div>
                                     <div class="col-md-8">
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Tutup</button>
-                                        <button type="submit" class="btn btn-primary" id="btnSave"><span class="glyphicon glyphicon-save"></span> Simpan</button>
+                                        <button type="button" class="btn btn-danger btn-flat" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Tutup</button>
+                                        <button type="submit" class="btn btn-primary btn-flat" id="btnSave"><span class="glyphicon glyphicon-save"></span> Simpan</button>
                                     </div>
                                 </div>
                             </form>
@@ -115,8 +115,8 @@
                                 <div class="form-group">
                                     <div class="col-md-3"></div>
                                     <div class="col-md-8">
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Tutup</button>
-                                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span> Perbarui</button>
+                                        <button type="button" class="btn btn-danger btn-flat" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Tutup</button>
+                                        <button type="submit" class="btn btn-primary btn-flat"><span class="glyphicon glyphicon-refresh"></span> Perbarui</button>
                                     </div>
                                 </div>
                             </form>

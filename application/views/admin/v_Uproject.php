@@ -17,7 +17,7 @@
         <!-- box body -->
         <div class="box-body">
             <div class="col-md-2" style="margin: 10px;">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#validasi_proyek"><span class="fa fa-plus"></span> Tambah Proyek</button>
+                <button type="button" class="btn btn-primary btn-flat" data-toggle="modal" data-target="#validasi_proyek"><span class="fa fa-plus"></span> Tambah Proyek</button>
             </div>
 
             <!-- form untuk percobaan pengganti modal -->
@@ -89,7 +89,7 @@
                             </table>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">selesai</button>
+                            <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">selesai</button>
                             <button type="button" class="btn btn-primary step step-1" data-step="2" onclick="sendEvent('#validasi_proyek', 2)">Selanjutnya</button>
                             <button type="submit" class="btn btn-primary step step-2" data-step="2" onclick="sendEvent('#validasi_proyek', 2)">Simpan</button>
                         </div>

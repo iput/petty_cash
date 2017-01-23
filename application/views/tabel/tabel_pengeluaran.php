@@ -26,8 +26,8 @@
                             <td><?php echo $data['namaPengeluaran']; ?></td>
                             <td><?php echo $data['tanggal']; ?></td>
                             <td>
-                              <a href="javascript:;" class="btn btn-info btn_edit_pengeluaran" data= "<?php echo $data['idPengeluaran']; ?>"><span class="fa fa-pencil-square"></span></a>
-                              <a href="<?php echo base_url('C_pengeluaran/delete_pengeluaran/'.$data['idPengeluaran']);?>" class="btn btn-danger"  onclick="return confirm('Apakah anda yakin akan menghapus data terkait ?');"><span class="glyphicon glyphicon-remove"></span></a>
+                              <a href="javascript:;" class="btn btn-info btn_edit_pengeluaran btn-flat" data= "<?php echo $data['idPengeluaran']; ?>"><span class="fa fa-pencil-square"></span></a>
+                              <a href="<?php echo base_url('C_pengeluaran/delete_pengeluaran/'.$data['idPengeluaran']);?>" class="btn btn-danger btn-flat"  onclick="return confirm('Apakah anda yakin akan menghapus data terkait ?');"><span class="glyphicon glyphicon-remove"></span></a>
                             </td>
                         </tr>
                         <?php endforeach; ?>
