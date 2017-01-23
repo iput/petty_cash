@@ -35,11 +35,16 @@ class C_user extends CI_Controller {
 
         if ($parameter == "simpan_data") {
             $post = $this->input->post();
-
+                        
             $data_user = $post['reg_username'];
             $data_email = $post['reg_email'];
             $data_password = $post['reg_password'];
             $data_level = "user";
+            $data = $this->m_user->select_data($data_user, $data_email);
+            if ($data){
+                $this->load->view('welcome_message');
+            }
+            else{
             $data_in = array(
                 "username" => $data_user,
                 "email" => $data_email,
@@ -50,15 +55,26 @@ class C_user extends CI_Controller {
             if ($result >= 1) {
                 redirect('c_registrasi/index');
             }
-        } else {
+            }
+        } 
+        else {
             redirect('c_registrasi/index');
         }
     }
 
-    public function addUser() {
+
+    public function addUser(){
+        $username = $this->input->post('txt_username');
+        $email = $this->input->post('txt_email');
+        $data = $this->m_user->select_data($username, $email);
+        echo json_encode($data);
+        if ($data){
+            $this->load->view('welcome_message');
+        }
+        else{
         $field = array(
-            'username' => $this->input->post('txt_username'),
-            'email' => $this->input->post('txt_email'),
+            'username' => $username,
+            'email' => $email,
             'password' => $this->input->post('txt_password'),
             'level' => $this->input->post('combo_level')
         );
@@ -68,9 +84,15 @@ class C_user extends CI_Controller {
             $msg['success'] = TRUE;
             redirect('C_user/index');
         }
+<<<<<<< HEAD
+        echo json_encode($msg);    
+        }
+    }
+=======
         echo json_encode($msg);
     }
 
+>>>>>>> 8aaa07b5e3bc1678e32fd51d80c213558669e2ca
     public function do_delete($id) {
         $result = $this->m_user->delete_data($id);
         redirect('C_user/index');

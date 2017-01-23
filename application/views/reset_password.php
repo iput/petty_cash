@@ -32,6 +32,7 @@
         <link rel="stylesheet" href="<?php echo base_url() . "assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"; ?>">
     </head>
     <body class="hold-transition register-page">
+    <div><?php echo $hasil?></div>
         <div class="register-box">
             <div class="register-logo">
                 <a href="../../index2.html"><b>Petty</b>-Cash</a>

@@ -39,7 +39,6 @@
         <style type="text/css">
             body{
                 background: url('<?php echo base_url(assets/upload/bg.jpg); ?>') no-repeat center;
-
             }
         </style>
     </head>
@@ -54,20 +53,12 @@
 
                 <form action="<?php echo base_url('c_login/login_process');?>" method="post">
                     <div class="form-group has-feedback">
-                        <input type="text"  name="txt_log_user" class="form-control" placeholder="username anda">
+                        <input type="text"  name="txt_log_user" class="form-control" placeholder="Username / Email">
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <input type="password" name="txt_log_password" class="form-control" placeholder="Password anda">
+                        <input type="password" name="txt_log_password" class="form-control" placeholder="Password">
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                    </div>
-                    <div class="form-group has-feedback">
-                        <select name="cb_log_level" class="form-control">
-                            <option value=NULL>Pilh Level Pengguna</option>
-                            <option value="admin">Administrator</option>
-                            <option value="user">User's Member</option>
-                        </select>
-
                     </div>
                     <div class="row">
                         <div class="col-xs-8">
@@ -80,9 +71,11 @@
                         <!-- /.col -->
                     </div>
                 </form>
-
                 <a href="<?php echo base_url("c_login/lupa_password"); ?>">Saya Lupa Kata sandi saya</a><br>
+<<<<<<< HEAD
 
+=======
+>>>>>>> df9c4164f9393df7ab3877879d5051477a95eb08
             </div>
             <!-- /.login-box-body -->
         </div>
