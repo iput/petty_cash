@@ -15,7 +15,7 @@ class M_project extends CI_Model {
         $data_project = $this->db->query("select * from tb_project " . $parameter);
         return $data_project->result_array();
     }
-
+//Menampilkan sisa
     public function select_sisa($parameter) {
         $this->db->select('sisa');
         $this->db->from('tb_project');
@@ -26,10 +26,10 @@ class M_project extends CI_Model {
 
         return $result;
     }
-
+//Update sisa setelah pengeluaran diinputkan
     public function update_sisa($tabel, $data_sisa, $parameter) {
         $this->db->where('idProject', $parameter);
-        $this->db->update($tabel, $data_project);
+        $this->db->update($tabel, $data_sisa);
         if ($this->db->affected_rows() > 0) {
             return true;
         } else {

@@ -25,7 +25,7 @@
                     <option value="0">-: Pilih Project :-</option>
                     <?php foreach ($idProject as $data): ?>
                     <option value="<?php echo $data['idProject']; ?>"><?php echo $data['namaProject']; ?></option>
-                        <?php endforeach ?>
+                    <?php endforeach ?>
                     </select>
                     </div>
                     </div>

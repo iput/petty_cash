@@ -105,7 +105,7 @@ class C_pengeluaran extends CI_Controller {
             redirect('C_pengeluaran/tambah_pengeluaran');
         }else{
             
-            $config['upload_path'] = './uploads/';
+            $config['upload_path'] = './gambar/';
             $config['allowed_types'] = 'jpg|png|bmp';
             $config['max_size'] = '300';
             $config['max_width'] = '2000';
@@ -127,6 +127,76 @@ class C_pengeluaran extends CI_Controller {
                 'foto' => $gambar['file_name']);
                 $this->m_pengeluaran->insert_pengeluaran('tb_pengeluaran', $data_update);
                 redirect('C_pengeluaran');
+            }
+        }
+    }
+
+    //UPLOAD NINDY
+    public function insert_coba2($parameter) {
+        if ($parameter == "simpan_pengeluaranAdmin") {
+            $sisa = "";
+            $sisa2 = "";
+            $config['upload_path'] = './gambar/';
+            $config['allowed_types'] = 'bmp|jpg|png|jpeg';
+            $config['max_size'] = '300';
+            $config['max_width'] = '2000';
+            $config['max_height'] = '2000';
+            $this->upload->initialize($config);
+            $this->load->library('upload', $config);
+            if (!$this->upload->do_upload('filefoto')) {
+                $error = array('error' => $this->upload->display_errors());
+                $this->load->view('welcome_message', $error);
+            } else {
+                // $idUser = $this->session->userdata('idUser');
+                $post = $this->input->post();
+                $idUser = $post['combo_pengguna'];
+                $gbr = $this->upload->data();
+                date_default_timezone_set("Asia/Jakarta");
+                $idUser = $post['combo_pengguna'];
+                $angka3 = $post['txt_nilai_pengeluaran'];
+                // $angka1 = $post['txtjml_uang'];
+                // $angka2 = str_replace("Rp. ", "", $angka1);
+                // $angka3 = str_replace(".", "", $angka2);
+                $idProject = $post['combo_kategori'];
+                if ($idProject == 0 ){
+                    $idProject = NULL;
+                }
+
+                $data_modal = array(
+                    "idUser" => $idUser,
+                    "idProject" => $idProject,
+                    "namaPengeluaran" => $post['txt_keterangan'],
+                    "jumlahPengeluaran" => $angka3,
+                    "jam" => date("H:i:s"),
+                    "tanggal" => date("Y-m-d"),
+                    "foto" => $gbr['file_name']
+                );
+
+                $dt_sisa = $this->m_project->select_sisa($idProject);
+                foreach ($dt_sisa as $d) {
+                    $sisa = $d['sisa'];
+                }
+                
+                $sisa2 = $sisa - $angka3;
+                
+                $sisa_update = array (
+                    "sisa" => $sisa2
+                    );
+                
+                if ($idProject == NULL){
+                    $result = $this->m_pengeluaranuser->insert_data('tb_pengeluaran', $data_modal);
+                    redirect('Welcome');
+                }
+                
+                else if ($sisa < 0 && $idProject != NULL){
+                    echo "Uang Anda tidak cukup";
+                }
+                
+                else{
+                $this->m_pengeluaran->insert_pengeluaran('tb_pengeluaran', $data_modal);                   
+                $this->m_project->update_sisa('tb_project', $sisa_update, $idProject);
+                redirect('C_statistik');
+                }
             }
         }
     }
