@@ -22,7 +22,7 @@ class M_pengeluaranuser extends CI_Model {
     	$this->db->from('tb_user');
     	$this->db->join('tb_pengeluaran','tb_user.idUser=tb_pengeluaran.idUser');
     	$this->db->join('tb_project', 'tb_project.idProject=tb_pengeluaran.idProject');
-    	$this->db->where("(tb_user.idUser='$id' OR tb_pengeluaran.idProject='is null')");
+    	$this->db->where('tb_user.idUser', $id);
     	$hasil = $this->db->get();
 
     	$data = $hasil->result_array();

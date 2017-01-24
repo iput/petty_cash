@@ -13,7 +13,7 @@
         <div class="box-body">
             <?php echo form_open_multipart('C_pengeluaran/insert_coba2/simpan_pengeluaranAdmin'); ?>
 
-            <table>
+            <table class="table">
                 <tr>
                 <td><label class="control-label">Jumlah Pengeluaran:</label> </td>
                 <td>
