@@ -11,6 +11,7 @@ class C_login extends CI_Controller {
         parent::__construct();
         $this->load->model('Mod_login');
         $this->load->model('m_user');
+        $this->load->model('m_pengeluaranuser');
     }
 
     public function index() {
@@ -73,8 +74,9 @@ class C_login extends CI_Controller {
 
     public function user_page() {
         if ($this->session->userdata('idUser')) {
+            $data_in['transaksi'] = $this->m_pengeluaranuser->get_pengeluaran_user($this->session->userdata('idUser'));
             $this->load->view('attribute/header_user');
-            $this->load->view('user/u_beranda');
+            $this->load->view('user/u_beranda', $data_in);
             $this->load->view('attribute/footer_user');
         } else {
             redirect('');
