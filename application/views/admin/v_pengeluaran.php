@@ -11,7 +11,7 @@
             <div class="box-body">
 
                 <div class="col-md-2" style="margin: 10px;">
-                    <button type="button" id="btn_buat_pengeluaran_baru" class="btn btn-primary btn-flat" data-toggle="modal" data-target="#form_pengeluaran"><span class="fa fa-plus"></span> Tambah Pengeluaran</button>
+                <a href="<?php echo base_url('C_pengeluaran/tambah_pengeluaran'); ?>" class="btn btn-primary btn-flat"><span class="glyphicon glyphicon-plus"></span>&nbsp;Tambah Pengeluaran</a>
                 </div>
                 <div class="col-md-1.75 pull-right" style="margin: 10px;">
                     <div class="btn-group">
@@ -26,66 +26,6 @@
                         </ul>
                     </div>
                 </div>
-
-                <!-- form_modal pengeluaran baru-->
-                <form class="modal fade form-horizontal" id="form_pengeluaran" method="POST" action=" <?php echo base_url('C_pengeluaran/insert_data/simpan_pengeluaran') ?>" enctype="multipart/form-data">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header bg-primary">
-                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-                                <h2 class="modal-title">Tambah Data Pengeluaran</h2>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label class="control-label col-md-4">Jumlah Pengeluaran</label>
-                                    <div class="col-md-8">
-                                        <input type="text" name="txt_nilai_pengeluaran" class="form-control col-md-4" placeholder="Rp." required="">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-4">Nama Pengguna</label>
-                                    <div class="col-md-8">
-                                        <select class="form-control col-md-4" name="combo_pengguna" id="cb_user">
-                                            <option value="BLANK">Pilih Nama Pengguna</option>
-                                            <?php foreach ($idUser as $data): ?>
-                                                <option value="<?php echo $data['idUser']; ?>"><?php echo $data['username']; ?></option>
-                                            <?php endforeach ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-4">Nama Project</label>
-                                    <div class="col-md-8">
-                                        <select class="form-control col-md-4" name="combo_kategori" id="cb_project">
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label">Keterangan Pengeluaran</label>
-                                    <div class="col-md-8">
-                                        <textarea class="form-control" rows="3" name="txt_keterangan" placeholder="Keterangan penggunaan biaya pengeluaran"></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-4">Bukti Pengeluaran</label>
-                                    <div class="col-md-8">
-                                        <input type="file" name="filefoto" size="20">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-8">
-                                        <button type="button" class="btn btn-danger btn-flat" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Tutup</button>
-                                        <button type="submit" class="btn btn-primary btn-flat"><span class="glyphicon glyphicon-save"></span>&nbsp;Simpan</button>        
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </form>
                 <!-- modal untuk edit data pengeluaran -->
                 <div class="modal fade" id="modal_edit_pengeluaran" tabindex="-1" role="dialog">
                     <div class="modal-dialog" role="document">

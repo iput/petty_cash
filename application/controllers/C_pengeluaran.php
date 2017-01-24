@@ -33,6 +33,15 @@ class C_pengeluaran extends CI_Controller {
         }
     }
 
+    public function tambah_pengeluaran()
+    {
+        $data_u['idUser'] = $this->m_get->get_user();
+        $data_tampil['pengeluaran'] = $this->m_pengeluaran->select_data();
+        $this->load->view('attribute/header');
+        $this->load->view('admin/v_add_pengeluaran', $data_u);
+        $this->load->view('attribute/footer');
+    }
+
     public function tampilid() {
         $id = $this->input->get('id');
         $data = $this->m_pengeluaran->tampil_id($id);
@@ -45,39 +54,6 @@ class C_pengeluaran extends CI_Controller {
 
         if ($modul == "user") {
             echo $this->m_get->get_project($id);
-        }
-    }
-
-    public function insert_pengeluaran($do_insert) {
-        if ($do_insert == "simpan_pengeluaran") {
-
-            $post = $this->input->post();
-
-            $n_pengeluaran = $post['txt_nilai_pengeluaran'];
-            $id_user = $post['combo_pengguna'];
-            $id_project = $post['combo_kategori'];
-            $nama_pengeluaran = $post['txt_keterangan'];
-
-            if ($id_project <= 0) {
-                $id_project = null;
-            }
-
-            $data_in = array(
-                "idUser" => $id_user,
-                "idProject" => $id_project,
-                "jumlahPengeluaran" => $n_pengeluaran,
-                "namaPengeluaran" => $nama_pengeluaran,
-                "tanggal" => date('Y-m-d'),
-                "jam" => date('H:i:s'),
-                "foto" => "data");
-
-            $result = $this->m_pengeluaran->insert_pengeluaran('tb_pengeluaran', $data_in);
-
-            if ($result >= 1) {
-                redirect('C_pengeluaran/index');
-            } else {
-                return FALSE;
-            }
         }
     }
 
@@ -117,6 +93,42 @@ class C_pengeluaran extends CI_Controller {
     public function cetak_pdf() {
         $data['master_pdf'] = $this->m_pengeluaran->select_data();
         $this->load->view('data_master/master_pengeluaran_pdf', $data);
+    }
+
+    public function insert_pengeluaran()
+    {
+        $this->form_validation->set_rules('txt_nilai_pengeluaran','Jumlah Pengeluaran', 'required');   
+        $this->form_validation->set_rules('txt_keterangan','Nama Pengeluaran', 'required'); 
+        $this->form_validation->set_rules('combo_pengguna','Pengguna Pengeluaran', 'required');     
+
+        if($this->form_validation->run() == FALSE){
+            redirect('C_pengeluaran/tambah_pengeluaran');
+        }else{
+            
+            $config['upload_path'] = './uploads/';
+            $config['allowed_types'] = 'jpg|png|bmp';
+            $config['max_size'] = '300';
+            $config['max_width'] = '2000';
+            $config['max_height'] = '2000';
+
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('userfile')) {
+                echo $this->upload->display_errors();
+            }else{
+                $gambar = $this->upload->data();
+                $data_update = array(
+                'idUser' => $this->input->post('edit_nama_user'),
+                'idProject' => $this->input->post('edit_nama_project'),
+                'namaPengeluaran' => $this->input->post('edit_keterangan_pengeluaran'),
+                'jumlahPengeluaran' => $this->input->post('edit_nilai_pengeluaran'),
+                'tanggal' => date('Y-m-d'),
+                'jam' => date('H:i:s'),
+                'foto' => $gambar['file_name']);
+                $this->m_pengeluaran->insert_pengeluaran('tb_pengeluaran', $data_update);
+                redirect('C_pengeluaran');
+            }
+        }
     }
 
 }
