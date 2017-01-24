@@ -24,6 +24,7 @@
                     <div class="col-xs-12">
                         <h2 class="page-header">
                             <img src="<?php echo base_url('assets/logo/logo.png'); ?>" style="width: 25px; height: 25px;"> Data Pengeluaran <?php echo $this->session->userdata('username'); ?>
+                            <p>Pengeluaran yang dilakukan berdasarkan project yang user gunakan</p>
                             <small class="pull-right">Date: <?php echo date('Y-m-d'); ?></small>
                         </h2>
                     </div>
