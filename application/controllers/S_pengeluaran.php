@@ -84,9 +84,9 @@ class S_pengeluaran extends CI_Controller {
             $sisa2 = "";
             $config['upload_path'] = './gambar/';
             $config['allowed_types'] = 'bmp|jpg|png|jpeg';
-            $config['max_size'] = 200;
-            $config['max_width'] = 1024;
-            $config['max_height'] = 768;
+            $config['max_size'] = '300';
+            $config['max_width'] = '2000';
+            $config['max_height'] = '2000';
             $this->load->library('upload', $config);
             if (!$this->upload->do_upload('filefoto')) {
                 $error = array('error' => $this->upload->display_errors());
@@ -99,9 +99,14 @@ class S_pengeluaran extends CI_Controller {
                 $angka1 = $post['txtjml_uang'];
                 $angka2 = str_replace("Rp. ", "", $angka1);
                 $angka3 = str_replace(".", "", $angka2);
+                $idProject = $post['nama_project'];
+                if ($idProject == 0 ){
+                    $idProject = NULL;
+                }
+
                 $data_modal = array(
                     "idUser" => $idUser,
-                    "idProject" => $post['nama_project'],
+                    "idProject" => $idProject,
                     "namaPengeluaran" => $post['txt_keterangan'],
                     "jumlahPengeluaran" => $angka3,
                     "jam" => date("H:i:s"),
@@ -109,12 +114,30 @@ class S_pengeluaran extends CI_Controller {
                     "foto" => $gbr['file_name']
                 );
 
-                $result = $this->m_pengeluaranuser->insert_data('tb_pengeluaran', $data_modal);
-
-                if ($result >= 1) {
-                    redirect('S_beranda/index');
-                } else {
-                    echo 'error';
+                $dt_sisa = $this->m_project->select_sisa($idProject);
+                foreach ($dt_sisa as $d) {
+                    $sisa = $d['sisa'];
+                }
+                
+                $sisa2 = $sisa - $angka3;
+                
+                $sisa_update = array (
+                    "sisa" => $sisa2
+                    );
+                
+                if ($idProject == NULL){
+                    $result = $this->m_pengeluaranuser->insert_data('tb_pengeluaran', $data_modal);
+                    redirect('S_setting');
+                }
+                
+                else if ($sisa < 0 && $idProject != NULL){
+                    echo "Uang Anda tidak cukup";
+                }
+                
+                else{
+                $this->m_pengeluaranuser->insert_data('tb_pengeluaran', $data_modal);                   
+                $this->m_project->update_sisa('tb_project', $sisa_update, $idProject);
+                redirect('S_beranda/index');
                 }
             }
         }

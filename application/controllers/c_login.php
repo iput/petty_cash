@@ -27,8 +27,8 @@ class C_login extends CI_Controller {
         $hpass = "";
         $hlevel = "";
         $hemail = "";
-        $user = $this->input->post('txt_log_user');
-        $pass = $this->input->post('txt_log_password');
+        $user = mysql_real_escape_string($this->input->post('txt_log_user'));
+        $pass = mysql_real_escape_string($this->input->post('txt_log_password'));
         $hasil = $this->Mod_login->login($user, $pass);
         foreach ($hasil as $h) {
             $idUser = $h['idUser'];

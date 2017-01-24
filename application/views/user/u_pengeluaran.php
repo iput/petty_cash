@@ -24,7 +24,8 @@
                 <tr>
                     <td><label class="control-label">Nama Project:</label> </td>
                     <td><select class="form-control" name="nama_project">
-                            <?php foreach ($idUser as $data): ?>
+                            <option value="0">Pilih Nama Project</option>
+                            <?php foreach ($idUser as $data):?>
                                 <option value="<?php echo $data['idProject']; ?>"><?php echo $data['namaProject']; ?></option>
                             <?php endforeach ?>
                         </select></td>
