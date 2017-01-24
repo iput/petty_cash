@@ -46,7 +46,7 @@
     <body class="hold-transition login-page">
         <div class="login-box">
             <div class="login-logo">
-                <a href="<?php echo base_url('c_login'); ?>"><b><img src="<?php echo base_url('gambar/logo/logo.png'); ?>" style="width: 50px; height: 50px; margin-bottom: 20px;">&nbsp;PETTY</b>-CASH</a>
+                <a href="<?php echo base_url('c_login'); ?>"><b><img src="<?php echo base_url('assets/logo/logo-cash.png'); ?>" style="width: 50px; height: 50px; margin-bottom: 20px;">&nbsp;PETTY</b>-CASH</a>
             </div>
             <!-- /.login-logo -->
             <div class="login-box-body">
@@ -54,11 +54,11 @@
 
                 <form action="<?php echo base_url('c_login/login_process');?>" method="post">
                     <div class="form-group has-feedback">
-                        <input type="text"  name="txt_log_user" class="form-control" placeholder="Username / Email">
+                        <input type="text"  name="txt_log_user" class="form-control" placeholder="Username / Email" required="">
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <input type="password" name="txt_log_password" class="form-control" placeholder="Password">
+                        <input type="password" name="txt_log_password" class="form-control" placeholder="Password" required="">
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
                     <div class="row">
