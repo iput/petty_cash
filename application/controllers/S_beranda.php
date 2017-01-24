@@ -27,8 +27,15 @@ class S_beranda extends CI_Controller {
     public function cetak_pdf()
     {
         $data['transaksi'] = $this->m_pengeluaranuser->get_pengeluaran_user($this->session->userdata('idUser'));
-
+        $data['jumlah'] = $this->m_pengeluaranuser->count_pengeluaran($this->session->userdata('idUser'));
         $this->load->view('data_master/user_pdf', $data);
+    }
+
+    public function cetak_xls()
+    {
+        $data['transaksi'] = $this->m_pengeluaranuser->get_pengeluaran_user($this->session->userdata('idUser'));
+        $data['jumlah'] = $this->m_pengeluaranuser->count_pengeluaran($this->session->userdata('idUser'));
+        $this->load->view('data_master/user_excel', $data);
     }
 }
 

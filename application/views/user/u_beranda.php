@@ -23,7 +23,7 @@
                         Cetak Data Transaksi <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href=""><span class="fa fa-file-excel-o"></span>&nbsp;File Excel</a></li>
+                        <li><a href="<?php echo base_url('S_beranda/cetak_xls'); ?>"><span class="fa fa-file-excel-o"></span>&nbsp;File Excel</a></li>
                         <li><a href="<?php echo base_url('S_beranda/cetak_pdf'); ?>"><span class="fa fa-file-pdf-o"></span>&nbsp;File PDF</a></li>
                     </ul>
                 </div>

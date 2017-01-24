@@ -46,8 +46,8 @@
                                 <div class="col-md-8">
                                     <select class="form-control col-md-6" name="combo_anggaran">
                                         <option value="">Pilih Setting Anggaran</option>
-                                        <option value="hari">Harian</option>
-                                        <option value="bulan">Bulanan</option>
+                                        <option value="harian">Harian</option>
+                                        <option value="bulanan">Bulanan</option>
                                     </select>
                                 </div>
                             </div>
@@ -97,8 +97,8 @@
                             <div class="col-md-8">
                                 <select class="form-control" name="edit_seting_anggaran" id="edit_seting_anggaran">
                                 <option value=null>Pilih Setting Anggaran</option>
-                                <option value="hari">Harian</option>
-                                <option value="bulan">Bulanan</option>
+                                <option value="harian">Harian</option>
+                                <option value="bulanan">Bulanan</option>
                                 </select>
                             </div>
                     </div>

@@ -63,10 +63,14 @@ class C_Project extends CI_Controller {
 
         if ($parameter == "simpan_project") {
             $post = $this->input->post();
+            $settingAnggaran = $post['combo_anggaran'];
+            if ($settingAnggaran == null) {
+                $settingAnggaran = 'harian';
+            }
             $data_in = array(
                 'namaProject' => $post['txt_nm_project'],
                 'anggaran' => $post['txt_anggaran'],
-                'settingAnggaran' => $post['combo_anggaran'],
+                'settingAnggaran' => $settingAnggaran,
                 'sisa' => $post['txt_sisa_angg']);
             $result = $this->m_project->insert_data_project('tb_project', $data_in);
             if ($result >= 0) {

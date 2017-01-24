@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Petty Cash | Membantu mengatur keuangan anda</title>
+        <title>Data transaksi <?php echo $this->session->userdata('username'); ?></title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.6 -->
@@ -21,10 +21,9 @@
             <section class="invoice">
                 <!-- title row -->
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 bg-success">
                         <h2 class="page-header">
                             <img src="<?php echo base_url('assets/logo/logo.png'); ?>" style="width: 25px; height: 25px;"> Data Pengeluaran <?php echo $this->session->userdata('username'); ?>
-                            <p>Pengeluaran yang dilakukan berdasarkan project yang user gunakan</p>
                             <small class="pull-right">Date: <?php echo date('Y-m-d'); ?></small>
                         </h2>
                     </div>
@@ -36,7 +35,7 @@
                 <?php endforeach ?>
                 <div class="row invoice-info">
                     <div class="col-sm-4 invoice-col">
-                        Data  Pengeluaran <?php echo $data_head['username']; ?>
+                        Data  Pengeluaran <br> <?php echo $data_head['username']; ?>
                         <address>
                             <strong>Id user</strong><br>
                             USER000<?php echo $data_head['idUser']; ?><br>
@@ -55,10 +54,10 @@
                                 <tr>
                                     <th>Nama Project</th>
                                     <th>Anggaran Project</th>
-                                    <th>Jumlah Pengeluaran</th>
                                     <th>Keterangan Pengeluaran</th>
                                     <th>Tanggal</th>
                                     <th>Jam</th>
+                                    <th>Jumlah</th>
                                 </tr>
                             </thead>
                     <tbody>
@@ -66,13 +65,22 @@
                         <tr>
                             <td><?php echo $row['namaProject']; ?></td>
                             <td><?php echo $row['settingAnggaran']; ?></td>
-                            <td><?php echo $row['jumlahPengeluaran']; ?></td>
                             <td><?php echo $row['namaPengeluaran']; ?></td>
                             <td><?php echo $row['tanggal']; ?></td>
                             <td><?php echo $row['jam']; ?></td>
+                            <td><?php echo $row['jumlahPengeluaran']; ?></td>
+                            
                         </tr>
                     <?php endforeach ?>
                 </tbody>
+                <tfoot>
+                    <tr>
+                    <?php foreach ($jumlah as $jumlah_p): ?>
+                        <td colspan="5"><strong>Total Pengeluaran</strong> </td>
+                        <td> <?php echo $jumlah_p['SUM(jumlahPengeluaran)']; ?></td>
+                    <?php endforeach ?>   
+                    </tr>
+                </tfoot>
                         </table>
                     </div>
                     <!-- /.col -->      

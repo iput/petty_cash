@@ -72,7 +72,7 @@
                         <!-- /.col -->
                     </div>
                 </form>
-                <a href="<?php echo base_url("c_login/lupa_password"); ?>">Saya Lupa Kata sandi saya</a><br>
+                <a href="<?php echo base_url("c_login/lupa_password"); ?>">Lupa Kata sandi ?</a><br>
             </div>
             <!-- /.login-box-body -->
         </div>
