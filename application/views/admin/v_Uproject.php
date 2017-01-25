@@ -51,14 +51,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-<<<<<<< HEAD
                       <div class="col-xs-1">
                           <button type="submit" class="btn btn-primary btn-flat"><span class="glyphicon glyphicon-save"></span> Simpan</button>
                       </div>
-                            
-=======
-                      <button type="submit" class="btn btn-primary btn-flat"><span class="glyphicon glyphicon-save"></span> Tambah</button>  
->>>>>>> ab23ffc4ede851712963035fce500ce8e518d094
                     </div>
                 </form>
         </div>

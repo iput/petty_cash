@@ -58,9 +58,6 @@ class M_pengeluaranuser extends CI_Model {
             return $data;
         }
     }
-    
-
-
 }
 
 ?>
