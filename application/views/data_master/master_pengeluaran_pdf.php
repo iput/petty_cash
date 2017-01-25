@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -73,6 +73,12 @@
                                     </tr>
                                 <?php endforeach ?>      
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="7">Jumlah Total</td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                     <!-- /.col -->      

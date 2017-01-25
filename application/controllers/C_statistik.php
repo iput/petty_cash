@@ -1,5 +1,5 @@
 <?php
-
+ 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
@@ -16,8 +16,8 @@ class C_statistik extends CI_Controller {
         $data['report'] = $this->m_statistik->report();
 
         $this->load->view('attribute/header');
-        $this->load->view('admin/v_statistik', $data);
-        $this->load->view('attribute/footer');
+        $this->load->view('admin/v_statistik');
+        $this->load->view('attribute/footer', $data);
     }
 
 }
