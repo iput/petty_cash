@@ -48,10 +48,54 @@
 <script src="<?php echo base_url() . "assets/dist/js/demo.js"; ?>"></script>
 <script src="<?php echo base_url("assets/bootstrap/js/multi-step-modal.js"); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/jQuertMaskMoney/jquery.maskMoney.min.js"; ?>"></script>
+<script src="https://code.highcharts.com"></script>
+<script src="<?php echo base_url('assets/plugins/chart/highcharts.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/plugins/chart/exporting.js'); ?>" type="text/javascript"></script>
+
 <script>
     sendEvent = function(sel, step) {
         $(sel).trigger('next.m.' + step);
     }
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+<?php
+            foreach ($report as $result) {
+                $bulan[] = $result->bulan;
+                $value[] = (float)$result->pengeluaran;
+            }
+            ?>
+            var chart1;
+             chart1 = new Highcharts.Chart({
+        chart : {
+            renderTo : 'areaCanvas',
+            type : 'column'
+        },
+        title: {
+            text : 'Data Pengeluaran dihitung Perbulan'
+        },
+        plotOptions:{
+            column :{
+                depth : 25
+            }
+        },
+        credits : {
+            enabled : false
+        },
+        xAxis : {
+            categories : <?php echo json_encode($bulan);?>
+        },
+        yAxis : {
+            title : {
+                text : 'Jumlah Pengeluaran'
+            }
+        },
+        series: [{
+            name: 'Jumlah Pengeluaran dihitung per bulan',
+            data: <?php echo json_encode($value);?>
+        }]
+    });
+    });
 </script>
 </body>
 </html>
