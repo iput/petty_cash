@@ -47,7 +47,6 @@ header('Expires: 0');
             <th>Anggaran Project</th>
             <th>Keterangan Pengeluaran</th>
             <th>Tanggal</th>
-            <th>Jam</th>
             <th>Jumlah Pengeluaran</th>
         </tr>
     </thead>
@@ -58,7 +57,6 @@ header('Expires: 0');
             <td><?php echo $row['settingAnggaran']; ?></td>
             <td><?php echo $row['namaPengeluaran']; ?></td>
             <td><?php echo $row['tanggal']; ?></td>
-            <td><?php echo $row['jam']; ?></td>
             <td><?php echo $row['jumlahPengeluaran']; ?></td>
         </tr>
     <?php endforeach ?>

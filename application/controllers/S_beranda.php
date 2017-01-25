@@ -23,51 +23,6 @@ class S_beranda extends CI_Controller {
             $this->load->view('v_login');
         }
     }
-    
-    //gagal
-//    public function index2(){
-//        $data = $this->m_pengeluaranuser->get_pengeluaran_user($this->session->userdata('idUser'));
-//        $idProject="";
-//        $data_in['transaksi']="";
-//        $jumlah="";
-//        $namaProject="";
-//        $tanggal="";
-//        $keterangan="";
-//        $jam="";
-//        for ($i = 0; $i<count($data);$i++){
-//        $idProject = $data['idProject'];
-//        $jumlah = $data['jumlahPengeluaran'];
-//        $tanggal = $data['tanggal'];
-//        $jam = $data['jam'];
-//        $keterangan = $data['namaPengeluaran'];
-//        if ($idProject == NULL){
-//            $namaProject ="Pribadi";
-//        $data_in['transaksi']=$data_in['transaksi'].array(
-//            "namaProject" =>$namaProject,
-//            "jumlahPengeluaran" =>$jumlah,
-//            "namaPengeluaran"=>$keterangan,
-//            "tanggal" =>$tanggal,
-//            "jam"=>$jam
-//        );     
-//        }
-//        else{
-//        $namaP = $this->m_pengeluaranuser->get_nama_project($idProject);
-//        foreach ($namaP as $d){
-//        $namaProject = $d['namaProject'];
-//        }
-//        $data_in['transaksi']=$data_in['transaksi'].array(
-//            "namaProject" =>$namaProject,
-//            "jumlahPengeluaran" =>$jumlah,
-//            "namaPengeluaran"=>$keterangan,
-//            "tanggal" =>$tanggal,
-//            "jam"=>$jam
-//        );
-//        }
-//        echo json_encode($data_in);
-//        }
-//        
-//        
-//    }
 
     public function cetak_pdf() {
         $data['transaksi'] = $this->m_pengeluaranuser->get_pengeluaran_user($this->session->userdata('idUser'));
