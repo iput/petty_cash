@@ -1,5 +1,5 @@
 <section class="content-header">
-    <h1>Statistika Pwengeluaran user</h1>
+    <h1>Statistik Pengeluaran user</h1>
     <ol class="breadcrumb">
         <li><a href=""><i class="fa fa-exchange"></i>Beranda</a></li>
         <li class="active">Statistik</li>
@@ -21,9 +21,8 @@
                     </div>
                 </div>
                 <div class="box-body">
-                        <div id="areaCanvas" style="min-width: 200px; height: 400px; margin: 0 auto"></div>     
+                        <div id="statistik_user" style="min-width: 200px; height: 400px; margin: 0 auto"></div>     
                 </div>
                 <!-- /.box-body -->
             </div>
             </section>
-

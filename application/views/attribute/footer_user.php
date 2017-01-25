@@ -47,28 +47,23 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url() . "assets/dist/js/demo.js"; ?>"></script>
 <script src="<?php echo base_url("assets/bootstrap/js/multi-step-modal.js"); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url() . "assets/plugins/jQuertMaskMoney/jquery.maskMoney.min.js"; ?>"></script>
-<script src="https://code.highcharts.com"></script>
+<script type="text/javascript" src="<?php echo base_url() . "assets/plugins/jQueryMaskMoney/jquery.maskMoney.min.js"; ?>"></script>
+
 <script src="<?php echo base_url('assets/plugins/chart/highcharts.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/plugins/chart/exporting.js'); ?>" type="text/javascript"></script>
 
-<script>
-    sendEvent = function(sel, step) {
-        $(sel).trigger('next.m.' + step);
-    }
-</script>
 <script type="text/javascript">
     $(document).ready(function(){
-<?php
+		<?php
             foreach ($report as $result) {
                 $bulan[] = $result->bulan;
                 $value[] = (float)$result->pengeluaran;
             }
             ?>
-            var chart1;
-             chart1 = new Highcharts.Chart({
+            var chart2;
+             chart2 = new Highcharts.Chart({
         chart : {
-            renderTo : 'areaCanvas',
+            renderTo : 'statistik_user',
             type : 'column'
         },
         title: {
@@ -97,5 +92,11 @@
     });
     });
 </script>
+<script>
+    sendEvent = function(sel, step) {
+        $(sel).trigger('next.m.' + step);
+    }
+</script>
+
 </body>
 </html>

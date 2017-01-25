@@ -8,7 +8,7 @@
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.6 -->
         <link rel="stylesheet" href="<?php echo base_url() . "assets/bootstrap/css/bootstrap.min.css"; ?>">
-        <link rel="icon" type="image/png" href="<?php echo base_url('gambar/logo/logo.png'); ?>">
+        <link rel="icon" type="image/png" href="<?php echo base_url('assets/logo/logo.png'); ?>">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
         <!-- Ionicons -->
@@ -33,7 +33,7 @@
 
         <link rel="stylesheet" href="<?php echo base_url() . "assets/plugins/jvectormap/jquery-jvectormap-1.2.2.css"; ?>">
         <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/jQuery/jquery-2.2.3.min.js"; ?>"></script>
-        <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/jQuertMaskMoney/jquery.maskMoney.min.js"; ?>"></script>
+        <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/jQueryMaskMoney/jquery.maskMoney.min.js"; ?>"></script>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -46,7 +46,7 @@
 
             <header class="main-header">
                 <!-- Logo -->
-                <a href="index2.html" class="logo">
+                <a href="<?php echo base_url('S_beranda'); ?>" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini"><b>Petty</b></span>
                     <!-- logo for regular state and mobile devices -->
@@ -65,28 +65,23 @@
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="<?php echo base_url("assets/img/abah.jpg"); ?>" class="user-image" alt="User Image">
+                                    <img src="<?php echo base_url("assets/logo/logo.png"); ?>" class="user-image" alt="User Image">
                                     <span class="hidden-xs"><?php echo $this->session->userdata('username'); ?></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
-                                        <img src="<?php echo base_url("assets/img/abah.jpg"); ?>" class="img-circle" alt="User Image">
+                                        <img src="<?php echo base_url("assets/logo/logo.png"); ?>" class="img-circle" alt="User Image">
 
                                         <p>
                                             <?php echo $this->session->userdata('username'); ?>
-                                            <small>PP Sabillurrosyad | Gasek</small>
+                                            <small>Petty Cash Member's</small>
                                         </p>
                                     </li>
 
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
-                                        <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Profilku</a>
-                                        </div>
-                                        <div class="pull-right">
-                                            <a href="<?php echo base_url("c_login"); ?>" class="btn btn-default btn-flat">Keluar</a>
-                                        </div>
+                                        <a href="<?php echo base_url("c_login"); ?>" class="btn btn-default btn-flat">Keluar</a>
                                     </li>
                                 </ul>
                             </li>
@@ -101,11 +96,11 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="<?php echo base_url("assets/img/abah.jpg"); ?>" class="img-circle" alt="User Image">
+                            <img src="<?php echo base_url("assets/logo/logo.png"); ?>" class="img-circle" alt="User Image">
                         </div>
                         <div class="pull-left info">
                             <p><?php echo $this->session->userdata('username'); ?></p>
-                            <a href="#"><i class="fa fa-user"></i>User Petty Cash</a>
+                            <a href="#"><i class="fa fa-user bg-green"></i>User Petty Cash</a>
                         </div>
                     </div>
 

@@ -34,9 +34,9 @@ class C_Project extends CI_Controller {
         if ($this->session->userdata('username') && $this->session->userdata('idUser')) {
             $data['idProject'] = $this->m_project->get_namaproject();
             $data['idUser'] = $this->m_user->getAllUser();
+            
             $this->load->view('attribute/header');
             $this->load->view('admin/v_Uproject', $data);
-//            $this->load->view('tabel/tabel_Uproject');
             $this->load->view('attribute/footer');
         } else {
             $this->load->view('v_login');
