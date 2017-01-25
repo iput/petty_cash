@@ -29,6 +29,18 @@ class M_pengeluaranuser extends CI_Model {
         return $data;
     }
 
+    public function count_pengeluaran($id)
+    {
+        $this->db->select('SUM(jumlahPengeluaran)');
+        $this->db->from('tb_pengeluaran');
+        $this->db->where('idUser', $id);
+        $hasil = $this->db->get();
+
+        $data = $hasil->result_array();
+        return $data;
+
+    }
+
 }
 
 ?>

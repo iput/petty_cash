@@ -43,7 +43,7 @@
                 
                 <?php echo form_open('Welcome/action_reset') ; ?>
 
-        <table border="0">
+        <table border="0" class="table">
         <tr>
             <td>Username</td>
             <td><?php echo form_input(array('name' => 'username', 'id' => 'username', 'value' => set_value('text', ''), 'maxlength' => '100', 'size' => '50', 'style' => 'width:100%')); ?></td>

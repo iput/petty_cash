@@ -46,8 +46,8 @@
                                 <div class="col-md-8">
                                     <select class="form-control col-md-6" name="combo_anggaran">
                                         <option value="">Pilih Setting Anggaran</option>
-                                        <option value="hari">Harian</option>
-                                        <option value="bulan">Bulanan</option>
+                                        <option value="harian">Harian</option>
+                                        <option value="bulanan">Bulanan</option>
                                     </select>
                                 </div>
                             </div>
@@ -70,12 +70,51 @@
                 </div>
             </form>
 
+<<<<<<< HEAD
             <div class="modal fade" id="edit_project" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header bg-primary">
                             <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
                             <h3>edit data Project</h3>
+=======
+<div class="modal fade" id="edit_project" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                <h3>edit data Project</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal"  method="POST" id="form_edit_project">
+                    <div class="form-group">
+                        <input type="hidden" name="id_project" id="id_project">
+                        <label class="control-label col-md-3">Nama project</label>
+                        <div class="col-md-8">
+                        <input type="text" name="edit_nama_project" class="form-control col-md-6" placeholder="Rp.">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Anggaran</label>
+                        <div class="col-md-8">
+                        <input type="text" name="edit_jumlah_anggaran" class="form-control col-md-6" placeholder="Rp.">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Kategori Anggaran</label>
+                            <div class="col-md-8">
+                                <select class="form-control" name="edit_seting_anggaran" id="edit_seting_anggaran">
+                                <option value=null>Pilih Setting Anggaran</option>
+                                <option value="harian">Harian</option>
+                                <option value="bulanan">Bulanan</option>
+                                </select>
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Sisa Anggaran</label>
+                        <div class="col-md-8">
+                            <input type="text" name="edit_sisa_project" class="form-control col-md-6" placeholder="Rp.">
+>>>>>>> 590f444a4205ad662e16afbeefc65871ef6a37fd
                         </div>
                         <div class="modal-body">
                             <form class="form-horizontal"  method="POST" id="form_edit_project">
