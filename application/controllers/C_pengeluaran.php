@@ -145,7 +145,6 @@ class C_pengeluaran extends CI_Controller {
                 $error = array('error' => $this->upload->display_errors());
                 $this->load->view('welcome_message', $error);
             } else {
-                // $idUser = $this->session->userdata('idUser');
                 $post = $this->input->post();
                 $idUser = $post['combo_pengguna'];
                 $gbr = $this->upload->data();
