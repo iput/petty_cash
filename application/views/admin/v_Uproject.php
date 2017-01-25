@@ -13,7 +13,6 @@
             <h3 class="box-title">Data Pengguna Projects</h3>
         </div>
         <!-- box header end -->
-
         <!-- box body -->
         <div class="box-body">
             <div>
@@ -51,7 +50,7 @@
                         </table>
                     </div>
                     <div class="form-group">
-                      <button type="submit" class="btn btn-primary btn-flat"><span class="glyphicon glyphicon-save"></span> Simpan</button>  
+                      <button type="submit" class="btn btn-primary btn-flat"><span class="glyphicon glyphicon-save"></span> Tambah</button>  
                     </div>
 
 
