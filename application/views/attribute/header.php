@@ -59,13 +59,13 @@
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="<?php echo base_url("assets/img/abah.jpg"); ?>" class="user-image" alt="User Image">
+                                    <img src="<?php echo base_url("assets/logo/logo.png"); ?>" class="user-image" alt="User Image">
                                     <span class="hidden-xs"><?php echo $this->session->userdata('username'); ?></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
-                                        <img src="<?php echo base_url("assets/img/abah.jpg"); ?>" class="img-circle" alt="User Image">
+                                        <img src="<?php echo base_url("assets/logo/logo.png"); ?>" class="img-circle" alt="User Image">
 
                                         <p>
                                             <?php echo $this->session->userdata('username'); ?>
@@ -75,12 +75,7 @@
 
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
-                                        <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Profilku</a>
-                                        </div>
-                                        <div class="pull-right">
-                                            <a href="<?php echo base_url('c_login/logout'); ?>" class="btn btn-default btn-flat">Keluar</a>
-                                        </div>
+                                        <a href="<?php echo base_url('c_login/logout'); ?>" class="btn btn-default btn-flat">Keluar</a>
                                     </li>
                                 </ul>
                             </li>
@@ -95,7 +90,7 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="<?php echo base_url("assets/img/abah.jpg"); ?>" class="img-circle" alt="User Image">
+                            <img src="<?php echo base_url("assets/logo/logo.png"); ?>" class="img-circle" alt="User Image">
                         </div>
                         <div class="pull-left info">
                             <p><?php echo $this->session->userdata('username'); ?></p>

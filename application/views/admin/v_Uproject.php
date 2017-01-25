@@ -15,11 +15,10 @@
         <!-- box header end -->
         <!-- box body -->
         <div class="box-body">
-            <div>
                 <form class="form-horizontal" id="formProyek" method="post" action="<?php echo base_url('c_project/insert_tbdata') ?>">
                     <div class="form-group">
                         <label class="control-label col-md-2">Nama Proyek : </label>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <select id ="combo_project" class="form-control col-md-4" name="combo_level">
                                 <option value="0">-: Pilih Project :-</option>
                                 <?php foreach ($idProject as $data): ?>
@@ -29,7 +28,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <table id="tabel_user_project" class="table table-hover table-striped table-bordered">
+                        <div class=" col-md-2 table table-responsive">
+                            <table id="tabel_user_project" class="table table-hover table-striped table-bordered">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -48,13 +48,20 @@
                                 <?php endforeach ?>
                             </tbody>
                         </table>
+                        </div>
                     </div>
                     <div class="form-group">
+<<<<<<< HEAD
+                      <div class="col-xs-1">
+                          <button type="submit" class="btn btn-primary btn-flat"><span class="glyphicon glyphicon-save"></span> Simpan</button>
+                      </div>
+                            
+=======
                       <button type="submit" class="btn btn-primary btn-flat"><span class="glyphicon glyphicon-save"></span> Tambah</button>  
+>>>>>>> ab23ffc4ede851712963035fce500ce8e518d094
                     </div>
-
-
                 </form>
-            </div>
-
+        </div>
+</div>
+</section>
             <!-- akhir kata form multi level -->
