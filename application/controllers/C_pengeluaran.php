@@ -145,16 +145,12 @@ class C_pengeluaran extends CI_Controller {
                 $error = array('error' => $this->upload->display_errors());
                 $this->load->view('welcome_message', $error);
             } else {
-                // $idUser = $this->session->userdata('idUser');
                 $post = $this->input->post();
                 $idUser = $post['combo_pengguna'];
                 $gbr = $this->upload->data();
                 date_default_timezone_set("Asia/Jakarta");
                 $idUser = $post['combo_pengguna'];
                 $angka3 = $post['txt_nilai_pengeluaran'];
-                // $angka1 = $post['txtjml_uang'];
-                // $angka2 = str_replace("Rp. ", "", $angka1);
-                // $angka3 = str_replace(".", "", $angka2);
                 $idProject = $post['combo_kategori'];
                 if ($idProject == 0) {
                     $idProject = NULL;

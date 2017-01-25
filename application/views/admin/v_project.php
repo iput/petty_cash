@@ -16,7 +16,7 @@
 
         <!-- box body --> 
         <div class="box-body">
-            <div col-md-2" style="margin: 10px;">
+            <div class="col-md-2" style="margin: 10px;">
                  <button type="button" class="btn btn-primary btn-flat" data-toggle="modal" data-target="#project_baru"><span class="fa fa-plus"></span> Tambah Proyek</button>
             </div>
 
@@ -107,37 +107,8 @@
                         <div class="col-md-8">
                             <input type="text" name="edit_sisa_project" class="form-control col-md-6" placeholder="Rp.">
                         </div>
-                        <div class="modal-body">
-                            <form class="form-horizontal"  method="POST" id="form_edit_project">
-                                <div class="form-group">
-                                    <input type="hidden" name="id_project" id="id_project">
-                                    <label class="control-label col-md-3">Nama project</label>
-                                    <div class="col-md-8">
-                                        <input type="text" name="edit_nama_project" class="form-control col-md-6" placeholder="Rp.">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3">Anggaran</label>
-                                    <div class="col-md-8">
-                                        <input type="text" name="edit_jumlah_anggaran" class="form-control col-md-6" placeholder="Rp.">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3">Kategori Anggaran</label>
-                                    <div class="col-md-8">
-                                        <select class="form-control" name="edit_seting_anggaran" id="edit_seting_anggaran">
-                                            <option value=null>Pilih Setting Anggaran</option>
-                                            <option value="hari">Harian</option>
-                                            <option value="bulan">Bulanan</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3">Sisa Anggaran</label>
-                                    <div class="col-md-8">
-                                        <input type="text" name="edit_sisa_project" class="form-control col-md-6" placeholder="Rp.">
-                                    </div>
-                                </div>
+                        </div>
+                     
                                 <div class="form-group">
                                     <div class="col-md-3"></div>
                                     <div class="col-md-8">
@@ -148,6 +119,8 @@
 
                             </form>
                         </div>
-                    </div>
+                    
                 </div>
+            </div>
+             </div>
             </div>
