@@ -152,9 +152,6 @@ class C_pengeluaran extends CI_Controller {
                 date_default_timezone_set("Asia/Jakarta");
                 $idUser = $post['combo_pengguna'];
                 $angka3 = $post['txt_nilai_pengeluaran'];
-                // $angka1 = $post['txtjml_uang'];
-                // $angka2 = str_replace("Rp. ", "", $angka1);
-                // $angka3 = str_replace(".", "", $angka2);
                 $idProject = $post['combo_kategori'];
                 if ($idProject == 0) {
                     $idProject = NULL;
