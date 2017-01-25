@@ -20,7 +20,7 @@
 
                 <div class="btn-group pull-right" style="margin-right: 10px;">
                     <button type="button" class="btn btn-default dropdown-toggle btn-flat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Cetak Data Transaksi <span class="caret"></span>
+                        Cetak Data Transaksi&nbsp;<span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
                         <li><a href="<?php echo base_url('S_beranda/cetak_xls'); ?>"><span class="fa fa-file-excel-o"></span>&nbsp;File Excel</a></li>
@@ -39,7 +39,6 @@
                         <th>Jumlah Pengeluaran</th>
                         <th>Keterangan Pengeluaran</th>
                         <th>Tanggal</th>
-                        <th>Jam</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,7 +49,6 @@
                             <td><?php echo $row['jumlahPengeluaran']; ?></td>
                             <td><?php echo $row['namaPengeluaran']; ?></td>
                             <td><?php echo $row['tanggal']; ?></td>
-                            <td><?php echo $row['jam']; ?></td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>

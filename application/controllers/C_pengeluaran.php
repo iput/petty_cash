@@ -63,8 +63,7 @@ class C_pengeluaran extends CI_Controller {
             'idProject' => $this->input->post('edit_nama_project'),
             'namaPengeluaran' => $this->input->post('edit_keterangan_pengeluaran'),
             'jumlahPengeluaran' => $this->input->post('edit_nilai_pengeluaran'),
-            'tanggal' => date('Y-m-d'),
-            'jam' => date('H:i:s'));
+            'tanggal' => date('Y-m-d H:i:s'));
         $hasil = $this->m_pengeluaran->update_pengeluaran('tb_pengeluaran', $data_update, $id_pengeluaran);
 
         if ($hasil >= 0) {
@@ -119,8 +118,7 @@ class C_pengeluaran extends CI_Controller {
                     'idProject' => $this->input->post('edit_nama_project'),
                     'namaPengeluaran' => $this->input->post('edit_keterangan_pengeluaran'),
                     'jumlahPengeluaran' => $this->input->post('edit_nilai_pengeluaran'),
-                    'tanggal' => date('Y-m-d'),
-                    'jam' => date('H:i:s'),
+                    'tanggal' => date('Y-m-d H:i:s'),
                     'foto' => $gambar['file_name']);
                 $this->m_pengeluaran->insert_pengeluaran('tb_pengeluaran', $data_update);
                 redirect('C_pengeluaran');
@@ -160,8 +158,7 @@ class C_pengeluaran extends CI_Controller {
                     "idProject" => $idProject,
                     "namaPengeluaran" => $post['txt_keterangan'],
                     "jumlahPengeluaran" => $angka3,
-                    "jam" => date("H:i:s"),
-                    "tanggal" => date("Y-m-d"),
+                    "tanggal" => date("Y-m-d H:i:s"),
                     "foto" => $gbr['file_name']
                 );
 

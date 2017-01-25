@@ -17,7 +17,7 @@ class M_pengeluaranuser extends CI_Model {
     }
 
     public function get_pengeluaran_user($id) {
-        $this->db->select('tb_user.username,tb_user.idUser, tb_project.namaProject, tb_project.settingAnggaran,tb_pengeluaran.idPengeluaran,tb_pengeluaran.tanggal,tb_pengeluaran.jumlahPengeluaran, tb_pengeluaran.namaPengeluaran, tb_pengeluaran.jam');
+        $this->db->select('tb_user.username,tb_user.idUser, tb_project.namaProject, tb_project.settingAnggaran,tb_pengeluaran.idPengeluaran,tb_pengeluaran.tanggal,tb_pengeluaran.jumlahPengeluaran, tb_pengeluaran.namaPengeluaran');
         $this->db->from('tb_user');
         $this->db->join('tb_pengeluaran', 'tb_user.idUser=tb_pengeluaran.idUser');
         $this->db->join('tb_project', 'tb_project.idProject=tb_pengeluaran.idProject');

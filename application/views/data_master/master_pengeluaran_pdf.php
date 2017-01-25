@@ -55,7 +55,6 @@
                                     <th>Setting Anggaran</th>
                                     <th>Jumlah Pengeluaran</th>
                                     <th>Tanggal</th>
-                                    <th>Jam</th>
                                     <th>Keterangan Pengeluaran</th>
                                 </tr>
                             </thead>
@@ -68,7 +67,6 @@
                                         <td><?php echo $data['settingAnggaran']; ?></td>
                                         <td><?php echo $data['jumlahPengeluaran']; ?></td>
                                         <td><?php echo $data['tanggal']; ?></td>
-                                        <td><?php echo $data['jam']; ?></td>
                                         <td><?php echo $data['namaPengeluaran']; ?></td>
                                     </tr>
                                 <?php endforeach ?>      
