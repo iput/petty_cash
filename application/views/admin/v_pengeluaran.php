@@ -11,7 +11,7 @@
             <div class="box-body">
 
                 <div class="col-md-2" style="margin: 10px;">
-                <a href="<?php echo base_url('C_pengeluaran/tambah_pengeluaran'); ?>" class="btn btn-primary btn-flat"><span class="glyphicon glyphicon-plus"></span>&nbsp;Tambah Pengeluaran</a>
+                    <button type = "button" class="btn btn-primary btn-flat" data-toggle ="modal" data-target="#modal_tambah_pengeluaran"><span class="glyphicon glyphicon-plus"></span>&nbsp;Tambah Pengeluaran</button>
                 </div>
                 <div class="col-md-1.75 pull-right" style="margin: 10px;">
                     <div class="btn-group">
@@ -80,6 +80,67 @@
                                         </div>
                                     </div>
                                 </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal untuk tambah pengeluaran-->
+                <div class="modal fade" id="modal_tambah_pengeluaran" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header bg-primary">
+                                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                                <h3>Tambah Data Pengeluaran</h3>
+                            </div>
+                            <div class="modal-body">
+                                <div><?= validation_errors() ?></div>
+                                <?= form_open_multipart('C_pengeluaran/insert_coba2/simpan_pengeluaranAdmin', ['class' => 'form-horizontal']) ?>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Jumlah Pengeluaran</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="txt_nilai_pengeluaran" id="edit_nilai_pengeluaran" class="form-control col-md-6" placeholder="Rp.">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Nama Pengguna</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control col-md-4" name="combo_pengguna" id="cb_user">
+                                            <option value="BLANK">Pilih Nama Pengguna</option>
+                                            <?php foreach ($idUser as $data): ?>
+                                                <option value="<?php echo $data['idUser']; ?>"><?php echo $data['username']; ?></option>
+                                            <?php endforeach ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Nama Project</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control col-md-4" name="combo_kategori" id="cb_project"></select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Keterangan Pengeluaran</label>
+                                    <div class="col-md-8">
+                                        <textarea class="form-control" rows="3" name="txt_keterangan" placeholder="Keterangan penggunaan biaya pengeluaran"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Bukti Pengeluaran</label>
+                                    <div class="col-md-8">
+                                        <input type="file" name="userfile" id="userfile">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-md-3"></div>
+                                    <div class="col-md-8">
+                                        <button type="button" class="btn btn-danger btn-flat" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Tutup</button>
+                                        <button type="submit" class="btn btn-primary btn-flat"><span class="glyphicon glyphicon-save"></span>&nbsp;Simpan</button>        
+                                    </div>
+                                </div>
+                                <?= form_close() ?>
                             </div>
 
                         </div>

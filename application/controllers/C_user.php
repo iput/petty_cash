@@ -35,60 +35,55 @@ class C_user extends CI_Controller {
 
         if ($parameter == "simpan_data") {
             $post = $this->input->post();
-                        
+
             $data_user = $post['reg_username'];
             $data_email = $post['reg_email'];
             $data_password = $post['reg_password'];
             $data_level = "user";
             $data = $this->m_user->select_data($data_user, $data_email);
-            if ($data){
+            if ($data) {
                 $this->load->view('welcome_message');
-            }
-            else{
-            $data_in = array(
-                "username" => $data_user,
-                "email" => $data_email,
-                "password" => $data_password,
-                "level" => "user");
-            $result = $this->m_user->addUser('tb_user', $data_in);
+            } else {
+                $data_in = array(
+                    "username" => $data_user,
+                    "email" => $data_email,
+                    "password" => $data_password,
+                    "level" => "user");
+                $result = $this->m_user->addUser('tb_user', $data_in);
 
-            if ($result >= 1) {
-                redirect('c_registrasi/index');
+                if ($result >= 1) {
+                    redirect('c_registrasi/index');
+                }
             }
-            }
-        } 
-        else {
+        } else {
             redirect('c_registrasi/index');
         }
     }
 
-
-    public function addUser(){
+    public function addUser() {
         $username = $this->input->post('txt_username');
         $email = $this->input->post('txt_email');
         $data = $this->m_user->select_data($username, $email);
         echo json_encode($data);
-        if ($data){
+        if ($data) {
             $this->load->view('welcome_message');
-        }
-        else{
-        $field = array(
-            'username' => $username,
-            'email' => $email,
-            'password' => $this->input->post('txt_password'),
-            'level' => $this->input->post('combo_level')
-        );
-        $result = $this->m_user->addUser('tb_user', $field);
-        $msg['success'] = FALSE;
-        if ($result) {
-            $msg['success'] = TRUE;
-            redirect('C_user/index');
-        }
-        echo json_encode($msg);    
+        } else {
+            $field = array(
+                'username' => $username,
+                'email' => $email,
+                'password' => $this->input->post('txt_password'),
+                'level' => $this->input->post('combo_level')
+            );
+            $result = $this->m_user->addUser('tb_user', $field);
+            $msg['success'] = FALSE;
+            if ($result) {
+                $msg['success'] = TRUE;
+                redirect('C_user/index');
+            }
+            echo json_encode($msg);
         }
     }
 
-    
     public function do_delete($id) {
         $result = $this->m_user->delete_data($id);
         redirect('C_user/index');

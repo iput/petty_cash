@@ -19,7 +19,7 @@ class Welcome extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	/**
-	* 
+	*
 	*/
 	function __construct()
 		{
@@ -49,7 +49,7 @@ class Welcome extends CI_Controller {
 	public function reset_password($idUser){
 		$hasil ='';
 		$jam = '';
-		$jamskr = date("H:i:s"); 
+		$jamskr = date("H:i:s");
 		$data = $this->Mod_login->get_jamreset($idUser);
 		foreach ($data as $d) {
 			$jam = $d['jam'];
@@ -57,12 +57,12 @@ class Welcome extends CI_Controller {
 		$hasil = strtotime($jamskr) - strtotime($jam);
 		//hasil dalam bentuk seconds
 		if ($hasil <= 200){
-		$this->load->view('reset_password');	
+		$this->load->view('reset_password');
 		}
 		else{
-		$this->load->view('welcome_message');	
+		$this->load->view('welcome_message');
 		}
-		
+
 	}
 //RESET PASSWORD
 
@@ -107,12 +107,12 @@ class Welcome extends CI_Controller {
      			else
     		{
      			show_error($this->email->print_debugger());
-    		}			
+    		}
 		}
 		else{
 			echo "Masukkan Data yang benar";
 		}
-		
+
 		}
 
 		public function action_reset(){
@@ -122,10 +122,10 @@ class Welcome extends CI_Controller {
 			$this->form_validation->set_rules('email', 'Email', 'required|valid_email|min_length[5]|max_length[125]');
 			$this->form_validation->set_rules('password1', 'Password', 'required|min_length[5]|max_length[15]');
 			$this->form_validation->set_rules('password2', 'Confirmation Password', 'required|min_length[5]|max_length[15]|matches[password1]' );
-			
+
 			if ($this->form_validation->run()==FALSE){
-				$this->load->view('welcome_message');	
-				echo validation_errors();			
+				$this->load->view('welcome_message');
+				echo validation_errors();
 			}
 			else{
 				$email = $this->input->post('email');
@@ -134,15 +134,15 @@ class Welcome extends CI_Controller {
 				$data = $this->Mod_login->getemail($user, $email);
 				foreach ($data as $d) {
 					$huser = $d['username'];
-					$hemail = $d['email'];					
+					$hemail = $d['email'];
 				}
 				if ($huser == $user && $hemail == $email){
-					
+
 					$this->Mod_login->update_pass($pass, $user, $email);
 					$this->load->view('v_login');
 				}
 				else{
-					
+
 				}
 
 			}

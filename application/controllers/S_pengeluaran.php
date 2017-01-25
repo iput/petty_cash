@@ -100,7 +100,7 @@ class S_pengeluaran extends CI_Controller {
                 $angka2 = str_replace("Rp. ", "", $angka1);
                 $angka3 = str_replace(".", "", $angka2);
                 $idProject = $post['nama_project'];
-                if ($idProject == 0 ){
+                if ($idProject == 0) {
                     $idProject = NULL;
                 }
 
@@ -118,26 +118,22 @@ class S_pengeluaran extends CI_Controller {
                 foreach ($dt_sisa as $d) {
                     $sisa = $d['sisa'];
                 }
-                
+
                 $sisa2 = $sisa - $angka3;
-                
-                $sisa_update = array (
+
+                $sisa_update = array(
                     "sisa" => $sisa2
-                    );
-                
-                if ($idProject == NULL){
+                );
+
+                if ($idProject == NULL) {
                     $result = $this->m_pengeluaranuser->insert_data('tb_pengeluaran', $data_modal);
                     redirect('S_setting');
-                }
-                
-                else if ($sisa < 0 && $idProject != NULL){
+                } else if ($sisa < 0 && $idProject != NULL) {
                     echo "Uang Anda tidak cukup";
-                }
-                
-                else{
-                $this->m_pengeluaranuser->insert_data('tb_pengeluaran', $data_modal);                   
-                $this->m_project->update_sisa('tb_project', $sisa_update, $idProject);
-                redirect('S_beranda/index');
+                } else {
+                    $this->m_pengeluaranuser->insert_data('tb_pengeluaran', $data_modal);
+                    $this->m_project->update_sisa('tb_project', $sisa_update, $idProject);
+                    redirect('S_beranda/index');
                 }
             }
         }

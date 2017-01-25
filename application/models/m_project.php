@@ -15,6 +15,7 @@ class M_project extends CI_Model {
         $data_project = $this->db->query("select * from tb_project " . $parameter);
         return $data_project->result_array();
     }
+
 //Menampilkan sisa
     public function select_sisa($parameter) {
         $this->db->select('sisa');
@@ -26,6 +27,7 @@ class M_project extends CI_Model {
 
         return $result;
     }
+
 //Update sisa setelah pengeluaran diinputkan
     public function update_sisa($tabel, $data_sisa, $parameter) {
         $this->db->where('idProject', $parameter);
@@ -45,12 +47,11 @@ class M_project extends CI_Model {
     public function update_data_project($tabel, $data_update, $parameter) {
         $this->db->where('idProject', $parameter);
         $this->db->update($tabel, $data_update);
-        if($this->db->affected_rows() > 0){
+        if ($this->db->affected_rows() > 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
-        
     }
 
     public function delete_data_project($tabel, $parameter) {
@@ -65,9 +66,8 @@ class M_project extends CI_Model {
         return $username->result_array();
     }
 
-    public function tampil_id($parameter)
-    {
-        $query = $this->db->query("select * from tb_project where idProject=". $parameter);
+    public function tampil_id($parameter) {
+        $query = $this->db->query("select * from tb_project where idProject=" . $parameter);
         return $query->result_array();
     }
 

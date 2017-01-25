@@ -17,17 +17,17 @@
         <!-- box body -->
         <div class="box-body">
             <div>
-                    <form class="form-horizontal" id="formProyek" action="<?php echo base_url('c_project/insert_tbdata')?>">
+                <form class="form-horizontal" id="formProyek" action="<?php echo base_url('c_project/insert_tbdata') ?>">
                     <div class="form-group">
-                    <label class="control-label col-md-2">Nama Proyek : </label>
-                    <div class="col-md-6">
-                    <select id ="combo_project" class="form-control col-md-4" name="combo_level">
-                    <option value="0">-: Pilih Project :-</option>
-                    <?php foreach ($idProject as $data): ?>
-                    <option value="<?php echo $data['idProject']; ?>"><?php echo $data['namaProject']; ?></option>
-                    <?php endforeach ?>
-                    </select>
-                    </div>
+                        <label class="control-label col-md-2">Nama Proyek : </label>
+                        <div class="col-md-6">
+                            <select id ="combo_project" class="form-control col-md-4" name="combo_level">
+                                <option value="0">-: Pilih Project :-</option>
+                                <?php foreach ($idProject as $data): ?>
+                                    <option value="<?php echo $data['idProject']; ?>"><?php echo $data['namaProject']; ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
                     </div>
                 </form>
             </div>

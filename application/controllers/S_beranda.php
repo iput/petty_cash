@@ -14,7 +14,7 @@ class S_beranda extends CI_Controller {
 
     public function index() {
         if ($this->session->userdata('username') && $this->session->userdata('idUser')) {
-            
+
             $data_in['transaksi'] = $this->m_pengeluaranuser->get_pengeluaran_user($this->session->userdata('idUser'));
             $this->load->view('attribute/header_user');
             $this->load->view('user/u_beranda', $data_in);
@@ -24,12 +24,12 @@ class S_beranda extends CI_Controller {
         }
     }
 
-    public function cetak_pdf()
-    {
+    public function cetak_pdf() {
         $data['transaksi'] = $this->m_pengeluaranuser->get_pengeluaran_user($this->session->userdata('idUser'));
 
         $this->load->view('data_master/user_pdf', $data);
     }
+
 }
 
 ?>

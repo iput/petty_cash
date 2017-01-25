@@ -19,7 +19,7 @@ foreach ($report as $result) {
 }
 ?>
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#data_statistik').highcharts({
             chart: {
                 type: 'column',
@@ -65,7 +65,7 @@ foreach ($report as $result) {
                 },
             },
             tooltip: {
-                formatter: function() {
+                formatter: function () {
                     return 'The value for <b>' + this.x + '</b> is <b>' + Highcharts.numberFormat(this.y, 0) + '</b>, in ' + this.series.name;
                 }
             },
@@ -77,7 +77,7 @@ foreach ($report as $result) {
                         enabled: true,
                         color: '#045396',
                         align: 'center',
-                        formatter: function() {
+                        formatter: function () {
                             return Highcharts.numberFormat(this.y, 0);
                         }, // one decimal
                         y: 0, // 10 pixels down from the top
