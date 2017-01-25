@@ -65,12 +65,6 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">Foto Pengeluaran</label>
-                                        <div class="col-md-8">
-                                            <input type="file" name="edit_foto" value="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                         <div class="col-md-3"></div>
                                         <div class="col-md-8">
                                             <button type="button" class="btn btn-danger btn-flat" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Batal</button>

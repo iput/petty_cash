@@ -64,8 +64,7 @@ class C_pengeluaran extends CI_Controller {
             'namaPengeluaran' => $this->input->post('edit_keterangan_pengeluaran'),
             'jumlahPengeluaran' => $this->input->post('edit_nilai_pengeluaran'),
             'tanggal' => date('Y-m-d'),
-            'jam' => date('H:i:s'),
-            'foto' => "data");
+            'jam' => date('H:i:s'));
         $hasil = $this->m_pengeluaran->update_pengeluaran('tb_pengeluaran', $data_update, $id_pengeluaran);
 
         if ($hasil >= 0) {

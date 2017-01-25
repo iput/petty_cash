@@ -9,6 +9,7 @@
         <!-- Bootstrap 3.3.6 -->
         <!-- Bootstrap 3.3.6 -->
         <link rel="stylesheet" href="<?php echo base_url() . "assets/bootstrap/css/bootstrap.min.css"; ?>">
+        <link rel="icon" type="image/png" href="<?php echo base_url('assets/logo/logo-cash.png'); ?>">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
         <!-- Ionicons -->

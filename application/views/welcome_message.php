@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
-
+	<link rel="icon" type="image/png" href="<?php echo base_url('assets/logo/logo-cash.png'); ?>">
 	<style type="text/css">
 
 	::selection { background-color: #E13300; color: white; }
