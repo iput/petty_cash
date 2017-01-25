@@ -39,6 +39,7 @@ class M_get extends CI_Model {
 
         // $this->db->order_by('idPengeluaran','ASC');
         // $data_project = $this->db->get_where('tb_pengeluaran',array('idUser'=>$id_user));
+        $this->db->distinct();
         $this->db->select('tb_project.namaProject, tb_project.idProject');
         $this->db->from('tb_project');
         $this->db->join('tb_data', 'tb_data.idProject=tb_project.idProject');
