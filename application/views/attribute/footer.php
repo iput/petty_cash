@@ -11,6 +11,7 @@
 
 <!-- jQuery 2.2.3 -->
 <script src="<?php echo base_url() . "assets/plugins/jQuery/jquery-2.2.3.min.js"; ?>"></script>
+
 <!-- jQuery UI 1.11.4 -->
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -300,6 +301,50 @@
                 }
             });
         });
+    });
+</script>
+
+<?php
+foreach ($report as $result) {
+    $bulan[] = $result->tanggal;
+    $value[] = (float)$result->jumlahPengeluaran;
+}
+?>
+
+<script src="<?php echo base_url('assets/plugins/chart/highcharts.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/plugins/chart/exporting.js'); ?>" type="text/javascript"></script>
+<script type="text/javascript">
+    var chart1;
+    $(document).ready(function(){
+        chart1 = new Highcharts.Chart({
+        chart : {
+            renderTo : 'data_statistik',
+            type : 'column'
+        },
+        title: {
+            text : 'Data Pengeluaran dihitung Perbulan'
+        },
+        plotOptions:{
+            column :{
+                depth : 25
+            }
+        },
+        credits : {
+            enabled : false
+        },
+        xAxis : {
+            categories : <?php echo json_encode($bulan);?>
+        },
+        yAxis : {
+            title : {
+                text : 'Jumlah Pengeluaran'
+            }
+        },
+        series: [{
+            name: 'laporan Pengeluaran',
+            data: <?php echo json_encode($value);?>
+        }]
+    });
     });
 </script>
 </body>
