@@ -300,8 +300,13 @@
                 }
             });
         });
-        $('#btn_detail').click(function(){
-            <?php
+    });
+</script>
+<script src="<?php echo base_url('assets/plugins/chart/highcharts.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/plugins/chart/exporting.js'); ?>" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+<?php
             foreach ($report as $result) {
                 $bulan[] = $result->tanggal;
                 $value[] = (float)$result->jumlahPengeluaran;
@@ -337,12 +342,7 @@
             data: <?php echo json_encode($value);?>
         }]
     });
-        });
     });
 </script>
-
-
-<script src="<?php echo base_url('assets/plugins/chart/highcharts.js'); ?>" type="text/javascript"></script>
-<script src="<?php echo base_url('assets/plugins/chart/exporting.js'); ?>" type="text/javascript"></script>
 </body>
 </html>
