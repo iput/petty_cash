@@ -70,7 +70,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="container">
 	<h1>Halaman Reset Password Tidak Tersedia</h1>
 	<div id="body">
-		<?php echo $error; ?>
 		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
 		<p>reset password hanya bisa dilakukan setelah 1 jam konfirmasi email</p>
 

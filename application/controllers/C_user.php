@@ -10,6 +10,7 @@ class C_user extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('m_user');
+        $this->load->library('randomPassword');
     }
 
     public function index() {
@@ -35,7 +36,7 @@ class C_user extends CI_Controller {
 
         if ($parameter == "simpan_data") {
             $post = $this->input->post();
-
+            $this->randomPassword->acakpass();
             $data_user = $post['reg_username'];
             $data_email = $post['reg_email'];
             $data_password = $post['reg_password'];
@@ -59,10 +60,22 @@ class C_user extends CI_Controller {
             redirect('c_registrasi/index');
         }
     }
-
+    
+     public function acakpass($panjang)
+        {
+    $karakter= 'NINDYagustina123456789';
+    $string = '';
+    for ($i = 0; $i < $panjang; $i++) {
+    $pos = rand(0, strlen($karakter)-1);
+    $string .= $karakter{$pos};
+    }
+    return $string;
+        }
+        
     public function addUser() {
         $username = $this->input->post('txt_username');
         $email = $this->input->post('txt_email');
+        $password = $this->acakpass(8);
         $data = $this->m_user->select_data($username, $email);
         echo json_encode($data);
         if ($data) {
@@ -71,7 +84,7 @@ class C_user extends CI_Controller {
             $field = array(
                 'username' => $username,
                 'email' => $email,
-                'password' => $this->input->post('txt_password'),
+                'password' => $password,
                 'level' => $this->input->post('combo_level')
             );
             $result = $this->m_user->addUser('tb_user', $field);
