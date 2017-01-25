@@ -243,7 +243,6 @@
         $('#tabel_project').dataTable();
     });
 </script>
-
 <script type="text/javascript">
     $(function() {
 
@@ -301,22 +300,15 @@
                 }
             });
         });
-    });
-</script>
-
-<?php
-foreach ($report as $result) {
-    $bulan[] = $result->tanggal;
-    $value[] = (float)$result->jumlahPengeluaran;
-}
-?>
-
-<script src="<?php echo base_url('assets/plugins/chart/highcharts.js'); ?>" type="text/javascript"></script>
-<script src="<?php echo base_url('assets/plugins/chart/exporting.js'); ?>" type="text/javascript"></script>
-<script type="text/javascript">
-    var chart1;
-    $(document).ready(function(){
-        chart1 = new Highcharts.Chart({
+        $('#btn_detail').click(function(){
+            <?php
+            foreach ($report as $result) {
+                $bulan[] = $result->tanggal;
+                $value[] = (float)$result->jumlahPengeluaran;
+            }
+            ?>
+            var chart1;
+             chart1 = new Highcharts.Chart({
         chart : {
             renderTo : 'data_statistik',
             type : 'column'
@@ -345,7 +337,12 @@ foreach ($report as $result) {
             data: <?php echo json_encode($value);?>
         }]
     });
+        });
     });
 </script>
+
+
+<script src="<?php echo base_url('assets/plugins/chart/highcharts.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/plugins/chart/exporting.js'); ?>" type="text/javascript"></script>
 </body>
 </html>
