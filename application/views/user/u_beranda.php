@@ -18,7 +18,7 @@
                 <a href="<?php echo base_url("s_pengeluaran"); ?>" type="button" class="btn btn-primary btn-flat">
                 <span class="fa fa-plus"></span>&nbsp;Tambah Pengeluaran</a>
 
-                <div class="btn-group navbar-right" style="margin-right: 10px;">
+                <div class="btn-group pull-right" style="margin-right: 10px;">
                     <button type="button" class="btn btn-default dropdown-toggle btn-flat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Cetak Data Transaksi <span class="caret"></span>
                     </button>

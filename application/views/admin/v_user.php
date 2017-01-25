@@ -13,9 +13,7 @@
         </div>
         <!-- awal body -->
         <div class="box-body">
-            <div class="col-md-1" style="margin: 10px;">
-                <button class="btn btn-primary btn-flat" id ="btnAdd"><span class="glyphicon glyphicon-plus"></span> Tambah Pengguna</button>
-            </div>
+            <button style="margin-bottom: 10px;" class="btn btn-primary btn-flat" id ="btnAdd"><span class="glyphicon glyphicon-plus"></span> Tambah Pengguna</button>
 
             <!-- modal -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
