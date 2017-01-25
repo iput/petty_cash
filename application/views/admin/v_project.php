@@ -70,14 +70,6 @@
                 </div>
             </form>
 
-<<<<<<< HEAD
-            <div class="modal fade" id="edit_project" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header bg-primary">
-                            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-                            <h3>edit data Project</h3>
-=======
 <div class="modal fade" id="edit_project" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -114,7 +106,6 @@
                         <label class="control-label col-md-3">Sisa Anggaran</label>
                         <div class="col-md-8">
                             <input type="text" name="edit_sisa_project" class="form-control col-md-6" placeholder="Rp.">
->>>>>>> 590f444a4205ad662e16afbeefc65871ef6a37fd
                         </div>
                         <div class="modal-body">
                             <form class="form-horizontal"  method="POST" id="form_edit_project">

@@ -14,7 +14,6 @@ class C_Project extends CI_Controller {
 
     public function index() {
         if ($this->session->userdata('username') && $this->session->userdata('idUser')) {
-
             $data['project'] = $this->m_project->select_data();
             $this->load->view('attribute/header');
             $this->load->view('admin/v_project');
