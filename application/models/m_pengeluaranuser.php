@@ -17,7 +17,7 @@ class M_pengeluaranuser extends CI_Model {
     }
 
     public function get_pengeluaran_user($id) {
-        $this->db->select('tb_user.username,tb_user.idUser, tb_pengeluaran.idProject, tb_project.settingAnggaran,tb_pengeluaran.idPengeluaran,tb_pengeluaran.tanggal,tb_pengeluaran.jumlahPengeluaran, tb_pengeluaran.namaPengeluaran, tb_pengeluaran.jam');
+        $this->db->select('tb_user.username,tb_user.idUser, tb_project.namaProject, tb_project.settingAnggaran,tb_pengeluaran.idPengeluaran,tb_pengeluaran.tanggal,tb_pengeluaran.jumlahPengeluaran, tb_pengeluaran.namaPengeluaran, tb_pengeluaran.jam');
         $this->db->from('tb_user');
         $this->db->join('tb_pengeluaran', 'tb_user.idUser=tb_pengeluaran.idUser');
         $this->db->join('tb_project', 'tb_project.idProject=tb_pengeluaran.idProject');
@@ -39,7 +39,7 @@ class M_pengeluaranuser extends CI_Model {
         return $data;
 
     }
-<<<<<<< HEAD
+
     public function get_nama_project($id){
         $this->db->select('namaProject');
         $this->db->from('tb_project');
@@ -48,7 +48,7 @@ class M_pengeluaranuser extends CI_Model {
         $data = $hasil->result_array();
         return $data;
     }
-=======
+
     public function tampil_statistik($id) {
           $hasil = $this->db->query('select date_format(tanggal,"%m") as bulan, sum(jumlahPengeluaran) as pengeluaran from tb_pengeluaran where idUser='.$id.' group by date_format(tanggal,"%m")');
         if ($hasil->num_rows() > 0) {
@@ -59,7 +59,7 @@ class M_pengeluaranuser extends CI_Model {
         }
     }
     
->>>>>>> 1f09048008ac2501bbb5772f7800556df2947d56
+
 
 }
 
