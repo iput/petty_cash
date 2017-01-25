@@ -39,6 +39,7 @@ class M_pengeluaranuser extends CI_Model {
         return $data;
 
     }
+<<<<<<< HEAD
     public function get_nama_project($id){
         $this->db->select('namaProject');
         $this->db->from('tb_project');
@@ -47,6 +48,18 @@ class M_pengeluaranuser extends CI_Model {
         $data = $hasil->result_array();
         return $data;
     }
+=======
+    public function tampil_statistik($id) {
+          $hasil = $this->db->query('select date_format(tanggal,"%m") as bulan, sum(jumlahPengeluaran) as pengeluaran from tb_pengeluaran where idUser='.$id.' group by date_format(tanggal,"%m")');
+        if ($hasil->num_rows() > 0) {
+            foreach ($hasil->result() as $nilai) {
+                $data[] = $nilai;
+            }
+            return $data;
+        }
+    }
+    
+>>>>>>> 1f09048008ac2501bbb5772f7800556df2947d56
 
 }
 

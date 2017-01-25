@@ -308,8 +308,8 @@
     $(document).ready(function(){
 <?php
             foreach ($report as $result) {
-                $bulan[] = $result->tanggal;
-                $value[] = (float)$result->jumlahPengeluaran;
+                $bulan[] = $result->bulan;
+                $value[] = (float)$result->pengeluaran;
             }
             ?>
             var chart1;
@@ -338,7 +338,7 @@
             }
         },
         series: [{
-            name: 'laporan Pengeluaran',
+            name: 'Jumlah Pengeluaran dihitung per bulan',
             data: <?php echo json_encode($value);?>
         }]
     });
