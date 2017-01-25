@@ -33,8 +33,7 @@ class C_pengeluaran extends CI_Controller {
         }
     }
 
-    public function tambah_pengeluaran()
-    {
+    public function tambah_pengeluaran() {
         $data_u['idUser'] = $this->m_get->get_user();
         $data_tampil['pengeluaran'] = $this->m_pengeluaran->select_data();
         $this->load->view('attribute/header');
@@ -69,7 +68,7 @@ class C_pengeluaran extends CI_Controller {
             'foto' => "data");
         $hasil = $this->m_pengeluaran->update_pengeluaran('tb_pengeluaran', $data_update, $id_pengeluaran);
 
-        if ($hasil>=0) {
+        if ($hasil >= 0) {
             redirect('C_pengeluaran/index');
         }
     }
@@ -95,16 +94,15 @@ class C_pengeluaran extends CI_Controller {
         $this->load->view('data_master/master_pengeluaran_pdf', $data);
     }
 
-    public function insert_pengeluaran()
-    {
-        $this->form_validation->set_rules('txt_nilai_pengeluaran','Jumlah Pengeluaran', 'required');   
-        $this->form_validation->set_rules('txt_keterangan','Nama Pengeluaran', 'required'); 
-        $this->form_validation->set_rules('combo_pengguna','Pengguna Pengeluaran', 'required');     
+    public function insert_pengeluaran() {
+        $this->form_validation->set_rules('txt_nilai_pengeluaran', 'Jumlah Pengeluaran', 'required');
+        $this->form_validation->set_rules('txt_keterangan', 'Nama Pengeluaran', 'required');
+        $this->form_validation->set_rules('combo_pengguna', 'Pengguna Pengeluaran', 'required');
 
-        if($this->form_validation->run() == FALSE){
+        if ($this->form_validation->run() == FALSE) {
             redirect('C_pengeluaran/tambah_pengeluaran');
-        }else{
-            
+        } else {
+
             $config['upload_path'] = './gambar/';
             $config['allowed_types'] = 'jpg|png|bmp';
             $config['max_size'] = '300';
@@ -115,16 +113,16 @@ class C_pengeluaran extends CI_Controller {
 
             if (!$this->upload->do_upload('userfile')) {
                 echo $this->upload->display_errors();
-            }else{
+            } else {
                 $gambar = $this->upload->data();
                 $data_update = array(
-                'idUser' => $this->input->post('edit_nama_user'),
-                'idProject' => $this->input->post('edit_nama_project'),
-                'namaPengeluaran' => $this->input->post('edit_keterangan_pengeluaran'),
-                'jumlahPengeluaran' => $this->input->post('edit_nilai_pengeluaran'),
-                'tanggal' => date('Y-m-d'),
-                'jam' => date('H:i:s'),
-                'foto' => $gambar['file_name']);
+                    'idUser' => $this->input->post('edit_nama_user'),
+                    'idProject' => $this->input->post('edit_nama_project'),
+                    'namaPengeluaran' => $this->input->post('edit_keterangan_pengeluaran'),
+                    'jumlahPengeluaran' => $this->input->post('edit_nilai_pengeluaran'),
+                    'tanggal' => date('Y-m-d'),
+                    'jam' => date('H:i:s'),
+                    'foto' => $gambar['file_name']);
                 $this->m_pengeluaran->insert_pengeluaran('tb_pengeluaran', $data_update);
                 redirect('C_pengeluaran');
             }
@@ -143,7 +141,7 @@ class C_pengeluaran extends CI_Controller {
             $config['max_height'] = '2000';
             $this->upload->initialize($config);
             $this->load->library('upload', $config);
-            if (!$this->upload->do_upload('filefoto')) {
+            if (!$this->upload->do_upload('userfile')) {
                 $error = array('error' => $this->upload->display_errors());
                 $this->load->view('welcome_message', $error);
             } else {
@@ -158,7 +156,7 @@ class C_pengeluaran extends CI_Controller {
                 // $angka2 = str_replace("Rp. ", "", $angka1);
                 // $angka3 = str_replace(".", "", $angka2);
                 $idProject = $post['combo_kategori'];
-                if ($idProject == 0 ){
+                if ($idProject == 0) {
                     $idProject = NULL;
                 }
 
@@ -176,26 +174,22 @@ class C_pengeluaran extends CI_Controller {
                 foreach ($dt_sisa as $d) {
                     $sisa = $d['sisa'];
                 }
-                
+
                 $sisa2 = $sisa - $angka3;
-                
-                $sisa_update = array (
+
+                $sisa_update = array(
                     "sisa" => $sisa2
-                    );
-                
-                if ($idProject == NULL){
+                );
+
+                if ($idProject == NULL) {
                     $result = $this->m_pengeluaranuser->insert_data('tb_pengeluaran', $data_modal);
-                    redirect('Welcome');
-                }
-                
-                else if ($sisa < 0 && $idProject != NULL){
+                    redirect('C_pengeluaran/index');
+                } else if ($sisa < 0 && $idProject != NULL) {
                     echo "Uang Anda tidak cukup";
-                }
-                
-                else{
-                $this->m_pengeluaran->insert_pengeluaran('tb_pengeluaran', $data_modal);                   
-                $this->m_project->update_sisa('tb_project', $sisa_update, $idProject);
-                redirect('C_statistik');
+                } else {
+                    $this->m_pengeluaran->insert_pengeluaran('tb_pengeluaran', $data_modal);
+                    $this->m_project->update_sisa('tb_project', $sisa_update, $idProject);
+                    redirect('C_pengeluaran/index');
                 }
             }
         }

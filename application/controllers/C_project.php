@@ -25,8 +25,7 @@ class C_Project extends CI_Controller {
         }
     }
 
-    public function tampil_id()
-    {
+    public function tampil_id() {
         $id = $this->input->get('id');
         $data = $this->m_project->tampil_id($id);
         echo json_encode($data);
@@ -79,21 +78,19 @@ class C_Project extends CI_Controller {
         }
     }
 
-    public function update_project()
-    {
+    public function update_project() {
         $id_project = $this->input->post('id_project');
         $data_update = array(
-            'namaProject' =>$this->input->post('edit_nama_project'),
+            'namaProject' => $this->input->post('edit_nama_project'),
             'anggaran' => $this->input->post('edit_jumlah_anggaran'),
-            'settingAnggaran'=> $this->input->post('edit_seting_anggaran'),
-            'sisa' =>$this->input->post('edit_sisa_project'));
+            'settingAnggaran' => $this->input->post('edit_seting_anggaran'),
+            'sisa' => $this->input->post('edit_sisa_project'));
 
         $result = $this->m_project->update_data_project('tb_project', $data_update, $id_project);
-        if ($result>=0) {
+        if ($result >= 0) {
             redirect('C_project');
         }
     }
-
 
     public function delete_project($id) {
         $id = array('idProject' => $id);

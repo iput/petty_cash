@@ -39,7 +39,7 @@
         <![endif]-->
         <style type="text/css">
             body{
-                background: url('<?php echo base_url(assets/upload/bg.jpg); ?>') no-repeat center;
+                background: url('<?php echo base_url(assets / upload / bg . jpg); ?>') no-repeat center;
             }
         </style>
     </head>
@@ -52,7 +52,7 @@
             <div class="login-box-body">
                 <p class="login-box-msg">Gunakan akun anda untuk akses Petty Cash</p>
 
-                <form action="<?php echo base_url('c_login/login_process');?>" method="post">
+                <form action="<?php echo base_url('c_login/login_process'); ?>" method="post">
                     <div class="form-group has-feedback">
                         <input type="text"  name="txt_log_user" class="form-control" placeholder="Username / Email" required="">
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -85,7 +85,7 @@
         <!-- iCheck -->
         <script src="<?php echo base_url("assets/plugins/iCheck/icheck.min.js"); ?>"></script>
         <script>
-            $(function() {
+            $(function () {
                 $('input').iCheck({
                     checkboxClass: 'icheckbox_square-blue',
                     radioClass: 'iradio_square-blue',
