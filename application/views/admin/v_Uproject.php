@@ -17,7 +17,7 @@
         <!-- box body -->
         <div class="box-body">
             <div>
-                <form class="form-horizontal" id="formProyek" action="<?php echo base_url('c_project/insert_tbdata') ?>">
+                <form class="form-horizontal" id="formProyek" method="post" action="<?php echo base_url('c_project/insert_tbdata') ?>">
                     <div class="form-group">
                         <label class="control-label col-md-2">Nama Proyek : </label>
                         <div class="col-md-6">
@@ -29,6 +29,32 @@
                             </select>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <table id="tabel_user_project" class="table table-hover table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nama Anggota</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($idUser as $data): ?>
+                                    <tr> 
+                                        <td>
+                                            <input name="nilai[]" type="checkbox"  value="<?php echo $data['idUser']; ?>"/>
+                                        </td>
+
+                                        <td align='center'><?php echo $data['username']; ?></td> 
+                                    </tr>
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary btn-flat"><span class="glyphicon glyphicon-save"></span> Simpan</button>  
+                    </div>
+
+
                 </form>
             </div>
 

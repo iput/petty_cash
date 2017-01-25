@@ -33,10 +33,10 @@ class C_Project extends CI_Controller {
     public function user_project() {
         if ($this->session->userdata('username') && $this->session->userdata('idUser')) {
             $data['idProject'] = $this->m_project->get_namaproject();
-            $user = $this->m_user->getAllUser();
+            $data['idUser'] = $this->m_user->getAllUser();
             $this->load->view('attribute/header');
             $this->load->view('admin/v_Uproject', $data);
-            $this->load->view('tabel/tabel_Uproject', array('user' => $user));
+//            $this->load->view('tabel/tabel_Uproject');
             $this->load->view('attribute/footer');
         } else {
             $this->load->view('v_login');
@@ -44,11 +44,19 @@ class C_Project extends CI_Controller {
     }
 
     public function insert_tbdata() {
+        $post = $this->input->post();
+        $idUser = $post['nilai'];
+        $banyak = count($idUser);
+        $idProject = $post['combo_level'];
+        
+        for ($i = 0; $i< $banyak; $i++){
         $field = array(
-            'idProject' => $this->input->post('idProject'),
-            'idUser' => $this->input->post('idUser')
+          'idProject' => $idProject,
+          'idUser' => $idUser[$i]
         );
-        $result = $this->m_user->addUser('tb_data', $field);
+        $result = $this->m_user->addUser('tb_data', $field);   
+        }
+        
         $msg['success'] = FALSE;
         if ($result) {
             $msg['success'] = TRUE;
@@ -69,7 +77,7 @@ class C_Project extends CI_Controller {
                 'namaProject' => $post['txt_nm_project'],
                 'anggaran' => $post['txt_anggaran'],
                 'settingAnggaran' => $settingAnggaran,
-                'sisa' => $post['txt_sisa_angg']);
+                'sisa' => $post['txt_anggaran']);
             $result = $this->m_project->insert_data_project('tb_project', $data_in);
             if ($result >= 0) {
                 redirect('C_project');
@@ -83,7 +91,7 @@ class C_Project extends CI_Controller {
             'namaProject' => $this->input->post('edit_nama_project'),
             'anggaran' => $this->input->post('edit_jumlah_anggaran'),
             'settingAnggaran' => $this->input->post('edit_seting_anggaran'),
-            'sisa' => $this->input->post('edit_sisa_project'));
+            );
 
         $result = $this->m_project->update_data_project('tb_project', $data_update, $id_project);
         if ($result >= 0) {

@@ -48,13 +48,7 @@
                                         <option value="bulanan">Bulanan</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Sisa Anggaran</label>
-                                <div class="col-md-8">
-                                    <input type="text" name="txt_sisa_angg" class="form-control col-md-6" placeholder="Rp.">
-                                </div>
-                            </div>
+                            </div>                          
                             <div class="form-group">
                                 <div class="col-md-3"></div>
                                 <div class="col-md-8">
@@ -100,12 +94,6 @@
                                 </select>
                             </div>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Sisa Anggaran</label>
-                        <div class="col-md-8">
-                            <input type="text" name="edit_sisa_project" class="form-control col-md-6" placeholder="Rp.">
-                        </div>
-                        </div>
                      
                                 <div class="form-group">
                                     <div class="col-md-3"></div>
