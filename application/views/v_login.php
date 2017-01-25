@@ -29,7 +29,7 @@
         <link rel="stylesheet" href="<?php echo base_url() . "assets/plugins/daterangepicker/daterangepicker.css"; ?>">
         <!-- bootstrap wysihtml5 - text editor -->
         <link rel="stylesheet" href="<?php echo base_url() . "assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"; ?>">
-        <link rel="icon" type="image/png" href="<?php echo base_url('gambar/logo/logo.png'); ?>">
+        <link rel="icon" type="image/png" href="<?php echo base_url('assets/logo/logo.png'); ?>">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
