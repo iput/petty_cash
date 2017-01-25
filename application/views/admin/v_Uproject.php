@@ -13,7 +13,6 @@
             <h3 class="box-title">Data Pengguna Projects</h3>
         </div>
         <!-- box header end -->
-
         <!-- box body -->
         <div class="box-body">
                 <form class="form-horizontal" id="formProyek" method="post" action="<?php echo base_url('c_project/insert_tbdata') ?>">
@@ -52,10 +51,14 @@
                         </div>
                     </div>
                     <div class="form-group">
+<<<<<<< HEAD
                       <div class="col-xs-1">
                           <button type="submit" class="btn btn-primary btn-flat"><span class="glyphicon glyphicon-save"></span> Simpan</button>
                       </div>
                             
+=======
+                      <button type="submit" class="btn btn-primary btn-flat"><span class="glyphicon glyphicon-save"></span> Tambah</button>  
+>>>>>>> ab23ffc4ede851712963035fce500ce8e518d094
                     </div>
                 </form>
         </div>

@@ -9,6 +9,7 @@ class S_setting extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        $this->load->model('m_pengeluaranuser');
     }
 
     public function index() {
@@ -20,6 +21,7 @@ class S_setting extends CI_Controller {
             $this->load->view('v_login');
         }
     }
+
 
 }
 

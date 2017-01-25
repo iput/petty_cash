@@ -43,7 +43,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($transaksi as $row): ?>
+                    <?php foreach ($transaksi as $row): ?>                   
                         <tr>
                             <td><?php echo $row['namaProject']; ?></td>
                             <td><?php echo $row['settingAnggaran']; ?></td>
