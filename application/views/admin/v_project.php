@@ -16,9 +16,7 @@
 
         <!-- box body --> 
         <div class="box-body">
-            <div class="col-md-2" style="margin: 10px;">
-                 <button type="button" class="btn btn-primary btn-flat" data-toggle="modal" data-target="#project_baru"><span class="fa fa-plus"></span> Tambah Proyek</button>
-            </div>
+                 <button style="margin-bottom: 20px;" type="button" class="btn btn-primary btn-flat" data-toggle="modal" data-target="#project_baru"><span class="fa fa-plus"></span> Tambah Proyek</button>
 
             <!-- form tambah project -->
             <form class="modal fade form-horizontal" id="project_baru" method="POST" action="<?php echo base_url('C_project/insert_project/simpan_project'); ?>">
@@ -122,5 +120,4 @@
                     
                 </div>
             </div>
-             </div>
             </div>
