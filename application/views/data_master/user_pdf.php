@@ -55,7 +55,7 @@
                                     <th>Nama Project</th>
                                     <th>Anggaran Project</th>
                                     <th>Keterangan Pengeluaran</th>
-                                    <th>Tanggal</th>
+                                    <th>Waktu</th>
                                     <th>Jumlah</th>
                                 </tr>
                             </thead>
@@ -74,7 +74,7 @@
                 <tfoot>
                     <tr>
                     <?php foreach ($jumlah as $jumlah_p): ?>
-                        <td colspan="5"><strong>Total Pengeluaran</strong> </td>
+                        <td colspan="4"><strong>Total Pengeluaran</strong> </td>
                         <td> <?php echo $jumlah_p['SUM(jumlahPengeluaran)']; ?></td>
                     <?php endforeach ?>   
                     </tr>
