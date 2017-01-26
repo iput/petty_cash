@@ -11,6 +11,7 @@
         <div class="alert alert-success" style="display: none"></div>
         <div class="alert alert-info" style="display: none"></div>
         <div class="alert alert-danger" style="display: none"></div>
+        <div class="alert alert-warning" style="display: none"></div>
         <!-- awal body -->
         <div class="box-body">
             <button style="margin-bottom: 10px;" class="btn btn-primary btn-flat" id ="btnAdd"><span class="glyphicon glyphicon-plus"></span> Tambah Pengguna</button>

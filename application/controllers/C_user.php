@@ -129,6 +129,9 @@ class C_user extends CI_Controller {
             $this->session->set_flashdata('pesan_update', '<span class="glyphicon glyphicon-ok"></span>&nbsp;Berhasil Diperbarui');
 
             redirect('c_user/index');
+        }else{
+            $this->session->set_flashdata('pesan_gagal', '<span class="glyphicon glyphicon-remove"></span>&nbsp;Data Gagal Diupdate');
+            redirect('c_user/index');
         }
     }
 }
