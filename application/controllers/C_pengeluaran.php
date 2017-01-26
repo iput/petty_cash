@@ -58,9 +58,13 @@ class C_pengeluaran extends CI_Controller {
 
     public function update_pengeluaran() {
         $id_pengeluaran = $this->input->post('id_data_pengeluaran');
+        $idProject = $this->input->post('edit_nama_project');
+        if ($idProject==0) {
+            $idProject = null;
+        }
         $data_update = array(
             'idUser' => $this->input->post('edit_nama_user'),
-            'idProject' => $this->input->post('edit_nama_project'),
+            'idProject' => $idProject,
             'namaPengeluaran' => $this->input->post('edit_keterangan_pengeluaran'),
             'jumlahPengeluaran' => $this->input->post('edit_nilai_pengeluaran'),
             'tanggal' => date('Y-m-d H:i:s'));

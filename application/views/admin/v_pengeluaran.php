@@ -111,7 +111,9 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-3">Nama Project</label>
                                     <div class="col-md-8">
-                                        <select class="form-control col-md-4" name="combo_kategori" id="cb_project"></select>
+                                        <select class="form-control col-md-4" name="combo_kategori" id="cb_project">
+                                            
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
