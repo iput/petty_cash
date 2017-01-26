@@ -97,7 +97,7 @@ class C_user extends CI_Controller {
                 $result = $this->m_user->addUser('tb_user', $field);
                 $msg['success'] = FALSE;
                 if ($result) {
-                    $this->session->set_flashdata('msg', '<span class="glyphicon glyphicon-ok"></span>&nbsp;Data Baru Berhasil Ditambahkan');
+                    $this->session->set_flashdata('msg', '&nbsp;<span class="glyphicon glyphicon-ok"></span>&nbsp;Data Baru Berhasil Ditambahkan');
                     $msg['success'] = TRUE;
                     redirect('C_user/index');
                 }
@@ -111,7 +111,7 @@ class C_user extends CI_Controller {
     public function do_delete($id) {
         $result = $this->m_user->delete_data($id);
         if ($result>= 1) {
-            $this->session->set_flashdata('msg_hapus','<span class="glyphicon glyphicon-ok"></span>&nbsp;Data Berhasil dihapus');
+            $this->session->set_flashdata('msg_hapus','&nbsp;<span class="glyphicon glyphicon-ok"></span>&nbsp;Data Berhasil dihapus');
             redirect('C_user/index');
         }
         
@@ -126,11 +126,11 @@ class C_user extends CI_Controller {
         );
         $result = $this->m_user->update_data('tb_user', $field, $id);
         if ($result>=0) {
-            $this->session->set_flashdata('pesan_update', '<span class="glyphicon glyphicon-ok"></span>&nbsp;Berhasil Diperbarui');
+            $this->session->set_flashdata('pesan_update', '&nbsp;<span class="glyphicon glyphicon-ok"></span>&nbsp;Berhasil Diperbarui');
 
             redirect('c_user/index');
         }else{
-            $this->session->set_flashdata('pesan_gagal', '<span class="glyphicon glyphicon-remove"></span>&nbsp;Data Gagal Diupdate');
+            $this->session->set_flashdata('pesan_gagal', '&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;Data Gagal Diupdate');
             redirect('c_user/index');
         }
     }

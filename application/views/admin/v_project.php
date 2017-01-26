@@ -12,13 +12,11 @@
         <div class="box-header">
             <h3 class="box-title">Data Statistik Projects</h3>
         </div>
-        <div class="alert alert-success" style="display: none;"></div>
-        <div class="alert alert-danger" style="display: none;"></div>
-        <div class="alert alert-info" style="display: none;"></div>
-        <!-- box header end -->
-
         <!-- box body --> 
         <div class="box-body">
+        <div class="alert alert-success" style="display: none;"></div>
+        <div class="alert alert-danger" style="display: none;"></div>
+        <div class="alert alert-info" style="display: none;"></div>                
                  <button style="margin-bottom: 20px;" type="button" class="btn btn-primary btn-flat" data-toggle="modal" data-target="#project_baru"><span class="fa fa-plus"></span> Tambah Proyek</button>
 
             <!-- form tambah project -->
