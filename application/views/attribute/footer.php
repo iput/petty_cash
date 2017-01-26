@@ -254,6 +254,11 @@ $('.alert-success').hide();
         <?php if ($this->session->flashdata('pesan_update')): ?>
             $('.alert-info').html('<?php echo $this->session->flashdata('pesan_update'); ?>').fadeIn().delay(1000).fadeOut('slow');
         <?php endif ?>
+        
+        $('.alert-warning').hide();
+        <?php if ($this->session->flashdata('pesan_gagal')): ?>
+            $('.alert-warning').html('<?php echo $this->session->flashdata('pesan_gagal'); ?>').fadeIn().delay(1000).fadeOut('slow');
+        <?php endif ?>
     });
 </script>
 
