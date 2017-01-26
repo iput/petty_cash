@@ -9,7 +9,7 @@ class C_Project extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->load->model(array('m_project', 'm_user'));
+        $this->load->model(array('m_project', 'm_user', 'm_get'));
     }
 
     public function index() {
@@ -33,8 +33,7 @@ class C_Project extends CI_Controller {
     public function user_project() {
         if ($this->session->userdata('username') && $this->session->userdata('idUser')) {
             $data['idProject'] = $this->m_project->get_namaproject();
-            $data['idUser'] = $this->m_user->getAllUser();
-            
+            $data['idUser'] = $this->m_get->get_user();            
             $this->load->view('attribute/header');
             $this->load->view('admin/v_Uproject', $data);
             $this->load->view('attribute/footer');

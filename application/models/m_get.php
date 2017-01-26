@@ -13,8 +13,10 @@ class M_get extends CI_Model {
 
     public function get_user() {
         $this->db->order_by('username', 'ASC');
-        $username = $this->db->get('tb_user');
-
+        $this->db->select('idUser, username');
+        $this->db->from('tb_user');
+        $this->db->where('status', 'sudah terverifikasi');
+        $username = $this->db->get();
         return $username->result_array();
     }
 

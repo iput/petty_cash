@@ -41,13 +41,14 @@
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables/js/jquery.dataTables.min.js"; ?>"></script>
 
 <script>
-    sendEvent = function(sel, step) {
+    sendEvent = function (sel, step) {
         $(sel).trigger('next.m.' + step);
     }
 </script>
 
 <script type="text/javascript">
-    $(function() {
+
+    $(function () {
 
         $.ajaxSetup({
             type: "POST",
@@ -55,7 +56,7 @@
             cache: false,
         });
 
-        $("#cb_user").change(function() {
+        $("#cb_user").change(function () {
             var nilai = $(this).val();
             if (nilai > 0) {
                 $.ajax({
@@ -63,7 +64,7 @@
                         modul: 'user',
                         id: nilai
                     },
-                    success: function(respond) {
+                    success: function (respond) {
                         $("#cb_project").html(respond);
 
                     }
@@ -71,7 +72,7 @@
             }
         });
 
-        $('#edit_nama_user').change(function() {
+        $('#edit_nama_user').change(function () {
             var id_user = $(this).val();
             if (id_user > 0) {
                 $.ajax({
@@ -79,7 +80,7 @@
                         modul: 'user',
                         id: id_user
                     },
-                    success: function(respond) {
+                    success: function (respond) {
                         $('#edit_nama_project').html(respond);
                     }
                 })
@@ -87,16 +88,16 @@
         });
 
         //LOGOUT
-        $('#btkeluar').click(function() {
+        $('#btkeluar').click(function () {
             alert('anda yakin ingin keluar dari halaman admin?');
         });
         //ADD DATA
-        $('#btnAdd').click(function() {
+        $('#btnAdd').click(function () {
             $('#myModal').modal('show');
             $('#myModal').find('.modal-title').text('Add New User');
         });
         //SAVE DATA
-        $('#btnSave').click(function() {
+        $('#btnSave').click(function () {
             var url = $('#myForm').attr('action', '<?php echo base_url(); ?>c_user/addUser');
             var data = $('#myForm').serialize();
             //Validasi Form
@@ -137,7 +138,7 @@
                     data: data,
                     async: false,
                     dataType: 'json',
-                    success: function(response) {
+                    success: function (response) {
                         console.log(response);
                         if (response.success) {
                             $('#myModal').modal('hide');
@@ -148,14 +149,14 @@
                         }
                         window.location.href('<?php base_url() ?>c_user');
                     },
-                    error: function(fafa) {
+                    error: function (fafa) {
 
                     }
                 });
             }
         });
         //EDIT DATA
-        $('#showdata').on('click', '.btedit', function() {
+        $('#showdata').on('click', '.btedit', function () {
             var id = $(this).attr('data');
             $('#update_user').modal('show');
             $('#update_user').find('.modal-title').text(' Edit Data User');
@@ -167,7 +168,7 @@
                 data: {id: id},
                 async: false,
                 dataType: 'json',
-                success: function(data) {
+                success: function (data) {
                     console.log(data);
                     for (i = 0; i < data.length; i++) {
 //                    console.log(data[i].username);
@@ -177,38 +178,38 @@
                         $('select[name=edit_combo_level]').val(data[i].level);
                     }
                 },
-                error: function() {
+                error: function () {
                     alert('gagal tampil');
                 }
             });
         });
 
 //Simpan data pengelola proyek
-        $('#dataUser').on('click','.btpilih', function(){        
-        var level = $('select[name=combo_level]');    
-        var url = $('#formProyek').attr('action');
-        var id = $(this).attr('data');
-        var idProject = level.val();
-        var postData = {
-            'idUser' : id,
-            'idProject' : idProject
-        };
-        console.log(url);
-        console.log(postData);
-        $.ajax({
-            type : 'ajax',
-            method : 'post',
-            data : postData, 
-            dataType : 'json',
-            async : false,
-            success : function(response){
-                console.log(response);
-            },
-            error : function(fafa){
-                console.log(fafa);               
-            }
+        $('#dataUser').on('click', '.btpilih', function () {
+            var level = $('select[name=combo_level]');
+            var url = $('#formProyek').attr('action');
+            var id = $(this).attr('data');
+            var idProject = level.val();
+            var postData = {
+                'idUser': id,
+                'idProject': idProject
+            };
+            console.log(url);
+            console.log(postData);
+            $.ajax({
+                type: 'ajax',
+                method: 'post',
+                data: postData,
+                dataType: 'json',
+                async: false,
+                success: function (response) {
+                    console.log(response);
+                },
+                error: function (fafa) {
+                    console.log(fafa);
+                }
 
-        });
+            });
         });
 
 
@@ -217,25 +218,35 @@
 
 <!-- data tabel -->
 <script type="text/javascript">
-    $(function() {
+    $(function () {
         $('#tabel_user').dataTable();
     });
 
-    $(function() {
+    $(function () {
         $('#tabel_user_project').dataTable();
     });
 
-    $(function() {
+    $(function () {
         $('#tabel_bag_pengeluaran').dataTable();
     });
-    $(function(){
+    $(function () {
         $('#tabel_project').dataTable();
     });
 </script>
-<script type="text/javascript">
-    $(function() {
+<script>
+// assumes you're using jQuery
+$(document).ready(function() {
+$('.alert-success').hide();
+<?php if($this->session->flashdata('msg')){ ?>
+$('.alert-success').html('<?php echo $this->session->flashdata('msg'); ?>').show();
+});
+<?php } ?>
+</script>
 
-        $('#data_pengeluaran').on('click', '.btn_edit_pengeluaran', function() {
+<script type="text/javascript">
+    $(function () {
+
+        $('#data_pengeluaran').on('click', '.btn_edit_pengeluaran', function () {
             var id = $(this).attr('data');
             $('#modal_edit_pengeluaran').modal('show');
             $('#form_edit_pengeluaran').attr('action', '<?php echo base_url('C_pengeluaran/update_pengeluaran'); ?>');
@@ -246,7 +257,7 @@
                 data: {id: id},
                 async: false,
                 dataType: 'json',
-                success: function(data) {
+                success: function (data) {
                     console.log(data);
                     for (i = 0; i < data.length; i++) {
                         $('input[name = id_data_pengeluaran]').val(data[i].idPengeluaran);
@@ -256,25 +267,25 @@
                         $('textarea[name = edit_keterangan_pengeluaran]').val(data[i].namaPengeluaran);
                     }
                 },
-                error: function(data_in) {
+                error: function (data_in) {
                     console.log(data_in);
                     alert('gagal memanggil data');
                 }
             });
         });
 
-        $('#tag_project').on('click', '.btn_edit_project', function() {
+        $('#tag_project').on('click', '.btn_edit_project', function () {
             var id = $(this).attr('data');
             $('#edit_project').modal('show');
             $('#form_edit_project').attr('action', '<?php echo base_url('C_project/update_project'); ?>');
             $.ajax({
-                type : 'ajax',
-                url : '<?php echo base_url('C_project/tampil_id'); ?>',
-                method : 'GET',
-                data : {id: id},
-                async : false,
-                dataType : 'json',
-                success: function(data_p){
+                type: 'ajax',
+                url: '<?php echo base_url('C_project/tampil_id'); ?>',
+                method: 'GET',
+                data: {id: id},
+                async: false,
+                dataType: 'json',
+                success: function (data_p) {
                     for (i = 0; i < data_p.length; i++) {
                         $('input[name =id_project]').val(data_p[i].idProject);
                         $('input[name =edit_nama_project]').val(data_p[i].namaProject);
@@ -283,7 +294,7 @@
                         $('input[name =edit_sisa_project]').val(data_p[i].sisa);
                     }
                 },
-                error : function(data_in){
+                error: function (data_in) {
                     console.log(data_in);
                     alert('data Tidak bisa ditampilkan');
                 }
@@ -294,43 +305,43 @@
 <script src="<?php echo base_url('assets/plugins/chart/highcharts.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/plugins/chart/exporting.js'); ?>" type="text/javascript"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
-    <?php
-        foreach ($report as $result) {
-            $bulan[] = $result->bulan;
-            $value[] = (float)$result->pengeluaran;
-        }
-    ?>
-            var chart1;
-             chart1 = new Highcharts.Chart({
-        chart : {
-            renderTo : 'data_statistik',
-            type : 'column'
-        },
-        title: {
-            text : 'Data Pengeluaran dihitung Perbulan'
-        },
-        plotOptions:{
-            column :{
-                depth : 25
-            }
-        },
-        credits : {
-            enabled : false
-        },
-        xAxis : {
-            categories : <?php echo json_encode($bulan);?>
-        },
-        yAxis : {
-            title : {
-                text : 'Jumlah Pengeluaran'
-            }
-        },
-        series: [{
-            name: 'Jumlah Pengeluaran dihitung per bulan',
-            data: <?php echo json_encode($value);?>
-        }]
-    });
+    $(document).ready(function () {
+<?php
+foreach ($report as $result) {
+    $bulan[] = $result->bulan;
+    $value[] = (float) $result->pengeluaran;
+}
+?>
+        var chart1;
+        chart1 = new Highcharts.Chart({
+            chart: {
+                renderTo: 'data_statistik',
+                type: 'column'
+            },
+            title: {
+                text: 'Data Pengeluaran dihitung Perbulan'
+            },
+            plotOptions: {
+                column: {
+                    depth: 25
+                }
+            },
+            credits: {
+                enabled: false
+            },
+            xAxis: {
+                categories: <?php echo json_encode($bulan); ?>
+            },
+            yAxis: {
+                title: {
+                    text: 'Jumlah Pengeluaran'
+                }
+            },
+            series: [{
+                    name: 'Jumlah Pengeluaran dihitung per bulan',
+                    data: <?php echo json_encode($value); ?>
+                }]
+        });
     });
 </script>
 

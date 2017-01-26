@@ -16,6 +16,10 @@ class C_login extends CI_Controller {
 
     public function index() {
         $this->load->view('v_login');
+        
+        echo"  <script>
+            alert('selamat datang');
+            </script>";
     }
 
     public function lupa_password() {
@@ -61,10 +65,11 @@ class C_login extends CI_Controller {
                 redirect('c_login/index');
             }
         } else {
-            echo "salah";
-            echo $user;
-            echo $pass;
+            
             redirect('c_login/index');
+            echo "  <script>
+            alert('anda belum terdaftar');
+            </script>";
         }
     }
 
