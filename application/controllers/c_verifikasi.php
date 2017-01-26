@@ -21,8 +21,9 @@ class C_verifikasi extends CI_Controller {
         $husername='';
         $hcode='';
         $username = $this->session->userdata('nama');
+        $username2 = str_replace('-', ' ', $username);
         $code = $this->input->post('txt_code_user');
-        $data = $this->m_user->verifikasi_data($username, $code);
+        $data = $this->m_user->verifikasi_data($username2, $code);
         
         foreach ($data as $d) {
             $husername = $d['username'];

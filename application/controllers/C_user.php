@@ -54,14 +54,14 @@ class C_user extends CI_Controller {
 
     public function addUser() {
         $username = $this->input->post('txt_username');
+        $username2 = str_replace(' ', '-', $username);
         $email = $this->input->post('txt_email');
         $password = $this->acakpass(8);
         $kode = $this->acakcode(5);
-        $data = $this->m_user->select_data($username, $email);
-        echo json_encode($data);
+        $data = $this->m_user->select_data($username, $email);        
         if ($data) {
             $this->session->set_flashdata('pesan_gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Akun Sudah Ada');
-            $this->load->view('C_user/index');
+            redirect('C_user/index');
         } else {
             $config = array(
                 'protocol' => 'smtp',
@@ -77,7 +77,7 @@ class C_user extends CI_Controller {
                     . '<b>Username : </b>' . $username . '<br/>'
                     . '<b>Password : </b>' . $password . '<br/>'
                     . '<b>Kode Verifikasi : </b>' . $kode . '<br/>'
-                    . '<a href="' . base_url() . 'c_verifikasi/index/' . $username . '">Klik Link Ini untuk Verifikasi Akun Anda</a>';
+                    . '<a href="' . base_url() . 'c_verifikasi/index/' . $username2 . '">Klik Link Ini untuk Verifikasi Akun Anda</a>';
             $this->load->library('email', $config);
             $this->email->set_newline("\r\n");
             $this->email->from('gangsantri26@gmail.com'); // change it to yours
