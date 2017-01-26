@@ -97,37 +97,35 @@
                         <li class="header">MENU NAVIGASI UTAMA</li>
                         <li class="treeview">
                             <a href="<?php echo base_url("Welcome/index"); ?>">
-                                <i class="fa fa-home"></i> <span>Beranda</span>
+                                <i class="fa fa-home"></i><span>&nbsp;Beranda</span>
                             </a>
                         </li>
                         <li class="treeview">
                             <a href="">
-                                <i class="fa fa-files-o"></i>
-                                <span>Data Project</span>
+                                <i class="fa fa-files-o"></i>&nbsp;<span>Data Project</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-right pull-right"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="active"><a href="<?php echo base_url("c_project/index"); ?>"><i class="fa fa-calendar"></i> Data Project</a></li>
-                                <li><a href="<?php echo base_url("c_project/user_project"); ?>"><i  class="fa fa-users"></i>Data Pengguna Porject</a></li>
+                                <li class="active"><a href="<?php echo base_url("c_project/index"); ?>"><i class="fa fa-calendar"></i>&nbsp;Data Project</a></li>
+                                <li><a href="<?php echo base_url("c_project/user_project"); ?>"><i  class="fa fa-users"></i>&nbsp;Data Pengguna Porject</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
                             <a href="<?php echo base_url("C_user/index"); ?>">
-                                <i class="fa fa-users"></i> <span>Data User</span>
+                                <i class="fa fa-users"></i><span>&nbsp;Data User</span>
                             </a>
                         </li>
                         <li class="treeview">
                             <a href="<?php echo base_url("C_pengeluaran/index"); ?>">
-                                <i class="fa fa-pie-chart"></i>
-                                <span>Pengeluaran</span>
+                                <i class="fa fa-pie-chart"></i><span>&nbsp;Pengeluaran</span>
                             </a>
                         </li>
                         <li class="treeview">
                             <a href="<?php echo base_url("C_statistik/index"); ?>">
                                 <i class="fa fa-area-chart"></i>
-                                <span>Statistik</span>
+                                <span>&nbsp;Statistik</span>
                             </a>
                         </li>
                 </section>
