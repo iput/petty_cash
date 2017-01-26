@@ -181,11 +181,10 @@
                     console.log(data);
                     for (i = 0; i < data.length; i++) {
 //                    console.log(data[i].username);
-                        $('input[name=txt_id]').val(data[i].idUser);
-                        $('input[name=txt_username]').val(data[i].username);
-                        $('input[name=txt_email]').val(data[i].email);
-                        $('input[name=txt_password]').val(data[i].password);
-                        $('select[name=combo_level]').val(data[i].level);
+                        $('input[name=edit_txt_id]').val(data[i].idUser);
+                        $('input[name=edit_txt_username]').val(data[i].username);
+                        $('input[name=edit_txt_email]').val(data[i].email);
+                        $('select[name=edit_combo_level]').val(data[i].level);
                     }
                 },
                 error: function() {

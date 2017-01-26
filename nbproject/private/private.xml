@@ -1,4 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/models/m_pengeluaranuser.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/tabel/tabel_project.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/welcome_message.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/models/m_get.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/admin/v_statistik.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/controllers/Welcome.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/models/Mod_login.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/controllers/C_statistik.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/config/autoload.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/reset_password.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/controllers/C_user.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/user/u_beranda.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/controllers/C_project.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/attribute/header_user.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/admin/v_Uproject.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/user/u_pengeluaran.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/v_login.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/controllers/S_beranda.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/attribute/footer.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/controllers/c_login.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/models/m_project.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/tabel/tabel_Uproject.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/admin/v_tambah_pengeluaran.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/controllers/S_pengeluaran.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/admin/v_pengeluaran.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/controllers/Gambar.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/controllers/C_pengeluaran.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/v_verifikasi.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/controllers/c_verifikasi.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/admin/v_user.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/controllers/S_setting.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/models/m_user.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/admin/v_project.php</file>
+        </group>
+    </open-files>
 </project-private>

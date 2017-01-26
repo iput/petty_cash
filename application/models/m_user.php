@@ -7,7 +7,7 @@ class M_user extends CI_Model {
     function __construct() {
         parent::__construct();
     }
-
+    
     public function select_data($username, $email) {
         $data = $this->db->query("select * from tb_user where username='" . $username . "' or email='" . $email . "'");
         return $data->result_array();
@@ -51,6 +51,22 @@ class M_user extends CI_Model {
             return TRUE;
         }
         return FALSE;
+    }
+    
+    public function verifikasi_data($username, $code) {
+        $data = $this->db->query("select * from tb_user where username='" . $username . "' and BINARY kode_verifikasi='" . $code . "'");
+        return $data->result_array();
+    }
+    
+    public function update_status($tabel_update, $data_update, $param) {
+        $this->db->where($param);
+        $this->db->update($tabel_update, $data_update);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+//        return $data_update;
     }
 
 }
