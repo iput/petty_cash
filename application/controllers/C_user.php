@@ -58,10 +58,9 @@ class C_user extends CI_Controller {
         $password = $this->acakpass(8);
         $kode = $this->acakcode(5);
         $data = $this->m_user->select_data($username, $email);
-        echo json_encode($data);
         if ($data) {
             $this->session->set_flashdata('pesan_gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Akun Sudah Ada');
-            $this->load->view('C_user/index');
+            redirect('C_user/index');
         } else {
             $config = array(
                 'protocol' => 'smtp',
