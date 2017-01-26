@@ -238,7 +238,7 @@
 $(document).ready(function() {
 $('.alert-success').hide();
 <?php if ($this->session->flashdata('msg')) { ?>
-    $('.alert-success').html('<?php echo $this->session->flashdata('msg'); ?>').show();
+    $('.alert-success').html('<?php echo $this->session->flashdata('msg'); ?>').fadeIn().delay(4000).fadeOut('slow');
     });
 <?php } ?>
 </script>
