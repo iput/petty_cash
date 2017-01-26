@@ -54,7 +54,7 @@
                                     <th>Username</th>
                                     <th>Setting Anggaran</th>
                                     <th>Jumlah Pengeluaran</th>
-                                    <th>Tanggal</th>
+                                    <th>Waktu</th>
                                     <th>Keterangan Pengeluaran</th>
                                 </tr>
                             </thead>
@@ -73,7 +73,7 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="7">Jumlah Total</td>
+                                    <td colspan="6">Jumlah Total</td>
                                     <td></td>
                                 </tr>
                             </tfoot>

@@ -53,9 +53,9 @@ class M_pengeluaranuser extends CI_Model {
           $hasil = $this->db->query('select date_format(tanggal,"%m") as bulan, sum(jumlahPengeluaran) as pengeluaran from tb_pengeluaran where idUser='.$id.' group by date_format(tanggal,"%m")');
         if ($hasil->num_rows() > 0) {
             foreach ($hasil->result() as $nilai) {
-                $data[] = $nilai;
+                $output[] = $nilai;
             }
-            return $data;
+            return $output;
         }
     }
 }

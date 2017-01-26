@@ -46,7 +46,7 @@ header('Expires: 0');
             <th>Nama Project</th>
             <th>Anggaran Project</th>
             <th>Keterangan Pengeluaran</th>
-            <th>Tanggal</th>
+            <th>Waktu</th>
             <th>Jumlah Pengeluaran</th>
         </tr>
     </thead>
@@ -63,7 +63,7 @@ header('Expires: 0');
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="5"><strong>Jumlah Total Pengeluaran</strong></td>
+            <td colspan="4"><strong>Jumlah Total Pengeluaran</strong></td>
             <?php foreach ($jumlah as $data): ?>
             <td><?php echo $data['SUM(jumlahPengeluaran)']; ?></td>
             <?php endforeach ?>

@@ -48,7 +48,7 @@ header('Expires: 0');
             <th>Username</th>
             <th>Setting Anggaran</th>
             <th>Jumlah Pengeluaran</th>
-            <th>Tanggal</th>
+            <th>Waktu</th>
             <th>Keterangan Pengeluaran</th>
         </tr>
     </thead>
