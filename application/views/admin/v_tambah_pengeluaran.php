@@ -8,7 +8,7 @@
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">Data Pengeluaran baru</h3>
-
+            
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                     <i class="fa fa-minus"></i></button>
@@ -17,6 +17,10 @@
             </div>
         </div>
         <div class="box-body">
+            <div class="alert alert-success" style="display: none"></div>
+            <div class="alert alert-info" style="display: none"></div>
+            <div class="alert alert-danger" style="display: none"></div>
+            <div class="alert alert-warning" style="display: none"></div>
             <!-- <div class="col-xs-12"> -->
             <form class="form-horizontal" method="POST" enctype="multipart/form-data" action=" <?php echo base_url("C_pengeluaran/insert_pengeluaran/simpan_pengeluaran"); ?>" >
                 <div class="form-group">

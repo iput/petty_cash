@@ -80,5 +80,33 @@
          });
     });
 </script>
+<script>
+// proses menampilkan info berhasil
+$(document).ready(function() {
+$('.alert-success').hide();
+<?php if ($this->session->flashdata('msg')) { ?>
+    $('.alert-success').html('<?php echo $this->session->flashdata('msg'); ?>').fadeIn().delay(1000).fadeOut('slow');
+    });
+<?php } ?>
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.alert-danger').hide();
+        <?php if ($this->session->flashdata('msg_hapus')): ?>
+            $('.alert-danger').html('<?php echo $this->session->flashdata('msg_hapus'); ?>').fadeIn().delay(1000).fadeOut('slow');
+        <?php endif ?>
+
+        $('.alert-info').hide();
+        <?php if ($this->session->flashdata('pesan_update')): ?>
+            $('.alert-info').html('<?php echo $this->session->flashdata('pesan_update'); ?>').fadeIn().delay(1000).fadeOut('slow');
+        <?php endif ?>
+        
+        $('.alert-warning').hide();
+        <?php if ($this->session->flashdata('pesan_gagal')): ?>
+            $('.alert-warning').html('<?php echo $this->session->flashdata('pesan_gagal'); ?>').fadeIn().delay(1000).fadeOut('slow');
+        <?php endif ?>
+    });
+</script>
 </body>
 </html>

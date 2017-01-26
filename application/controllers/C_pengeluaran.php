@@ -68,7 +68,7 @@ class C_pengeluaran extends CI_Controller {
 
         if ($hasil >= 0) {
 
-            $this->session->set_flashdata('pesan_update', '<span class="glyphicon glyphicon-warning-ok"></span>&nbsp;Data Berhasil Diupdate');
+            $this->session->set_flashdata('pesan_update', '<span class="glyphicon glyphicon-ok"></span>&nbsp;Data Berhasil Diupdate');
             redirect('C_pengeluaran/index');
         }
         else{

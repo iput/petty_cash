@@ -49,7 +49,7 @@ class S_pengeluaran extends CI_Controller {
             $this->load->library('upload', $config);
             if (!$this->upload->do_upload('filefoto')) {
                 $error = array('error' => $this->upload->display_errors());
-                $this->load->view('welcome_message', $error);
+                $this->session->set_flashdata('pesan_gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.$error);
             } else {
                 $idUser = $this->session->userdata('idUser');
                 $gbr = $this->upload->data();
@@ -85,12 +85,15 @@ class S_pengeluaran extends CI_Controller {
 
                 if ($idProject == NULL) {
                     $result = $this->m_pengeluaranuser->insert_data('tb_pengeluaran', $data_modal);
+                    $this->session->set_flashdata('msg', '<span class="glyphicon glyphicon-ok"></span>&nbsp;Data Berhasil Disimpan');
                     redirect('S_setting');
                 } else if ($sisa < 0 && $idProject != NULL) {
-                    echo "Uang Anda tidak cukup";
+                    $this->session->set_flashdata('pesan_gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Uang Anda Tidak Cukup');
+                    redirect('S_pengeluaran');
                 } else {
                     $this->m_pengeluaranuser->insert_data('tb_pengeluaran', $data_modal);
                     $this->m_project->update_sisa('tb_project', $sisa_update, $idProject);
+                    $this->session->set_flashdata('msg', '<span class="glyphicon glyphicon-ok"></span>&nbsp;Data Berhasil Disimpan dan sisa uang project anda adalah'.$sisa2);
                     redirect('S_beranda/index');
                 }
             }
