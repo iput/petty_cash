@@ -56,7 +56,7 @@
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <input type="password" name="txt_log_password" class="form-control" placeholder="Password" required="">
+                        <input type="password" name="txt_log_password" class="form-control" placeholder="Password" required="" maxlength="8">
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
                     <div class="row">
