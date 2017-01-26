@@ -46,8 +46,8 @@ class C_login extends CI_Controller {
                 $this->session->set_userdata('idUser', $idUser);
                 redirect('c_login/admin_page');
             } else {
-                $this->session->set_flashdata('pesan_error_user','<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.$user.' bukan user yang terdaftar');
-                $this->session->set_flashdata('pesan_error_pass','<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.$pass.' bukan password yang tepat');
+                $this->session->set_flashdata('pesan_error_user','&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.$user.' bukan user yang terdaftar');
+                $this->session->set_flashdata('pesan_error_pass','&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.$pass.' bukan password yang tepat');
                 redirect('c_login/index');
             }
         } else if ($hlevel == 'user' && $hstatus=='sudah terverifikasi') {
@@ -56,13 +56,13 @@ class C_login extends CI_Controller {
                 $this->session->set_userdata('idUser', $idUser);
                 redirect('c_login/user_page');
             } else {
-                $this->session->set_flashdata('pesan_error_user','<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.$user.' bukan user yang terdaftar');
-                $this->session->set_flashdata('pesan_error_pass','<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.$pass.' bukan password yang tepat');
+                $this->session->set_flashdata('pesan_error_user','&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.$user.' bukan user yang terdaftar');
+                $this->session->set_flashdata('pesan_error_pass','&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.$pass.' bukan password yang tepat');
                 redirect('c_login/index');
             }
         } else {
-                $this->session->set_flashdata('pesan_error_user','<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.$user.' bukan user yang terdaftar');
-                $this->session->set_flashdata('pesan_error_pass','<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.$pass.' bukan password yang tepat');
+                $this->session->set_flashdata('pesan_error_user','&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.$user.' bukan user yang terdaftar');
+                $this->session->set_flashdata('pesan_error_pass','&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.$pass.' bukan password yang tepat');
             redirect('c_login/index');
         }
     }
