@@ -49,7 +49,7 @@
 
                 <div class="alert alert-danger pesan1" style="display: none;"></div>
                 <div class="alert alert-danger pesan2" style="display: none;"></div>
-
+                <div class="alert alert-danger pesan_verifikasi" style="display: none;"></div>
                 <form action="<?php echo base_url('c_login/login_process'); ?>" method="post">
                     <div class="form-group has-feedback">
                         <input type="text"  name="txt_log_user" class="form-control" placeholder="Username / Email" required="">
@@ -98,6 +98,15 @@
                 <?php if ($this->session->flashdata('pesan_error_user') && $this->session->flashdata('pesan_error_pass')): ?>
                      $('.pesan1').html('<?php echo $this->session->flashdata('pesan_error_user'); ?>').fadeIn().delay(4000).fadeOut('slow');
                      $('.pesan2').html('<?php echo $this->session->flashdata('pesan_error_pass'); ?>').fadeIn().delay(4500).fadeOut('slow');
+                <?php endif ?>
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.alert-danger').hide();
+                <?php if ($this->session->flashdata('pesan_verifikasi')): ?>
+                     $('.pesan_verifikasi').html('<?php echo $this->session->flashdata('pesan_verifikasi'); ?>').fadeIn().delay(4000).fadeOut('slow');
+                     
                 <?php endif ?>
             });
         </script>

@@ -60,7 +60,8 @@ class C_user extends CI_Controller {
         $data = $this->m_user->select_data($username, $email);
         echo json_encode($data);
         if ($data) {
-            $this->load->view('welcome_message');
+            $this->session->set_flashdata('pesan_gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Akun Sudah Ada');
+            $this->load->view('C_user/index');
         } else {
             $config = array(
                 'protocol' => 'smtp',
@@ -103,7 +104,8 @@ class C_user extends CI_Controller {
                 }
                 echo json_encode($msg);
             } else {
-                show_error($this->email->print_debugger());
+                $this->session->set_flashdata('pesan_gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Data Gagal Disimpan');
+//                show_error($this->email->print_debugger());
             }
         }
     }

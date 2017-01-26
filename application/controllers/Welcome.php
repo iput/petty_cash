@@ -100,7 +100,7 @@ class Welcome extends CI_Controller {
             $hemail = $d['email'];
         }
 
-        if ($to_email == $hemail && $hstatus=='sudah terverifikasi') {
+        if ($to_email == $hemail && $hstatus == 'sudah terverifikasi') {
             $config = array(
                 'protocol' => 'smtp',
                 'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -111,7 +111,7 @@ class Welcome extends CI_Controller {
                 'charset' => 'iso-8859-1',
                 'wordwrap' => TRUE
             );
-            $message = '<b>Link Reset Password Aplikasi Petty Cash</b><br/> '.'<a href="' . base_url() . 'Welcome/reset_password/' . $email . '_' . $code . '">Klik Disini untuk reset password<a/>';
+            $message = '<b>Link Reset Password Aplikasi Petty Cash</b><br/> ' . '<a href="' . base_url() . 'Welcome/reset_password/' . $email . '_' . $code . '">Klik Disini untuk reset password<a/>';
             $this->load->library('email', $config);
             $this->email->set_newline("\r\n");
             $this->email->from('gangsantri26@gmail.com'); // change it to yours
@@ -121,38 +121,42 @@ class Welcome extends CI_Controller {
             if ($this->email->send()) {
                 $field = array(
                     'email' => $to_email,
-                    'code' =>$code,
+                    'code' => $code,
                     'jam' => gmdate("H:i:s", time() + 60 * 60 * 7)
                 );
                 $this->Mod_login->save_reset('tb_reset', $field);
                 $this->session->set_flashdata('msg', '<span class="glyphicon glyphicon-ok"></span>&nbsp;Email Berhasil Terkirim');
+                redirect('c_login/index');
             } else {
                 $this->session->set_flashdata('gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Email gagal dikirim');
+                redirect('c_login/lupa_password');
             }
-        }
-        else if ($to_email == $hemail && $hstatus=='belum terverifikasi'){
+        } else if ($to_email == $hemail && $hstatus == 'belum terverifikasi') {
             $this->session->set_flashdata('gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Anda Belum Verifikasi Akun');
-        }
-        
-        else {
+            redirect('c_login/lupa_password');
+        } else {
             $this->session->set_flashdata('gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Masukkan Data yang benar');
+            redirect('c_login/lupa_password');
         }
     }
 
     public function action_reset() {
         $hcode = '';
         $hemail = '';
-        
+
         $this->form_validation->set_rules('password1', 'Password', 'required|min_length[8]|max_length[15]');
         $this->form_validation->set_rules('password2', 'Confirmation Password', 'required|min_length[8]|max_length[15]|matches[password1]');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('reset_password');
-            $this->session->set_flashdata('gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.  validation_errors());
-            echo validation_errors();
+            $email = $this->session->userdata('email');
+            $code = $this->session->userdata('code');
+            $email2 = str_replace('@', '-', $email);
+            $this->session->set_flashdata('gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;' . validation_errors());
+            redirect('Welcome/reset_password'.$email2.'/'.$code);
         } else {
             $email = $this->session->userdata('email');
             $code = $this->session->userdata('code');
+            $email2 = str_replace('@', '-', $email);
             $pass = $this->input->post('password1');
             $data = $this->Mod_login->get_jamreset($email, $code);
             foreach ($data as $d) {
@@ -165,6 +169,8 @@ class Welcome extends CI_Controller {
                 $this->load->view('v_login');
             } else {
                 $this->session->set_flashdata('gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Data Anda Salah');
+                redirect('Welcome/reset_password'.$email2.'/'.$code);
+                
             }
         }
     }

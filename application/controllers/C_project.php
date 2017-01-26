@@ -82,6 +82,10 @@ class C_Project extends CI_Controller {
                 $this->session->set_flashdata('msg', '&nbsp;<span class="glyphicon glyphicon-ok"></span>&nbsp;Data Berhasil Ditambahkan');
                 redirect('C_project');
             }
+            else{
+            $this->session->set_flashdata('pesan_gagal', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Data Gagal Ditambahkan');
+            redirect('C_project');    
+            }
         }
     }
 
@@ -99,6 +103,10 @@ class C_Project extends CI_Controller {
             $this->session->set_flashdata('pesan_update', '&nbsp;<span class="glyphicon glyphicon-ok"></span>&nbsp;Data Berhasil Diperbarui');
             redirect('C_project');
         }
+        else{
+            $this->session->set_flashdata('pesan_gagal', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Data Gagal Diperbarui');
+            redirect('C_project');
+        }
     }
 
     public function delete_project($id) {
@@ -108,6 +116,11 @@ class C_Project extends CI_Controller {
         if ($data >= 1) {
             $this->session->set_flashdata('msg_hapus', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Data Berhasil Dihapus');
             redirect(C_project);
+                    
+        }
+        else{
+            $this->session->set_flashdata('pesan_gagal', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Data Gagal Disimpan');
+            redirect('C_project');
         }
     }
 
