@@ -58,11 +58,7 @@ class C_user extends CI_Controller {
         $email = $this->input->post('txt_email');
         $password = $this->acakpass(8);
         $kode = $this->acakcode(5);
-<<<<<<< HEAD
         $data = $this->m_user->select_data($username, $email);        
-=======
-        $data = $this->m_user->select_data($username, $email);
->>>>>>> 835de4acb5a178ba081ee083559f86d113dc2bab
         if ($data) {
             $this->session->set_flashdata('pesan_gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Akun Sudah Ada');
             redirect('C_user/index');
@@ -133,7 +129,6 @@ class C_user extends CI_Controller {
         $result = $this->m_user->update_data('tb_user', $field, $id);
         if ($result>=0) {
             $this->session->set_flashdata('pesan_update', '&nbsp;<span class="glyphicon glyphicon-ok"></span>&nbsp;Berhasil Diperbarui');
-
             redirect('c_user/index');
         }else{
             $this->session->set_flashdata('pesan_gagal', '&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;Data Gagal Diupdate');
