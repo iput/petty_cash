@@ -9,7 +9,7 @@
         <div class="box">
             <!-- awal box body -->
             <div class="box-body">
-
+                    <p class="alert alert-info"></p>
                     <button style="margin-bottom: 10px;" type = "button" class="btn btn-primary btn-flat" data-toggle ="modal" data-target="#modal_tambah_pengeluaran"><span class="glyphicon glyphicon-plus"></span>&nbsp;Tambah Pengeluaran</button>
                 <div class="col-md-1.75 pull-right" style="margin-bottom: 10px;">
                     <div class="btn-group">

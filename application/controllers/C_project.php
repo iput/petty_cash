@@ -79,6 +79,7 @@ class C_Project extends CI_Controller {
                 'sisa' => $post['txt_anggaran']);
             $result = $this->m_project->insert_data_project('tb_project', $data_in);
             if ($result >= 0) {
+                $this->session->set_flashdata('msg', '<span class="glyphicon glyphicon-ok"></span>&nbsp;Data Berhasil Ditambahkan');
                 redirect('C_project');
             }
         }
@@ -90,10 +91,12 @@ class C_Project extends CI_Controller {
             'namaProject' => $this->input->post('edit_nama_project'),
             'anggaran' => $this->input->post('edit_jumlah_anggaran'),
             'settingAnggaran' => $this->input->post('edit_seting_anggaran'),
+            'sisa' => $this->input->post('edit_jumlah_anggaran')
             );
 
         $result = $this->m_project->update_data_project('tb_project', $data_update, $id_project);
         if ($result >= 0) {
+            $this->session->set_flashdata('pesan_update', '<span class="glyphicon glyphicon-ok"></span>&nbsp;Data Berhasil Diperbarui');
             redirect('C_project');
         }
     }
@@ -103,6 +106,7 @@ class C_Project extends CI_Controller {
         $data = $this->m_project->delete_data_project('tb_project', $id);
 
         if ($data >= 1) {
+            $this->session->set_flashdata('msg_hapus', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Data Berhasil Dihapus');
             redirect(C_project);
         }
     }

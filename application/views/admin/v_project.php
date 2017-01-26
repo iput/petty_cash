@@ -12,6 +12,9 @@
         <div class="box-header">
             <h3 class="box-title">Data Statistik Projects</h3>
         </div>
+        <div class="alert alert-success" style="display: none;"></div>
+        <div class="alert alert-danger" style="display: none;"></div>
+        <div class="alert alert-info" style="display: none;"></div>
         <!-- box header end -->
 
         <!-- box body --> 
