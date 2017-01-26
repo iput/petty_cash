@@ -32,16 +32,17 @@ class C_verifikasi extends CI_Controller {
         if ($username == $husername && $code == $hcode){
             $param = array(
               'username' =>$username,
-                'kode_verifikasi' => $code
+              'kode_verifikasi' => $code
             );
             $data_update = array(
               'status' => 'sudah terverifikasi'  
             );
             $this->m_user->update_status('tb_user', $data_update, $param);
+            $this->session->set_flashdata('msg', '<span class="glyphicon glyphicon-ok"></span>&nbsp;Akun Anda Sudah Terverifikasi');
             redirect('c_login');
         }
         else{
-            
+            $this->session->set_flashdata('gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Kode Anda Salah');
             redirect('c_verifikasi/index/'.$this->session->userdata('nama'));
         }
     }

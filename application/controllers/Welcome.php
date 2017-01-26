@@ -125,18 +125,17 @@ class Welcome extends CI_Controller {
                     'jam' => gmdate("H:i:s", time() + 60 * 60 * 7)
                 );
                 $this->Mod_login->save_reset('tb_reset', $field);
-                echo 'email sent';
-//                echo '<script type="text/javascript">alert("Email Terkirim")</script>';
+                $this->session->set_flashdata('msg', '<span class="glyphicon glyphicon-ok"></span>&nbsp;Email Berhasil Terkirim');
             } else {
-                show_error($this->email->print_debugger());
+                $this->session->set_flashdata('gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Email gagal dikirim');
             }
         }
         else if ($to_email == $hemail && $hstatus=='belum terverifikasi'){
-            echo 'akun anda belum terverifikasi';
+            $this->session->set_flashdata('gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Anda Belum Verifikasi Akun');
         }
         
         else {
-            echo "Masukkan Data yang benar";
+            $this->session->set_flashdata('gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Masukkan Data yang benar');
         }
     }
 
@@ -148,7 +147,8 @@ class Welcome extends CI_Controller {
         $this->form_validation->set_rules('password2', 'Confirmation Password', 'required|min_length[8]|max_length[15]|matches[password1]');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('welcome_message');
+            $this->load->view('reset_password');
+            $this->session->set_flashdata('gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.  validation_errors());
             echo validation_errors();
         } else {
             $email = $this->session->userdata('email');
@@ -161,9 +161,10 @@ class Welcome extends CI_Controller {
             }
             if ($hcode == $code && $hemail == $email) {
                 $this->Mod_login->update_pass($pass, $email);
+                $this->session->set_flashdata('msg', '<span class="glyphicon glyphicon-ok"></span>&nbsp;Password Berhasil Direset');
                 $this->load->view('v_login');
             } else {
-                
+                $this->session->set_flashdata('gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Data Anda Salah');
             }
         }
     }

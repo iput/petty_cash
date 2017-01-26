@@ -33,6 +33,7 @@
         <link rel="stylesheet" href="<?php echo base_url() . "assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"; ?>">
     </head>
     <body class="hold-transition register-page">
+        
         <div class="register-box">
             <div class="register-logo">
                 <a href="../../index2.html"><b>Petty</b>-Cash</a>
@@ -40,7 +41,11 @@
 
             <div class="register-box-body">
                 <p class="login-box-msg">Reset Password</p>
-                
+                <div class="alert alert-success" style="display: none">
+                </div>
+                <div class="alert alert-danger" style="display: none">
+
+                </div>
                 <?php echo form_open('Welcome/action_reset') ; ?>
 
         <table border="0" class="table">       
@@ -79,6 +84,24 @@
                     increaseArea: '20%' // optional
                 });
             });
+        </script>
+                <script>
+// alert berhasil
+                                $(document).ready(function () {
+                                    $('.alert-success').hide();
+<?php if ($this->session->flashdata('msg')) { ?>
+                                        $('.alert-success').html('<?php echo $this->session->flashdata('msg'); ?>').fadeIn().delay(4000).fadeOut('slow');
+                                    });
+<?php } ?>
+        </script>
+        <script>
+// alert gagal
+            $(document).ready(function () {
+                $('.alert-danger').hide();
+<?php if ($this->session->flashdata('gagal')) { ?>
+                    $('.alert-danger').html('<?php echo $this->session->flashdata('gagal'); ?>').fadeIn().delay(4000).fadeOut('slow');
+                });
+<?php } ?>
         </script>
     </body>
 </html>

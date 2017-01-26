@@ -67,17 +67,26 @@ class C_pengeluaran extends CI_Controller {
         $hasil = $this->m_pengeluaran->update_pengeluaran('tb_pengeluaran', $data_update, $id_pengeluaran);
 
         if ($hasil >= 0) {
+            $this->session->set_flashdata('pesan_update', '<span class="glyphicon glyphicon-warning-ok"></span>&nbsp;Data Berhasil Diupdate');
+            redirect('C_pengeluaran/index');
+        }
+        else{
+            $this->session->set_flashdata('pesan_gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Data Gagal Diupdate');
             redirect('C_pengeluaran/index');
         }
     }
 
     public function delete_pengeluaran($parameter) {
         $parameter = array('idPengeluaran' => $parameter);
-
         $data = $this->m_pengeluaran->delete_pengeluaran('tb_pengeluaran', $parameter);
-
         if ($data >= 1) {
+            $this->session->set_flashdata('msg_hapus', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Data Berhasil Dihapus');
             redirect('C_pengeluaran/index');
+        }
+        else{
+            $this->session->set_flashdata('pesan_gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Data Gagal Dihapus');
+            redirect('C_pengeluaran/index');
+            
         }
     }
 
@@ -98,7 +107,9 @@ class C_pengeluaran extends CI_Controller {
         $this->form_validation->set_rules('combo_pengguna', 'Pengguna Pengeluaran', 'required');
 
         if ($this->form_validation->run() == FALSE) {
+            $this->session->set_flashdata('pesan_gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.  validation_errors());
             redirect('C_pengeluaran/tambah_pengeluaran');
+            
         } else {
 
             $config['upload_path'] = './gambar/';
@@ -110,7 +121,8 @@ class C_pengeluaran extends CI_Controller {
             $this->load->library('upload', $config);
 
             if (!$this->upload->do_upload('userfile')) {
-                echo $this->upload->display_errors();
+                $error = $this->upload->display_errors();
+                $this->session->set_flashdata('pesan_gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.  $error);
             } else {
                 $gambar = $this->upload->data();
                 $data_update = array(
@@ -121,6 +133,7 @@ class C_pengeluaran extends CI_Controller {
                     'tanggal' => date('Y-m-d H:i:s'),
                     'foto' => $gambar['file_name']);
                 $this->m_pengeluaran->insert_pengeluaran('tb_pengeluaran', $data_update);
+                $this->session->set_flashdata('msg', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Data Berhasil Disimpan');
                 redirect('C_pengeluaran');
             }
         }
@@ -140,7 +153,7 @@ class C_pengeluaran extends CI_Controller {
             $this->load->library('upload', $config);
             if (!$this->upload->do_upload('userfile')) {
                 $error = array('error' => $this->upload->display_errors());
-                $this->load->view('welcome_message', $error);
+                $this->session->set_flashdata('pesan_gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.  $error);
             } else {
                 $post = $this->input->post();
                 $idUser = $post['combo_pengguna'];
@@ -175,12 +188,14 @@ class C_pengeluaran extends CI_Controller {
 
                 if ($idProject == NULL) {
                     $result = $this->m_pengeluaran->insert_pengeluaran('tb_pengeluaran', $data_modal);
+                    $this->session->set_flashdata('msg', '<span class="glyphicon glyphicon-warning-ok"></span>&nbsp;Data Berhasil Disimpan');
                     redirect('C_pengeluaran/index');
                 } else if ($sisa < 0 && $idProject != NULL) {
-                    echo "Uang Anda tidak cukup";
+                    $this->session->set_flashdata('pesan_gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Uang Anda Tidak Cukup');
                 } else {
                     $this->m_pengeluaran->insert_pengeluaran('tb_pengeluaran', $data_modal);
                     $this->m_project->update_sisa('tb_project', $sisa_update, $idProject);
+                    $this->session->set_flashdata('msg', '<span class="glyphicon glyphicon-warning-ok"></span>&nbsp;Data Berhasil Disimpan dan sisa uang anda adalah'.$sisa2);
                     redirect('C_pengeluaran/index');
                 }
             }

@@ -44,6 +44,7 @@
         </style>
     </head>
     <body class="hold-transition login-page">
+            
         <div class="login-box">
             <div class="login-logo">
                 <a href="<?php echo base_url('c_verifikasi'); ?>"><b><img src="<?php echo base_url('assets/logo/logo-cash.png'); ?>" style="width: 50px; height: 50px; margin-bottom: 20px;">&nbsp;PETTY</b>-CASH</a>
@@ -51,7 +52,10 @@
             <!-- /.login-logo -->
             <div class="login-box-body">
                 <p class="login-box-msg">Verifikasi Akun Petty Cash</p>
-                
+                <div class="alert alert-success" style="display: none">
+                 </div>
+                <div class="alert alert-danger" style="display: none">
+                </div>
                 <form action="<?php echo base_url('c_verifikasi/verifikasi_akun'); ?>" method="post">
                     <div class="form-group has-feedback">
                         <input type="text"  name="txt_code_user" class="form-control" placeholder="Masukkan Kode Verifikasi" required="">
@@ -87,6 +91,24 @@
                     increaseArea: '20%' // optional
                 });
             });
+        </script>
+                <script>
+// alert berhasil
+                                $(document).ready(function () {
+                                    $('.alert-success').hide();
+<?php if ($this->session->flashdata('msg')) { ?>
+                                        $('.alert-success').html('<?php echo $this->session->flashdata('msg'); ?>').fadeIn().delay(4000).fadeOut('slow');
+                                    });
+<?php } ?>
+        </script>
+        <script>
+// alert gagal
+            $(document).ready(function () {
+                $('.alert-danger').hide();
+<?php if ($this->session->flashdata('gagal')) { ?>
+                    $('.alert-danger').html('<?php echo $this->session->flashdata('gagal'); ?>').fadeIn().delay(4000).fadeOut('slow');
+                });
+<?php } ?>
         </script>
     </body>
 </html>

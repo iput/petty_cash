@@ -33,16 +33,22 @@
         <link rel="stylesheet" href="<?php echo base_url() . "assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"; ?>">
     </head>
     <body class="hold-transition register-page">
+        
         <div class="register-box">
             <div class="register-logo">
                 <a href="../../index2.html"><b>Petty</b>-Cash</a>
             </div>
-
+            
             <div class="register-box-body">
                 <p class="login-box-msg">Pemulihan Kata Sandi</p>
                 <p class="login-box-msg">Masukkan Alamat Email Anda</p>
+                <div class="alert alert-success" style="display: none">
 
-                <form action="<?php echo base_url('welcome/send_email');?>" method="post">
+                </div>
+                <div class="alert alert-danger" style="display: none">
+
+                </div>
+                <form action="<?php echo base_url('welcome/send_email'); ?>" method="post">
                     <label>Email</label>
                     <div class="form-group has-feedback">
                         <input type="text" name="txt_email" class="form-control" placeholder="email address">
@@ -71,8 +77,28 @@
         <script src="<?php echo base_url("assets/bootstrap/js/bootstrap.min.js"); ?>"></script>
         <!-- iCheck -->
         <script src="<?php echo base_url("assets/plugins/iCheck/icheck.min.js"); ?>"></script>
+        
         <script>
-            $(function() {
+// alert berhasil
+                                $(document).ready(function () {
+                                    $('.alert-success').hide();
+<?php if ($this->session->flashdata('msg')) { ?>
+                                        $('.alert-success').html('<?php echo $this->session->flashdata('msg'); ?>').fadeIn().delay(4000).fadeOut('slow');
+                                    });
+<?php } ?>
+        </script>
+        <script>
+// alert gagal
+            $(document).ready(function () {
+                $('.alert-danger').hide();
+<?php if ($this->session->flashdata('gagal')) { ?>
+                    $('.alert-danger').html('<?php echo $this->session->flashdata('gagal'); ?>').fadeIn().delay(4000).fadeOut('slow');
+                });
+<?php } ?>
+        </script>
+
+        <script>
+            $(function () {
                 $('input').iCheck({
                     checkboxClass: 'icheckbox_square-blue',
                     radioClass: 'iradio_square-blue',
