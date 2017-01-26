@@ -38,13 +38,7 @@
                                     <div class="col-md-8">
                                         <input type="email" name="txt_email" class="form-control col-md-4" placeholder="Email" required="">
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3">Password : </label>
-                                    <div class="col-md-8">
-                                        <input type="Password" name="txt_password" class="form-control col-md-4" placeholder="Password" required="">
-                                    </div>
-                                </div>
+                                </div>                          
                                 <div class="form-group">
                                     <label class="control-label col-md-3">Level user : </label>
                                     <div class="col-md-8">
@@ -81,29 +75,23 @@
                         </div>
                         <div class="modal-body">
                             <form id ="FormEdit" class="form-horizontal" method="post">
-                                <input type="hidden" name="txt_id">
+                                <input type="hidden" name="edit_txt_id">
                                 <div class="form-group">
                                     <label class="control-label col-md-3">Username : </label>
                                     <div class="col-md-8">
-                                        <input type="text" name="txt_username" class="form-control col-md-4" placeholder="Username" required="">
+                                        <input type="text" name="edit_txt_username" class="form-control col-md-4" placeholder="Username" required="">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-3">Email : </label>
                                     <div class="col-md-8">
-                                        <input type="email" name="txt_email" class="form-control col-md-4" placeholder="Email" required="">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3">Password : </label>
-                                    <div class="col-md-8">
-                                        <input type="Password" name="txt_password" class="form-control col-md-4" placeholder="Password" required="">
+                                        <input type="email" name="edit_txt_email" class="form-control col-md-4" placeholder="Email" required="">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-3">Level user : </label>
                                     <div class="col-md-8">
-                                        <select class="form-control col-md-4" name="combo_level">
+                                        <select class="form-control col-md-4" name="edit_combo_level">
                                             <option value=null>-: Pilih User :-</option>
                                             <option value="user">User's Member</option>
                                             <option value="admin">Administrator</option>
@@ -124,25 +112,3 @@
                 </div>
             </div>
             <!--Modal Delete-->
-            <div class="modal fade" id="delete_user" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header bg-primary">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="tutup">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <h4><span class="modal-title fa fa-users"></span> Confirm Delete</h4>
-                        </div>
-                        <div class="modal-body">
-                            Apakah kamu yakin ingin menghapus data ini?
-                        </div>
-                        <div class="modal-footer">
-                            <div class="col-md-3"></div>
-                            <div class="col-md-8">
-                                <button type="button" class="btn btn-group-sm" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Cancel</button>
-                                <button type="submit" id ="btndelete" class="btn btn-danger"><span class="fa fa-trash"></span>Delete</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>

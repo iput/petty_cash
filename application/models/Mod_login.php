@@ -16,12 +16,12 @@ class Mod_login extends CI_Model {
     }
 
     public function getemail($email) {
-        $query = $this->db->query("select idUser, email from tb_user where email='" . $email . "'");
+        $query = $this->db->query("select status, email from tb_user where email='" . $email . "'");
         return $query->result_array();
     }
 
-    public function update_pass($password, $username, $email) {
-        $query = $this->db->query("update tb_user set password='" . $password . "' where username='" . $username . "' and email='" . $email . "'");
+    public function update_pass($password, $email) {
+        $query = $this->db->query("update tb_user set password='" . $password . "' where email='" . $email . "'");
     }
 
     public function save_reset($tabel, $data) {
@@ -33,8 +33,8 @@ class Mod_login extends CI_Model {
         }
     }
 
-    public function get_jamreset($idUser) {
-        $query = $this->db->query("select jam from tb_reset where idUser='" . $idUser . "'ORDER BY jam DESC LIMIT 1");
+    public function get_jamreset($email, $code) {
+        $query = $this->db->query("select email, code, jam from tb_reset where email='" . $email . "' and BINARY code='" . $code . "' ORDER BY jam DESC LIMIT 1");
         return $query->result_array();
     }
 

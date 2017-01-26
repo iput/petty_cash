@@ -158,7 +158,7 @@ class C_pengeluaran extends CI_Controller {
                     "idProject" => $idProject,
                     "namaPengeluaran" => $post['txt_keterangan'],
                     "jumlahPengeluaran" => $angka3,
-                    "tanggal" => date("Y-m-d H:i:s"),
+                    "tanggal" => gmdate("Y-m-d H:i:s",time()+60*60*7),
                     "foto" => $gbr['file_name']
                 );
 
@@ -174,7 +174,7 @@ class C_pengeluaran extends CI_Controller {
                 );
 
                 if ($idProject == NULL) {
-                    $result = $this->m_pengeluaranuser->insert_data('tb_pengeluaran', $data_modal);
+                    $result = $this->m_pengeluaran->insert_pengeluaran('tb_pengeluaran', $data_modal);
                     redirect('C_pengeluaran/index');
                 } else if ($sisa < 0 && $idProject != NULL) {
                     echo "Uang Anda tidak cukup";

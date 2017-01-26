@@ -28,6 +28,7 @@ class C_login extends CI_Controller {
         $hpass = "";
         $hlevel = "";
         $hemail = "";
+        $hstatus ="";
         $user = mysql_real_escape_string($this->input->post('txt_log_user'));
         $pass = mysql_real_escape_string($this->input->post('txt_log_password'));
         $hasil = $this->Mod_login->login($user, $pass);
@@ -37,8 +38,9 @@ class C_login extends CI_Controller {
             $hpass = $h['password'];
             $hlevel = $h['level'];
             $hemail = $h['email'];
+            $hstatus = $h['status'];
         }
-        if ($hlevel == 'admin') {
+        if ($hlevel == 'admin'&& $hstatus=='sudah terverifikasi') {
             if ($user == $huser && $pass == $hpass || $user == $hemail && $pass == $hpass) {
                 $this->session->set_userdata('username', $huser);
                 $this->session->set_userdata('idUser', $idUser);
@@ -48,7 +50,7 @@ class C_login extends CI_Controller {
                 echo $pass;
                 redirect('c_login/index');
             }
-        } else if ($hlevel == 'user') {
+        } else if ($hlevel == 'user' && $hstatus=='sudah terverifikasi') {
             if ($user == $huser && $pass == $hpass || $user == $hemail && $pass == $hpass) {
                 $this->session->set_userdata('username', $huser);
                 $this->session->set_userdata('idUser', $idUser);
