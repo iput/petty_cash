@@ -67,15 +67,14 @@ class C_pengeluaran extends CI_Controller {
         $hasil = $this->m_pengeluaran->update_pengeluaran('tb_pengeluaran', $data_update, $id_pengeluaran);
 
         if ($hasil >= 0) {
-<<<<<<< HEAD
+
             $this->session->set_flashdata('pesan_update', '<span class="glyphicon glyphicon-warning-ok"></span>&nbsp;Data Berhasil Diupdate');
             redirect('C_pengeluaran/index');
         }
         else{
             $this->session->set_flashdata('pesan_gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Data Gagal Diupdate');
-=======
+
             $this->session->set_flashdata('pesan_update', '<span class="glyphicon glyphicon-ok"></span>&nbsp;Data Berhasil Diperbarui');
->>>>>>> 7a80066e67835b9c3ca06b56328c55861aa251db
             redirect('C_pengeluaran/index');
         }
     }
