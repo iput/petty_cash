@@ -125,7 +125,8 @@ class Welcome extends CI_Controller {
                     'jam' => gmdate("H:i:s", time() + 60 * 60 * 7)
                 );
                 $this->Mod_login->save_reset('tb_reset', $field);
-                echo 'Email Sent';
+                echo 'email sent';
+//                echo '<script type="text/javascript">alert("Email Terkirim")</script>';
             } else {
                 show_error($this->email->print_debugger());
             }
