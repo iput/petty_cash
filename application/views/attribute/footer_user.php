@@ -60,14 +60,14 @@
                 $value[] = (float)$result->pengeluaran;
             }
             ?>
-            var chart2;
-             chart2 = new Highcharts.Chart({
+        var chart_user;
+        chart_user = new Highcharts.Chart({
         chart : {
             renderTo : 'statistik_user',
             type : 'column'
         },
         title: {
-            text : 'Data Pengeluaran dihitung Perbulan'
+            text : 'Data Pengeluaran Anda per bulan'
         },
         plotOptions:{
             column :{
