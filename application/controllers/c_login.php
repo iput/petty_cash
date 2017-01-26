@@ -83,7 +83,8 @@ class C_login extends CI_Controller {
         if ($this->session->userdata('idUser')) {
             $data_in['transaksi'] = $this->m_pengeluaranuser->get_pengeluaran_user($this->session->userdata('idUser'));
             $this->load->view('attribute/header_user');
-            $this->load->view('user/u_beranda', $data_in);
+            $this->load->view('user/u_beranda');
+            $this->load->view('tabel_user/tabel_user', $data_in);
             $this->load->view('attribute/footer_user');
         } else {
             redirect('');
