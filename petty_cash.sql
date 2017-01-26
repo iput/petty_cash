@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 20 Jan 2017 pada 10.25
--- Versi Server: 5.6.21
--- PHP Version: 5.6.3
+-- Generation Time: Jan 26, 2017 at 02:57 AM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `petty_cash`
@@ -23,116 +23,113 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_data`
+-- Table structure for table `tb_data`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_data` (
-`idData` int(11) NOT NULL,
+CREATE TABLE `tb_data` (
+  `idData` int(11) NOT NULL,
   `idProject` int(11) NOT NULL,
   `idUser` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_data`
+-- Dumping data for table `tb_data`
 --
 
 INSERT INTO `tb_data` (`idData`, `idProject`, `idUser`) VALUES
-(1, 1, 9),
-(2, 2, 9),
-(4, 2, 10),
-(3, 3, 15);
+(1, 1, 2);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pengeluaran`
+-- Table structure for table `tb_pengeluaran`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_pengeluaran` (
-`idPengeluaran` int(11) NOT NULL,
+CREATE TABLE `tb_pengeluaran` (
+  `idPengeluaran` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
   `idProject` int(11) DEFAULT NULL,
   `namaPengeluaran` varchar(100) NOT NULL,
   `jumlahPengeluaran` int(11) NOT NULL,
-  `jam` time NOT NULL,
-  `tanggal` date NOT NULL,
+  `tanggal` datetime NOT NULL,
   `foto` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_pengeluaran`
+-- Dumping data for table `tb_pengeluaran`
 --
 
-INSERT INTO `tb_pengeluaran` (`idPengeluaran`, `idUser`, `idProject`, `namaPengeluaran`, `jumlahPengeluaran`, `jam`, `tanggal`, `foto`) VALUES
-(3, 10, NULL, 'makan mnum', 114, '10:33:26', '2017-01-16', 'data'),
-(5, 9, 1, 'beli bahan pokok', 120, '12:47:05', '2017-01-16', 'data'),
-(6, 9, 1, 'minum', 870, '07:24:33', '2017-01-13', 'data'),
-(7, 9, 1, 'beli hp', 120, '23:14:03', '2017-01-15', 'data'),
-(8, 9, 1, 'beli laptop', 121, '23:14:59', '2017-01-15', 'data'),
-(9, 9, NULL, 'makan', 113, '10:34:16', '2017-01-16', 'data'),
-(10, 9, 1, 'minum', 675, '10:33:51', '2017-01-16', 'data'),
-(12, 9, NULL, 'makan', 980, '06:28:32', '2017-01-04', 'saja'),
-(13, 11, NULL, 'makan', 876, '09:56:23', '2017-01-16', 'data'),
-(14, 9, 1, 'makan', 133, '10:59:22', '2017-01-17', 'data'),
-(15, 9, NULL, 'beli nasi', 112, '11:15:35', '2017-01-16', 'data'),
-(16, 9, 2, 'tugas', 111, '11:23:52', '2017-01-17', 'data'),
-(17, 23, NULL, 'gggg', 1000000, '14:57:06', '2017-01-17', 'data'),
-(18, 9, 1, 'tugas', 12000000, '14:58:38', '2017-01-17', 'data'),
-(19, 9, 2, 'coba', 1200, '14:59:11', '2017-01-17', 'data');
+INSERT INTO `tb_pengeluaran` (`idPengeluaran`, `idUser`, `idProject`, `namaPengeluaran`, `jumlahPengeluaran`, `tanggal`, `foto`) VALUES
+(1, 2, 1, 'makan malam', 1000000, '2017-01-25 23:51:29', '401811?304810632946745?2037291625?n.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_project`
+-- Table structure for table `tb_project`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_project` (
-`idProject` int(11) NOT NULL,
+CREATE TABLE `tb_project` (
+  `idProject` int(11) NOT NULL,
   `namaProject` varchar(100) NOT NULL,
   `anggaran` int(11) NOT NULL,
   `settingAnggaran` varchar(25) NOT NULL,
   `sisa` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_project`
+-- Dumping data for table `tb_project`
 --
 
 INSERT INTO `tb_project` (`idProject`, `namaProject`, `anggaran`, `settingAnggaran`, `sisa`) VALUES
-(1, 'keuangan', 10000, 'harian', 1000),
-(2, 'ekonomi', 1500000, 'harian', 500000),
-(3, 'administrasi', 2500000, 'bulanan', 1000000);
+(1, 'ISO 1996', 12000000, 'bulanan', 11000000);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_user`
+-- Table structure for table `tb_reset`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_user` (
-`idUser` int(11) NOT NULL,
+CREATE TABLE `tb_reset` (
+  `idReset` int(11) NOT NULL,
+  `email` text NOT NULL,
+  `code` varchar(30) NOT NULL,
+  `jam` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_reset`
+--
+
+INSERT INTO `tb_reset` (`idReset`, `email`, `code`, `jam`) VALUES
+(1, 'nindyagustina89@gmail.com', '4iM1O', '23:14:31'),
+(2, 'nindyagustina89@gmail.com', '5D4C6', '08:50:06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_user`
+--
+
+CREATE TABLE `tb_user` (
+  `idUser` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `email` text NOT NULL,
   `password` varchar(20) NOT NULL,
-  `level` varchar(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+  `level` varchar(20) NOT NULL,
+  `kode_verifikasi` text NOT NULL,
+  `status` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_user`
+-- Dumping data for table `tb_user`
 --
 
-INSERT INTO `tb_user` (`idUser`, `username`, `email`, `password`, `level`) VALUES
-(9, 'kangmahfud', 'makhfudzamhari@gmail.com', '1b6e5b8b619574a8d5e7', 'user'),
-(10, 'nindyagustina', 'nindyagustina@gmail.com', '02c4a9be99830ab63ede', 'admin'),
-(11, 'makhfud', 'makhfudzamhari@gmail.com', 'ec12a23ab48d4b468ff6', 'admin'),
-(12, 'muslimmuhammad', 'muslimalfatih@gmail.com', 'e866c273793974838c0e', 'admin'),
-(14, 'nindyagustin', 'nindyagustina@gmail.com', 'b10c7270bf65e8baba45', 'member'),
-(15, 'zainul', 'zainulrofiqi@gmail.com', '2807c1c6a3183f35b6ac', 'member'),
-(16, 'nindyagustin', 'nindyagustina@gmail.com', '02031209', 'admin'),
-(18, 'zaipluk', 'zainulrofiqi@gmail.com', '02031209', 'user'),
-(23, 'gangsantri', 'gangsantri@gasek.com', '02031209', 'admin'),
-(25, 'gangsantri', 'nindyozora@gmail.com', '02031209', 'user'),
-(26, 'muslim', 'muslimalfatih19@gmail.com', '1', 'user');
+INSERT INTO `tb_user` (`idUser`, `username`, `email`, `password`, `level`, `kode_verifikasi`, `status`) VALUES
+(1, 'nindy', 'nindyagustina63@gmail.com', 'wer123', 'admin', '123', 'sudah terverifikasi'),
+(2, 'nindyozora', 'nindyagustina8@gmail.com', 'nindy1234', 'user', '9oY2Y', 'sudah terverifikasi'),
+(3, 'makhfud', 'makhfudzamhari@gmail.com', 'gYNgDD23', 'user', 'aR5o6', 'belum terverifikasi'),
+(4, 'nindya', 'nindyagustina89@gmail.com', '454uun6n', 'user', '7zN13', 'sudah terverifikasi'),
+(5, 'asmarani', 'asmaranipratama54@gmail.com', 'D67D4Ns9', 'user', 'do159', 'belum terverifikasi');
 
 --
 -- Indexes for dumped tables
@@ -142,25 +139,38 @@ INSERT INTO `tb_user` (`idUser`, `username`, `email`, `password`, `level`) VALUE
 -- Indexes for table `tb_data`
 --
 ALTER TABLE `tb_data`
- ADD PRIMARY KEY (`idData`), ADD KEY `idProject` (`idProject`,`idUser`), ADD KEY `idUser` (`idUser`);
+  ADD PRIMARY KEY (`idData`),
+  ADD KEY `idProject` (`idProject`,`idUser`),
+  ADD KEY `idUser` (`idUser`);
 
 --
 -- Indexes for table `tb_pengeluaran`
 --
 ALTER TABLE `tb_pengeluaran`
- ADD PRIMARY KEY (`idPengeluaran`), ADD KEY `idUser` (`idUser`,`idProject`), ADD KEY `idUser_2` (`idUser`), ADD KEY `idProject` (`idProject`), ADD KEY `idUser_3` (`idUser`), ADD KEY `idProject_2` (`idProject`);
+  ADD PRIMARY KEY (`idPengeluaran`),
+  ADD KEY `idUser` (`idUser`,`idProject`),
+  ADD KEY `idUser_2` (`idUser`),
+  ADD KEY `idProject` (`idProject`),
+  ADD KEY `idUser_3` (`idUser`),
+  ADD KEY `idProject_2` (`idProject`);
 
 --
 -- Indexes for table `tb_project`
 --
 ALTER TABLE `tb_project`
- ADD PRIMARY KEY (`idProject`);
+  ADD PRIMARY KEY (`idProject`);
+
+--
+-- Indexes for table `tb_reset`
+--
+ALTER TABLE `tb_reset`
+  ADD PRIMARY KEY (`idReset`);
 
 --
 -- Indexes for table `tb_user`
 --
 ALTER TABLE `tb_user`
- ADD PRIMARY KEY (`idUser`);
+  ADD PRIMARY KEY (`idUser`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -170,39 +180,44 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_data`
 --
 ALTER TABLE `tb_data`
-MODIFY `idData` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `idData` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tb_pengeluaran`
 --
 ALTER TABLE `tb_pengeluaran`
-MODIFY `idPengeluaran` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+  MODIFY `idPengeluaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tb_project`
 --
 ALTER TABLE `tb_project`
-MODIFY `idProject` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `idProject` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tb_reset`
+--
+ALTER TABLE `tb_reset`
+  MODIFY `idReset` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `tb_data`
+-- Constraints for table `tb_data`
 --
 ALTER TABLE `tb_data`
-ADD CONSTRAINT `tb_data_ibfk_1` FOREIGN KEY (`idProject`) REFERENCES `tb_project` (`idProject`),
-ADD CONSTRAINT `tb_data_ibfk_2` FOREIGN KEY (`idUser`) REFERENCES `tb_user` (`idUser`);
+  ADD CONSTRAINT `tb_data_ibfk_1` FOREIGN KEY (`idProject`) REFERENCES `tb_project` (`idProject`),
+  ADD CONSTRAINT `tb_data_ibfk_2` FOREIGN KEY (`idUser`) REFERENCES `tb_user` (`idUser`);
 
 --
--- Ketidakleluasaan untuk tabel `tb_pengeluaran`
+-- Constraints for table `tb_pengeluaran`
 --
 ALTER TABLE `tb_pengeluaran`
-ADD CONSTRAINT `tb_pengeluaran_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tb_user` (`idUser`),
-ADD CONSTRAINT `tb_pengeluaran_ibfk_2` FOREIGN KEY (`idProject`) REFERENCES `tb_project` (`idProject`);
+  ADD CONSTRAINT `tb_pengeluaran_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `tb_user` (`idUser`),
+  ADD CONSTRAINT `tb_pengeluaran_ibfk_2` FOREIGN KEY (`idProject`) REFERENCES `tb_project` (`idProject`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

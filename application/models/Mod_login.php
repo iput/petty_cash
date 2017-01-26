@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Mod_login extends CI_Model {
 
     public function login($user, $pass) {
-        $query = $this->db->query("select * from tb_user where username='" . $user . "' or email='" . $user . "' and password='" . $pass . "'");
+        $query = $this->db->query("select * from tb_user where username='" . $user . "' or email='" . $user . "' and BINARY password='" . $pass . "'");
         return $query->result_array();
     }
 
