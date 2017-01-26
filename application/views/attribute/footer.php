@@ -237,9 +237,9 @@
 // assumes you're using jQuery
 $(document).ready(function() {
 $('.alert-success').hide();
-<?php if($this->session->flashdata('msg')){ ?>
-$('.alert-success').html('<?php echo $this->session->flashdata('msg'); ?>').show();
-});
+<?php if ($this->session->flashdata('msg')) { ?>
+    $('.alert-success').html('<?php echo $this->session->flashdata('msg'); ?>').show();
+    });
 <?php } ?>
 </script>
 
