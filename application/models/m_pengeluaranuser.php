@@ -27,7 +27,18 @@ class M_pengeluaranuser extends CI_Model {
         return $data;
     }
 
-    
+    public function get_base_project($id)
+    {
+        $this->db->select('tb_pengeluaran.idProject, tb_pengeluaran.jumlahPengeluaran, tb_pengeluaran.tanggal, tb_pengeluaran.namaPengeluaran');
+        $this->db->from('tb_pengeluaran');
+        $this->db->join('tb_user','tb_user.idUser=tb_pengeluaran.idUser');
+        $this->db->where('tb_user.idUser', $id);
+        $result = $this->db->get();
+
+        $data = $result->result_array();
+        return $data; 
+    }
+
     public function count_pengeluaran($id)
     {
         $this->db->select('SUM(jumlahPengeluaran)');

@@ -16,12 +16,22 @@ class S_beranda extends CI_Controller {
         if ($this->session->userdata('username') && $this->session->userdata('idUser')) {            
             $data_in['transaksi'] = $this->m_pengeluaranuser->get_pengeluaran_user($this->session->userdata('idUser'));
             $this->load->view('attribute/header_user');
-            $this->load->view('user/u_beranda', $data_in);
+            $this->load->view('user/u_beranda');
+            $this->load->view('tabel_user/tabel_user', $data_in);
             $this->load->view('attribute/footer_user');
 //            echo json_encode($data_in);
         } else {
             $this->load->view('v_login');
         }
+    }
+
+    public function get_data_all()
+    {
+        $data_in['transaksi'] = $this->m_pengeluaranuser->get_base_project($this->session->userdata('idUser'));
+        $this->load->view('attribute/header_user');
+        $this->load->view('user/u_beranda');
+        $this->load->view('tabel_user/tabel_project', $data_in);
+        $this->load->view('attribute/footer_user');
     }
 
     public function cetak_pdf() {
