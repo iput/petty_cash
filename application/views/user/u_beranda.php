@@ -18,8 +18,8 @@
                 <div class="btn-group">
                     <button type="button" class="btn btn-default btn-flat  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tampilkan Data&nbsp;<span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                        <li><a href="<?php echo base_url('S_beranda'); ?>">Semua Data</a></li>
-                        <li><a href="<?php echo base_url('S_beranda/get_data_all'); ?>">Berdasarkan Project</a></li>
+                        <li><a href="<?php echo base_url('S_beranda'); ?>">Berdasarkan Project</a></li>
+                        <li><a href="<?php echo base_url('S_beranda/get_data_all'); ?>">Semua Data</a></li>
                     </ul>
                 </div>
 

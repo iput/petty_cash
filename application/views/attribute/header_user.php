@@ -97,25 +97,22 @@
                         <li class="header">MENU NAVIGASI UTAMA</li>
                         <li class="treeview">
                             <a href="<?php echo base_url("s_beranda/index"); ?>">
-                                <i class="fa fa-home"></i> <span>Beranda</span>
+                                <i class="fa fa-home"></i><span>&nbsp;Beranda</span>
                             </a>
                         </li>
                         <li class="treeview">
                             <a href="<?php echo base_url("s_pengeluaran/index"); ?>">
-                                <i class="fa fa-edit"></i>
-                                <span>Pengeluaran</span>
+                                <i class="fa fa-edit"></i><span>&nbsp;Pengeluaran</span>
                             </a>
                         </li>
                         <li class="treeview">
                             <a href="<?php echo base_url("s_statistik/index"); ?>">
-                                <i class="fa fa-fw fa-bar-chart-o"></i>
-                                <span>Statistik</span>
+                                <i class="fa fa-fw fa-bar-chart-o"></i><span>&nbsp;Statistik</span>
                             </a>
                         </li>
                         <li class="treeview">
                             <a href="<?php echo base_url("s_setting/index"); ?>">
-                                <i class="fa fa-gears"></i>
-                                <span>Setting</span>
+                                <i class="fa fa-gears"></i><span>&nbsp;Setting</span>
                             </a>
                         </li>
                 </section>
