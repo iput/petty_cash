@@ -97,7 +97,7 @@ class C_user extends CI_Controller {
                 $result = $this->m_user->addUser('tb_user', $field);
                 $msg['success'] = FALSE;
                 if ($result) {
-                    $this->session->set_flashdata('msg', 'Berhasil Ditambahkan');
+                    $this->session->set_flashdata('msg', '<span class="glyphicon glyphicon-ok"></span>&nbsp;Data Baru Berhasil Ditambahkan');
                     $msg['success'] = TRUE;
                     redirect('C_user/index');
                 }
@@ -110,7 +110,11 @@ class C_user extends CI_Controller {
 
     public function do_delete($id) {
         $result = $this->m_user->delete_data($id);
-        redirect('C_user/index');
+        if ($result>= 1) {
+            $this->session->set_flashdata('msg_hapus','<span class="glyphicon glyphicon-ok"></span>&nbsp;Data Berhasil dihapus');
+            redirect('C_user/index');
+        }
+        
     }
 
     public function edituser() {
@@ -121,13 +125,10 @@ class C_user extends CI_Controller {
             'level' => $this->input->post('edit_combo_level')
         );
         $result = $this->m_user->update_data('tb_user', $field, $id);
-        if ($result) {
-            $this->session->set_flashdata('msg', 'Berhasil Diupdate');
+        if ($result>=0) {
+            $this->session->set_flashdata('pesan_update', '<span class="glyphicon glyphicon-ok"></span>&nbsp;Berhasil Diperbarui');
 
             redirect('c_user/index');
         }
     }
-    
-    
-
 }
