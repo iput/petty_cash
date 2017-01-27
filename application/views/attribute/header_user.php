@@ -108,10 +108,17 @@
                         <li class="treeview">
                             <a href="<?php echo base_url("s_statistik/index"); ?>">
                                 <i class="fa fa-fw fa-bar-chart-o"></i><span>&nbsp;Statistik</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </span>
                             </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo base_url('s_statistik'); ?>"><i class="fa fa-bar-chart-o"></i>&nbsp;Data Pengeluaran</a></li>
+                                <li><a href="#"><i class="fa fa-calendar"></i>&nbsp;Pengeluaran project</a></li>
+                            </ul>
                         </li>
                         <li class="treeview">
-                            <a href="<?php echo base_url("s_setting/index"); ?>">
+                            <a href="#">
                                 <i class="fa fa-gears"></i><span>&nbsp;Setting</span>
                             </a>
                         </li>
