@@ -77,6 +77,7 @@ class C_login extends CI_Controller {
                     redirect('c_login/index');
                 } else if ($user != $huser && $pass == $hpass || $user != $hemail && $pass == $hpass) {
                     $this->session->set_flashdata('pesan_verifikasi', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Username Kurang Tepat');
+
                     redirect('c_login/index');
                 } else {
                     if ($user == $huser && $pass == $hpass || $user == $hemail && $pass == $hpass) {
