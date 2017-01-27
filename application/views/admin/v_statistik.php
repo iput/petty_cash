@@ -13,7 +13,6 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">Area Chart</h3>
-
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                         </button>
@@ -21,7 +20,7 @@
                     </div>
                 </div>
                 <div class="box-body">
-                        <div id="data_statistik" style="min-width: 200px; height: 400px; margin: 0 auto"></div>     
+                    <div id="data_statistik" style="min-width: 200px; height: 400px; margin: 0 auto"></div>     
                 </div>
                 <!-- /.box-body -->
             </div>

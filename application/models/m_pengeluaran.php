@@ -19,12 +19,11 @@ class M_pengeluaran extends CI_Model {
 
     //  untuk setting pengeluaran
     public function select_data() {
-        $this->db->select('tb_user.username,tb_project.idProject,tb_project.namaProject,tb_project.settingAnggaran,
-        					tb_pengeluaran.namaPengeluaran,tb_pengeluaran.jumlahPengeluaran,
+        $this->db->select('tb_user.username,tb_pengeluaran.idProject,
+                            tb_pengeluaran.namaPengeluaran,tb_pengeluaran.jumlahPengeluaran,
         					tb_pengeluaran.tanggal,tb_pengeluaran.idPengeluaran');
         $this->db->from('tb_user');
         $this->db->join('tb_pengeluaran', 'tb_user.idUser=tb_pengeluaran.idUser');
-        $this->db->join('tb_project', 'tb_project.idProject=tb_pengeluaran.idProject');
         $hasil = $this->db->get();
 
         $data_in = $hasil->result_array();

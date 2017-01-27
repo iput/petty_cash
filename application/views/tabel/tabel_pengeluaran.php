@@ -8,7 +8,6 @@
                     <th>No.</th>
                     <th>Nama Pengguna</th>
                     <th>Project</th>
-                    <th>Anggaran</th>
                     <th>Jumlah Pengeluaran</th>
                     <th>Keterangan Pengeluaran</th>
                     <th>Tanggal</th>
@@ -17,14 +16,27 @@
                 </thead>
                 <tbody id="data_pengeluaran">
                   <?php foreach ($pengeluaran as $data): ?>
+                    <?php 
+                    $id = $data['idPengeluaran'];
+                    $namauser = $data['username'];
+                    $kodeProject = $data['idProject'];
+                    $jumlah = $data['jumlahPengeluaran'];
+                    $keterangan = $data['namaPengeluaran'];
+                    $tgl = $data['tanggal'];
+
+                    if ($kodeProject== null) {
+                        $kodeProject = 'pribadi';
+                    }else{
+                        $kodeProject = 'PROJECT00'.$kodeProject;
+                    }
+                    ?>
                         <tr>
-                            <td><?php echo $data['idPengeluaran']; ?></td>
-                            <td><?php echo $data['username']; ?></td>
-                            <td><?php echo $data['namaProject']; ?></td>
-                            <td><?php echo $data['settingAnggaran']; ?></td>
-                            <td><?php echo $data['jumlahPengeluaran']; ?></td>
-                            <td><?php echo $data['namaPengeluaran']; ?></td>
-                            <td><?php echo $data['tanggal']; ?></td>
+                            <td><?php echo $id; ?></td>
+                            <td><?php echo $namauser; ?></td>
+                            <td><?php echo $kodeProject; ?></td>
+                            <td><?php echo $jumlah; ?></td>
+                            <td><?php echo $keterangan; ?></td>
+                            <td><?php echo $tgl; ?></td>
                             <td>
                               <a href="javascript:;" class="btn btn-info btn_edit_pengeluaran btn-flat" data= "<?php echo $data['idPengeluaran']; ?>"><span class="fa fa-pencil-square"></span></a>
                               <a href="<?php echo base_url('C_pengeluaran/delete_pengeluaran/'.$data['idPengeluaran']);?>" class="btn btn-danger btn-flat"  onclick="return confirm('Apakah anda yakin akan menghapus data terkait ?');"><span class="glyphicon glyphicon-remove"></span></a>

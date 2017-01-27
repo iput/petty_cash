@@ -123,10 +123,17 @@
                             </a>
                         </li>
                         <li class="treeview">
-                            <a href="<?php echo base_url("C_statistik/index"); ?>">
+                            <a href="#">
                                 <i class="fa fa-area-chart"></i>
                                 <span>&nbsp;Statistik</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </span>
                             </a>
+                            <ul class="treeview-menu">
+                                    <li class="active"><a href="<?php echo base_url('C_statistik'); ?>"><i class="fa fa-users"></i>&nbsp;Pengeluaran User</a></li>
+                                    <li><a href="<?php echo base_url('C_statistik/get_stats_project'); ?>"><i class="fa fa-calendar"></i>&nbsp;Pengeluaran Project</a></li>
+                            </ul>  
                         </li>
                 </section>
                 <!-- /.sidebar -->
