@@ -68,12 +68,19 @@ class C_Project extends CI_Controller {
 
         if ($parameter == "simpan_project") {
             $post = $this->input->post();
+            $namaProject = $post['txt_nm_project'];
+            $nmProject = $this->m_project->get_nmProject($namaProject);
+            if ($nmProject){
+            $this->session->set_flashdata('pesan_gagal', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Nama Project sudah Ada');
+                redirect('C_project');    
+            }
+            else{
             $settingAnggaran = $post['combo_anggaran'];
             if ($settingAnggaran == null) {
                 $settingAnggaran = 'harian';
             }
             $data_in = array(
-                'namaProject' => $post['txt_nm_project'],
+                'namaProject' => $namaProject,
                 'anggaran' => $post['txt_anggaran'],
                 'settingAnggaran' => $settingAnggaran,
                 'sisa' => $post['txt_anggaran']);
@@ -86,13 +93,22 @@ class C_Project extends CI_Controller {
             $this->session->set_flashdata('pesan_gagal', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Data Gagal Ditambahkan');
             redirect('C_project');    
             }
+            }
         }
     }
 
     public function update_project() {
         $id_project = $this->input->post('id_project');
+        $post = $this->input->post();
+            $namaProject = $post['edit_nama_project'];
+            $nmProject = $this->m_project->get_nmProject($namaProject);
+            if ($nmProject){
+            $this->session->set_flashdata('pesan_gagal', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Nama Project sudah Ada');
+                redirect('C_project');    
+            }
+            else{
         $data_update = array(
-            'namaProject' => $this->input->post('edit_nama_project'),
+            'namaProject' => $namaProject,
             'anggaran' => $this->input->post('edit_jumlah_anggaran'),
             'settingAnggaran' => $this->input->post('edit_seting_anggaran'),
             'sisa' => $this->input->post('edit_jumlah_anggaran')
@@ -106,6 +122,7 @@ class C_Project extends CI_Controller {
         else{
             $this->session->set_flashdata('pesan_gagal', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Data Gagal Diperbarui');
             redirect('C_project');
+        }
         }
     }
 
