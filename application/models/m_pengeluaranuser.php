@@ -61,12 +61,29 @@ class M_pengeluaranuser extends CI_Model {
     }
 
     public function tampil_statistik($id) {
-          $hasil = $this->db->query('select date_format(tanggal,"%m") as bulan, sum(jumlahPengeluaran) as pengeluaran from tb_pengeluaran where idUser='.$id.' group by date_format(tanggal,"%m")');
+          $hasil = $this->db->query('select DATE_FORMAT(tanggal,"%m-%Y") AS bulan, SUM(jumlahPengeluaran) AS pengeluaran FROM tb_pengeluaran WHERE idUser='.$id.' GROUP BY date_format(tanggal,"%m")');
         if ($hasil->num_rows() > 0) {
             foreach ($hasil->result() as $nilai) {
                 $output[] = $nilai;
             }
             return $output;
+        }
+    }
+
+    public function tampil_statistik_project($id)
+    {
+        $this->db->select('tb_pengeluaran.jumlahPengeluaran as pengeluaran_project, tb_project.namaProject as nama_project');
+        $this->db->from('tb_pengeluaran');
+        $this->db->join('tb_project', 'tb_pengeluaran.idProject = tb_project.idProject');
+        $this->db->where('tb_pengeluaran.idUser', $id);
+        $this->db->group_by('tb_pengeluaran.idProject');
+        $hasil = $this->db->get();
+
+        if ($hasil->num_rows() > 0) {
+            foreach ($hasil->result() as $nilai) {
+                $data[] = $nilai;
+            }
+            return $data;
         }
     }
 }

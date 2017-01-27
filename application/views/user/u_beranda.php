@@ -23,7 +23,7 @@
                     </ul>
                 </div>
 
-                <div class="btn-group pull-right" style="margin-right: 10px;">
+                <div class="btn-group pull-right">
                     <button type="button" class="btn btn-default dropdown-toggle btn-flat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Cetak Data Transaksi&nbsp;<span class="caret"></span>
                     </button>

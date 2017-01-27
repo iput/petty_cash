@@ -80,6 +80,48 @@
          });
     });
 </script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        <?php 
+        foreach ($statistik_project as $data) {
+             $jumlah_p[] = $data->pengeluaran_project;
+             $project[] = $data->nama_project;
+         } ?>
+    var chart_p;
+    chart_p = new Highcharts.Chart({
+        chart : {
+            renderTo : 'statistik_project_user',
+            type : 'column'
+        },
+        title : {
+            text : 'Pengeluaran penggunaan Project'
+        },
+        plotOptions : {
+            column : {
+                depth : 20
+            }
+        },
+        credits : {
+            enabled : false
+        },
+        xAxis : {
+            categories : <?php echo json_encode($project); ?>
+        },
+        yAxis : {
+            title : {
+                text : 'pengeluaran project'
+            }
+        },
+        series : [{
+            name : 'Jumlah  pengeluaran penggunaan project',
+            data : <?php echo json_encode($jumlah_p); ?>
+        }]
+    });
+    });
+</script>
+
+
 <script>
 // proses menampilkan info berhasil
 $(document).ready(function() {

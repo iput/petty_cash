@@ -114,7 +114,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="<?php echo base_url('s_statistik'); ?>"><i class="fa fa-bar-chart-o"></i>&nbsp;Data Pengeluaran</a></li>
-                                <li><a href="#"><i class="fa fa-calendar"></i>&nbsp;Pengeluaran project</a></li>
+                                <li><a href="<?php echo base_url('s_statistik/get_stats_project_user'); ?>"><i class="fa fa-calendar"></i>&nbsp;Pengeluaran project</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
