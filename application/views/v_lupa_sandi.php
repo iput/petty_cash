@@ -51,7 +51,7 @@
                 <form action="<?php echo base_url('welcome/send_email'); ?>" method="post">
                     <label>Email</label>
                     <div class="form-group has-feedback">
-                        <input type="text" name="txt_email" class="form-control" placeholder="email address">
+                        <input type="text" name="txt_email" class="form-control" placeholder="email address" required="">
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     </div>
                     <div class="row">

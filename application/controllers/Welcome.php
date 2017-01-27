@@ -77,7 +77,7 @@ class Welcome extends CI_Controller {
         //pengurangan jam
         $hasil = strtotime($jamskr) - strtotime($jam);
         //hasil dalam bentuk seconds
-        if ($hasil <= 3600) {
+        if ($hasil <= 7200) {
             $this->session->set_userdata('email', $email);
             $this->session->set_userdata('code', $code);
             $this->load->view('reset_password');
@@ -135,7 +135,7 @@ class Welcome extends CI_Controller {
             $this->session->set_flashdata('gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Anda Belum Verifikasi Akun');
             redirect('c_login/lupa_password');
         } else {
-            $this->session->set_flashdata('gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Masukkan Data yang benar');
+            $this->session->set_flashdata('gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Data email Salah');
             redirect('c_login/lupa_password');
         }
     }
@@ -143,33 +143,34 @@ class Welcome extends CI_Controller {
     public function action_reset() {
         $hcode = '';
         $hemail = '';
-
-        $this->form_validation->set_rules('password1', 'Password', 'required|min_length[8]|max_length[15]');
-        $this->form_validation->set_rules('password2', 'Confirmation Password', 'required|min_length[8]|max_length[15]|matches[password1]');
-
-        if ($this->form_validation->run() == FALSE) {
-            $email = $this->session->userdata('email');
-            $code = $this->session->userdata('code');
-            $email2 = str_replace('@', '-', $email);
-            $this->session->set_flashdata('gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;' . validation_errors());
-            redirect('Welcome/reset_password'.$email2.'/'.$code);
-        } else {
-            $email = $this->session->userdata('email');
-            $code = $this->session->userdata('code');
-            $email2 = str_replace('@', '-', $email);
-            $pass = $this->input->post('password1');
+        $email = $this->session->userdata('email');
+        $code = $this->session->userdata('code');
+        $email2 = str_replace('@', '-', $email);
+        $password1 = $this->input->post('txt_password1');
+        $password2 = $this->input->post('txt_password2');
+        $jumlah = strlen($password1);
+        $jumlah2 = strlen($password2);
+        if ($jumlah < 8 || $jumlah2 < 8){
+         $this->session->set_flashdata('gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Password kurang dari 8 karakter');
+         redirect('Welcome/reset_password/'.$email2.'_'.$code);   
+        }
+        else if (strncmp($password1, $password2, 8) < 0 || strncmp($password1, $password2, 8) > 0){
+             $this->session->set_flashdata('gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Password Tidak sama');
+         redirect('Welcome/reset_password/'.$email2.'_'.$code); 
+        }
+         else {
             $data = $this->Mod_login->get_jamreset($email, $code);
             foreach ($data as $d) {
                 $hcode = $d['code'];
                 $hemail = $d['email'];
             }
             if ($hcode == $code && $hemail == $email) {
-                $this->Mod_login->update_pass($pass, $email);
-                $this->session->set_flashdata('msg', '<span class="glyphicon glyphicon-ok"></span>&nbsp;Password Berhasil Direset');
+                $this->Mod_login->update_pass($password1, $email);
+                $this->session->set_flashdata('msg', '<span class="glyphicon glyphicon-ok"></span>&nbsp;Reset Password Berhasil Silahkan Login');
                 $this->load->view('v_login');
             } else {
                 $this->session->set_flashdata('gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Data Anda Salah');
-                redirect('Welcome/reset_password'.$email2.'/'.$code);
+                redirect('Welcome/reset_password/'.$email2.'_'.$code);
                 
             }
         }

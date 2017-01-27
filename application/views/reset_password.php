@@ -32,43 +32,42 @@
         <!-- bootstrap wysihtml5 - text editor -->
         <link rel="stylesheet" href="<?php echo base_url() . "assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"; ?>">
     </head>
-    <body class="hold-transition register-page">
-        
-        <div class="register-box">
-            <div class="register-logo">
-                <a href="../../index2.html"><b>Petty</b>-Cash</a>
+ <body class="hold-transition login-page">
+        <div class="login-box">
+            <div class="login-logo">
+                <a href="<?php echo base_url('c_login'); ?>"><b><img src="<?php echo base_url('assets/logo/logo-cash.png'); ?>" style="width: 50px; height: 50px; margin-bottom: 20px;">&nbsp;PETTY</b>-CASH</a>
             </div>
 
-            <div class="register-box-body">
-                <p class="login-box-msg">Reset Password</p>
-                <div class="alert alert-success" style="display: none">
-                </div>
-                <div class="alert alert-danger" style="display: none">
+            <!-- /.login-logo -->
+            <div class="login-box-body">
+                <p class="login-box-msg">Masukkan Password Baru Anda</p>
+                <div class="alert alert-danger" style="display: none;"></div>
+                <div class="alert alert-success" style="display: none;"></div>
+                <form action="<?php echo base_url('welcome/action_reset'); ?>" method="post">
+                    <div class="form-group has-feedback">
+                        <input type="password"  name="txt_password1" class="form-control" placeholder="Password" required="" maxlength="8">
+                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input type="password" name="txt_password2" class="form-control" placeholder="Confirm Password" required="" maxlength="8">
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8">
 
-                </div>
-                <?php echo form_open('Welcome/action_reset') ; ?>
-
-        <table border="0" class="table">       
-        <tr>
-            <td>Password</td>
-            <td><?php echo form_password(array('name' => 'password1', 'id' => 'password1', 'value' => set_value('password1', ''), 'maxlength' => '100', 'size' => '50', 'style' => 'width:100%')); ?></td>
-        </tr>
-        <tr>
-            <td>Confirm Password</td>
-            <td><?php echo form_password(array('name' => 'password2', 'id' => 'password2', 'value' => set_value('password2', ''), 'maxlength' => '100', 'size' => '50', 'style' => 'width:100%')); ?></td>
-        </tr>
-        
-    <!--     <?php echo form_hidden('code', $code) ; ?> -->
-    </table>
-    <?php echo form_submit('submit', 'Submit'); ?>
-    or <?php echo anchor('form', 'cancel'); ?>
-        <?php echo form_close(); ?>
-
-                <a href="<?php echo base_url("c_login/index"); ?>" class="text-center">Kembali ke menu </a>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-xs-4">
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">Reset</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+                <a href="<?php echo base_url("c_login"); ?>">Menu Login</a><br>
             </div>
-            <!-- /.form-box -->
+            <!-- /.login-box-body -->
         </div>
-        <!-- /.register-box -->
+        <!-- /.login-box -->
 
         <!-- jQuery 2.2.3 -->
         <script src="<?php echo base_url("assets/plugins/jQuery/jquery-2.2.3.min.js"); ?>"></script>
@@ -76,8 +75,9 @@
         <script src="<?php echo base_url("assets/bootstrap/js/bootstrap.min.js"); ?>"></script>
         <!-- iCheck -->
         <script src="<?php echo base_url("assets/plugins/iCheck/icheck.min.js"); ?>"></script>
+
         <script>
-            $(function() {
+            $(function () {
                 $('input').iCheck({
                     checkboxClass: 'icheckbox_square-blue',
                     radioClass: 'iradio_square-blue',
@@ -85,23 +85,24 @@
                 });
             });
         </script>
-                <script>
-// alert berhasil
-                                $(document).ready(function () {
-                                    $('.alert-success').hide();
-<?php if ($this->session->flashdata('msg')) { ?>
-                                        $('.alert-success').html('<?php echo $this->session->flashdata('msg'); ?>').fadeIn().delay(4000).fadeOut('slow');
-                                    });
-<?php } ?>
-        </script>
-        <script>
-// alert gagal
+        <script type="text/javascript">
             $(document).ready(function () {
                 $('.alert-danger').hide();
-<?php if ($this->session->flashdata('gagal')) { ?>
+<?php if ($this->session->flashdata('gagal')): ?>
                     $('.alert-danger').html('<?php echo $this->session->flashdata('gagal'); ?>').fadeIn().delay(4000).fadeOut('slow');
+
+<?php endif ?>
+            });
+        </script>
+
+        <script>
+// proses menampilkan info berhasil
+            $(document).ready(function () {
+                $('.alert-success').hide();
+<?php if ($this->session->flashdata('msg')) { ?>
+                    $('.alert-success').html('<?php echo $this->session->flashdata('msg'); ?>').fadeIn().delay(1000).fadeOut('slow');
                 });
 <?php } ?>
         </script>
-    </body>
+    </body> 
 </html>

@@ -47,6 +47,7 @@
             <div class="login-box-body">
                 <p class="login-box-msg">Gunakan akun anda untuk akses Petty Cash</p>
                 <div class="alert alert-danger pesan_verifikasi" style="display: none;"></div>
+                <div class="alert alert-success" style="display: none;"></div>
                 <form action="<?php echo base_url('c_login/login_process'); ?>" method="post">
                     <div class="form-group has-feedback">
                         <input type="text"  name="txt_log_user" class="form-control" placeholder="Username / Email" required="">
@@ -79,7 +80,7 @@
         <script src="<?php echo base_url("assets/bootstrap/js/bootstrap.min.js"); ?>"></script>
         <!-- iCheck -->
         <script src="<?php echo base_url("assets/plugins/iCheck/icheck.min.js"); ?>"></script>
-       
+
         <script>
             $(function () {
                 $('input').iCheck({
@@ -90,13 +91,23 @@
             });
         </script>
         <script type="text/javascript">
-            $(document).ready(function(){
+            $(document).ready(function () {
                 $('.alert-danger').hide();
-                <?php if ($this->session->flashdata('pesan_verifikasi')): ?>
-                     $('.pesan_verifikasi').html('<?php echo $this->session->flashdata('pesan_verifikasi'); ?>').fadeIn().delay(4000).fadeOut('slow');
-                     
-                <?php endif ?>
+<?php if ($this->session->flashdata('pesan_verifikasi')): ?>
+                    $('.pesan_verifikasi').html('<?php echo $this->session->flashdata('pesan_verifikasi'); ?>').fadeIn().delay(4000).fadeOut('slow');
+
+<?php endif ?>
             });
+        </script>
+
+        <script>
+// proses menampilkan info berhasil
+            $(document).ready(function () {
+                $('.alert-success').hide();
+<?php if ($this->session->flashdata('msg')) { ?>
+                    $('.alert-success').html('<?php echo $this->session->flashdata('msg'); ?>').fadeIn().delay(1000).fadeOut('slow');
+                });
+<?php } ?>
         </script>
     </body>
 </html>
