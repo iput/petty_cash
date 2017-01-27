@@ -21,7 +21,7 @@ class C_login extends CI_Controller {
     public function lupa_password() {
         $this->load->view('v_lupa_sandi');
     }
-
+//test
     public function login_process() {
         $idUser = "";
         $huser = "";
