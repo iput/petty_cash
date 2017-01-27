@@ -15,7 +15,7 @@ class M_pengeluaranuser extends CI_Model {
         $result_in = $this->db->insert($tabel_in, $data_in);
         return $result_in;
     }
-
+ 
     public function get_pengeluaran_user($id) {
         $this->db->select('tb_user.username,tb_user.idUser, tb_project.namaProject, tb_project.settingAnggaran,tb_pengeluaran.idPengeluaran,tb_pengeluaran.tanggal,tb_pengeluaran.jumlahPengeluaran, tb_pengeluaran.namaPengeluaran');
         $this->db->from('tb_user');

@@ -88,7 +88,7 @@
                         </div>
                         <div class="pull-left info">
                             <p><?php echo $this->session->userdata('username'); ?></p>
-                            <a href="#"><i class="fa fa-user bg-green"></i>User Petty Cash</a>
+                            <a href="#"><i class="fa fa-user"></i>User Petty Cash</a>
                         </div>
                     </div>
 

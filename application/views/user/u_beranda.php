@@ -15,16 +15,16 @@
         <h3><span class="fa fa-bar-chart"></span>&nbsp;Statistik Pengeluaran anda</h3>
         <div class="row">
             <div class="col-xs-12">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-flat  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tampilkan Data&nbsp;<span class="caret"></span></button>
+                <div class="dropdown btn-group pull-left">
+                    <button type="button" class="btn btn-default dropdown-toggle btn-flat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Tampilkan Data&nbsp;<span class="caret"></span></button>
                     <ul class="dropdown-menu">
                         <li><a href="<?php echo base_url('S_beranda'); ?>">Berdasarkan Project</a></li>
                         <li><a href="<?php echo base_url('S_beranda/get_data_all'); ?>">Semua Data</a></li>
                     </ul>
                 </div>
 
-                <div class="btn-group pull-right">
-                    <button type="button" class="btn btn-default dropdown-toggle btn-flat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="dropdown btn-group pull-right">
+                    <button type="button" class="btn btn-default dropdown-toggle btn-flat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         Cetak Data Transaksi&nbsp;<span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
