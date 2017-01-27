@@ -14,10 +14,10 @@
         </div>
         <!-- box body --> 
         <div class="box-body">
-        <div class="alert alert-success" style="display: none;"></div>
-        <div class="alert alert-danger" style="display: none;"></div>
-        <div class="alert alert-info" style="display: none;"></div>
-        <div class="alert alert-warning" style="display: none;"></div>
+        <div class="alert alert-success" style="display: none;" role="alert"></div>
+        <div class="alert alert-danger" style="display: none;" role="alert"></div>
+        <div class="alert alert-info" style="display: none;" role="alert"></div>
+        <div class="alert alert-warning" style="display: none;" role="alert"></div>
                  <button style="margin-bottom: 20px;" type="button" class="btn btn-primary btn-flat" data-toggle="modal" data-target="#project_baru"><span class="fa fa-plus"></span> Tambah Proyek</button>
 
             <!-- form tambah project -->

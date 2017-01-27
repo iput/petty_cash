@@ -11,7 +11,6 @@
 
 <!-- jQuery 2.2.3 -->
 <script src="<?php echo base_url() . "assets/plugins/jQuery/jquery-2.2.3.min.js"; ?>"></script>
-
 <!-- Bootstrap 3.3.6 -->
 <script src="<?php echo base_url() . "assets/bootstrap/js/bootstrap.min.js"; ?>"></script>
 <!-- Sparkline -->
@@ -31,6 +30,7 @@
 <script src="<?php echo base_url() . "assets/dist/js/app.min.js"; ?>"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url() . "assets/dist/js/demo.js"; ?>"></script>
+<!-- data tabel jquery -->
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables/js/dataTables.bootstrap.min.js"; ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables/js/jquery.dataTables.min.js"; ?>"></script>
 
@@ -350,7 +350,7 @@
                 }
             },
             series: [{
-                    name: 'Jumlah Pengeluaran dihitung per bulan',
+                    name: 'Jumlah Pengeluaran per bulan',
                     data: <?php echo json_encode($value); ?>
                 }]
         });
