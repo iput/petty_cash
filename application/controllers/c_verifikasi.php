@@ -40,7 +40,7 @@ class C_verifikasi extends CI_Controller {
             );
             $this->m_user->update_status('tb_user', $data_update, $param);
             $this->session->set_flashdata('msg', '<span class="glyphicon glyphicon-ok"></span>&nbsp;Akun Anda Sudah Terverifikasi');
-            redirect('c_login');
+            redirect('c_login/index');
         }
         else{
             $this->session->set_flashdata('gagal', '<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Kode Anda Salah');

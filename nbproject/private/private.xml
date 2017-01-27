@@ -12,10 +12,14 @@
             <file>file:/C:/xampp/htdocs/petty_cash/application/models/Mod_login.php</file>
             <file>file:/C:/xampp/htdocs/petty_cash/application/controllers/C_statistik.php</file>
             <file>file:/C:/xampp/htdocs/petty_cash/application/config/autoload.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/tabel/tabel_user.php</file>
             <file>file:/C:/xampp/htdocs/petty_cash/application/views/reset_password.php</file>
             <file>file:/C:/xampp/htdocs/petty_cash/application/controllers/C_user.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/models/m_pengeluaran.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/controllers/S_statistik.php</file>
             <file>file:/C:/xampp/htdocs/petty_cash/application/views/user/u_beranda.php</file>
             <file>file:/C:/xampp/htdocs/petty_cash/application/controllers/C_project.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/admin/v_add_pengeluaran.php</file>
             <file>file:/C:/xampp/htdocs/petty_cash/application/views/attribute/header_user.php</file>
             <file>file:/C:/xampp/htdocs/petty_cash/application/views/admin/v_Uproject.php</file>
             <file>file:/C:/xampp/htdocs/petty_cash/application/views/user/u_pengeluaran.php</file>
@@ -30,10 +34,13 @@
             <file>file:/C:/xampp/htdocs/petty_cash/application/views/admin/v_pengeluaran.php</file>
             <file>file:/C:/xampp/htdocs/petty_cash/application/controllers/Gambar.php</file>
             <file>file:/C:/xampp/htdocs/petty_cash/application/controllers/C_pengeluaran.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/admin/v_index.php</file>
             <file>file:/C:/xampp/htdocs/petty_cash/application/views/v_verifikasi.php</file>
             <file>file:/C:/xampp/htdocs/petty_cash/application/controllers/c_verifikasi.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/v_lupa_sandi.php</file>
             <file>file:/C:/xampp/htdocs/petty_cash/application/views/admin/v_user.php</file>
             <file>file:/C:/xampp/htdocs/petty_cash/application/controllers/S_setting.php</file>
+            <file>file:/C:/xampp/htdocs/petty_cash/application/views/attribute/footer_user.php</file>
             <file>file:/C:/xampp/htdocs/petty_cash/application/models/m_user.php</file>
             <file>file:/C:/xampp/htdocs/petty_cash/application/views/admin/v_project.php</file>
         </group>

@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * 
+ *
  */
 class C_login extends CI_Controller {
 
@@ -28,7 +28,7 @@ class C_login extends CI_Controller {
         $hpass = "";
         $hlevel = "";
         $hemail = "";
-        $hstatus ="";
+        $hstatus = "";
         $user = mysql_real_escape_string($this->input->post('txt_log_user'));
         $pass = mysql_real_escape_string($this->input->post('txt_log_password'));
         $hasil = $this->Mod_login->login($user, $pass);
@@ -40,50 +40,76 @@ class C_login extends CI_Controller {
             $hemail = $h['email'];
             $hstatus = $h['status'];
         }
-        if ($hlevel == 'admin'&& $hstatus=='sudah terverifikasi') {            
-            if ($user == $huser && $pass == $hpass || $user == $hemail && $pass == $hpass) {
-                $this->session->set_userdata('username', $huser);
-                $this->session->set_userdata('idUser', $idUser);
-                redirect('c_login/admin_page');
+        if ($hlevel == 'admin') {
+            if ($hstatus == 'sudah terverifikasi') {
+                if ($user == $huser && $pass == $hpass || $user == $hemail && $pass == $hpass) {
+                    $this->session->set_userdata('username', $huser);
+                    $this->session->set_userdata('idUser', $idUser);
+                    redirect('c_login/admin_page');
+                } else if ($user == $huser && $pass != $hpass || $user == $hemail && $pass != $hpass){    
+                    $this->session->set_flashdata('pesan_verifikasi', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Password Kurang Tepat');
+                    redirect('c_login/index');
+                }
+                else if ($user != $huser && $pass == $hpass || $user != $hemail && $pass == $hpass){    
+                    $this->session->set_flashdata('pesan_verifikasi', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Username Kurang Tepat');
+                    redirect('c_login/index');
+                }
             } else {
-                $this->session->set_flashdata('pesan_error_user','&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.$user.' bukan user yang terdaftar');
-                $this->session->set_flashdata('pesan_error_pass','&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Password Kurang Tepat');
-                redirect('c_login/index');
+                if ($user == $huser && $pass == $hpass || $user == $hemail && $pass == $hpass) {
+                    $this->session->set_flashdata('pesan_verifikasi', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Akun Anda Belum Terverifikasi');
+                    redirect('c_login/index');
+                }
+                else if ($user == $huser && $pass != $hpass || $user == $hemail && $pass != $hpass){    
+                    $this->session->set_flashdata('pesan_verifikasi', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Anda Belum Terverifikasi');
+                    redirect('c_login/index');
+                }
+                else if ($user != $huser && $pass == $hpass || $user != $hemail && $pass == $hpass){    
+                    $this->session->set_flashdata('pesan_verifikasi', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Anda Belum Terverifikasi');
+                    redirect('c_login/index');
+                }
             }
-        } else if ($hlevel == 'user' && $hstatus=='sudah terverifikasi') {
-            if ($user == $huser && $pass == $hpass || $user == $hemail && $pass == $hpass) {
-                $this->session->set_userdata('username', $huser);
-                $this->session->set_userdata('idUser', $idUser);
-                redirect('c_login/user_page');
+        } else if ($hlevel == 'user') {
+            if ($hstatus == 'sudah terverifikasi') {
+                if ($user == $huser && $pass == $hpass || $user == $hemail && $pass == $hpass) {
+                    $this->session->set_userdata('username', $huser);
+                    $this->session->set_userdata('idUser', $idUser);
+                    redirect('c_login/user_page');
+                }
+                else if ($user == $huser && $pass != $hpass || $user == $hemail && $pass != $hpass){    
+                    $this->session->set_flashdata('pesan_verifikasi', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Password Kurang Tepat');
+                    redirect('c_login/index');
+                }
+                else if ($user != $huser && $pass == $hpass || $user != $hemail && $pass == $hpass){    
+                    $this->session->set_flashdata('pesan_verifikasi', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Username Kurang Tepat');
+                    redirect('c_login/index');
+                }
+                
+                else {
+                if ($user == $huser && $pass == $hpass || $user == $hemail && $pass == $hpass) {
+                    $this->session->set_flashdata('pesan_verifikasi', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Akun Anda Belum Terverifikasi');
+                    redirect('c_login/index');
+                }
+                else if ($user == $huser && $pass != $hpass || $user == $hemail && $pass != $hpass){    
+                    $this->session->set_flashdata('pesan_verifikasi', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Anda Belum Terverifikasi');
+                    redirect('c_login/index');
+                }
+                else if ($user != $huser && $pass == $hpass || $user != $hemail && $pass == $hpass){    
+                    $this->session->set_flashdata('pesan_verifikasi', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Anda Belum Terverifikasi');
+                    redirect('c_login/index');
+                }
+            }
             } else {
-                $this->session->set_flashdata('pesan_error_user','&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.$user.' bukan user yang terdaftar');
-                $this->session->set_flashdata('pesan_error_pass','&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Password Kurang Tepat');
-                redirect('c_login/index');
+                if ($user == $huser && $pass == $hpass || $user == $hemail && $pass == $hpass) {
+                    $this->session->set_flashdata('pesan_verifikasi', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Akun Anda Belum Terverifikasi');
+                    redirect('c_login/index');
+                } else {
+                    $this->session->set_flashdata('pesan_error_user', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;' . $user . ' bukan user yang terdaftar');
+                    $this->session->set_flashdata('pesan_error_pass', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Password Kurang Tepat');
+                    redirect('c_login/index');
+                }
             }
-        }
-        else if($hlevel == 'admin' && $hstatus=='belum terverifikasi'){
-        if ($user == $huser && $pass == $hpass || $user == $hemail && $pass == $hpass) {
-                $this->session->set_flashdata('pesan_verifikasi','&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Akun Anda Belum Terverifikasi');
-                redirect('c_login/index');
-            } else {
-                $this->session->set_flashdata('pesan_error_user','&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.$user.' bukan user yang terdaftar');
-                $this->session->set_flashdata('pesan_error_pass','&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Password Kurang Tepat');
-                redirect('c_login/index');
-            }
-        }
-        else if($hlevel == 'user' && $hstatus=='belum terverifikasi'){
-        if ($user == $huser && $pass == $hpass || $user == $hemail && $pass == $hpass) {
-                $this->session->set_flashdata('pesan_verifikasi','&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Akun Anda Belum Terverifikasi');
-                redirect('c_login/index');
-            } else {
-                $this->session->set_flashdata('pesan_error_user','&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.$user.' bukan user yang terdaftar');
-                $this->session->set_flashdata('pesan_error_pass','&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Password Kurang Tepat');
-                redirect('c_login/index');
-            }
-        }
-        else {
-                $this->session->set_flashdata('pesan_error_user','&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.$user.' bukan user yang terdaftar');
-                $this->session->set_flashdata('pesan_error_pass','&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;'.$pass.' bukan password yang tepat');
+        } else {
+            $this->session->set_flashdata('pesan_verifikasi', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Anda Belum Terdaftar di Petty Cash');           
             redirect('c_login/index');
         }
     }
