@@ -20,10 +20,11 @@ class M_pengeluaran extends CI_Model {
     //  untuk setting pengeluaran
     public function select_data() {
         $this->db->select('tb_user.username,tb_pengeluaran.idProject,
-                            tb_pengeluaran.namaPengeluaran,tb_pengeluaran.jumlahPengeluaran,
+                            tb_pengeluaran.namaPengeluaran,sum(tb_pengeluaran.jumlahPengeluaran) as jumlahPengeluaran,
         					tb_pengeluaran.tanggal,tb_pengeluaran.idPengeluaran');
         $this->db->from('tb_user');
         $this->db->join('tb_pengeluaran', 'tb_user.idUser=tb_pengeluaran.idUser');
+        $this->db->group_by('tb_pengeluaran.idUser');
         $hasil = $this->db->get();
 
         $data_in = $hasil->result_array();

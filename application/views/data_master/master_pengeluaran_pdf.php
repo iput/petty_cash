@@ -51,7 +51,6 @@
                                 <tr>
                     <th>No.</th>
                     <th>Nama Pengguna</th>
-                    <th>Project</th>
                     <th>Jumlah Pengeluaran</th>
                     <th>Keterangan Pengeluaran</th>
                     <th>Tanggal</th>
@@ -62,21 +61,14 @@
                     <?php 
                     $id = $data['idPengeluaran'];
                     $namauser = $data['username'];
-                    $kodeProject = $data['idProject'];
                     $jumlah = $data['jumlahPengeluaran'];
                     $keterangan = $data['namaPengeluaran'];
                     $tgl = $data['tanggal'];
 
-                    if ($kodeProject== null) {
-                        $kodeProject = 'pribadi';
-                    }else{
-                        $kodeProject = 'PROJECT00'.$kodeProject;
-                    }
                     ?>
                         <tr>
                             <td><?php echo $id; ?></td>
                             <td><?php echo $namauser; ?></td>
-                            <td><?php echo $kodeProject; ?></td>
                             <td><?php echo $jumlah; ?></td>
                             <td><?php echo $keterangan; ?></td>
                             <td><?php echo $tgl; ?></td>
