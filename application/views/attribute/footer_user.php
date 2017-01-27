@@ -99,7 +99,7 @@
         },
         plotOptions : {
             column : {
-                depth : 20
+                depth : 25
             }
         },
         credits : {
@@ -149,6 +149,20 @@ $('.alert-success').hide();
             $('.alert-warning').html('<?php echo $this->session->flashdata('pesan_gagal'); ?>').fadeIn().delay(1000).fadeOut('slow');
         <?php endif ?>
     });
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.dropdown').hover(            
+    function() {
+    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+    $(this).toggleClass('open');        
+    },
+    function() {
+    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+    $(this).toggleClass('open');       
+    });
+});
 </script>
 </body>
 </html>

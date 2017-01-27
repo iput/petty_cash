@@ -43,26 +43,37 @@ header('Expires: 0');
             <th colspan="8"></th>
         </tr>
         <tr>
-            <th>No</th>
-            <th>Nama Project</th>
-            <th>Username</th>
-            <th>Setting Anggaran</th>
+            <th>No.</th>
+            <th>Nama Pengguna</th>
+            <th>Project</th>
             <th>Jumlah Pengeluaran</th>
-            <th>Waktu</th>
             <th>Keterangan Pengeluaran</th>
+            <th>Tanggal</th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($master_pengeluaran as $data): ?>
-            <tr>
-                <td><?php echo $data['idPengeluaran']; ?></td>
-                <td><?php echo $data['namaProject']; ?></td>
-                <td><?php echo $data['username']; ?></td>
-                <td><?php echo $data['settingAnggaran']; ?></td>
-                <td><?php echo $data['jumlahPengeluaran']; ?></td>
-                <td><?php echo $data['tanggal']; ?></td>
-                <td><?php echo $data['namaPengeluaran']; ?></td>
-            </tr>
-        <?php endforeach ?>
-    </tbody>
+    <?php foreach ($master_pengeluaran as $data): ?>
+        <?php 
+            $id = $data['idPengeluaran'];
+            $namauser = $data['username'];
+            $kodeProject = $data['idProject'];
+            $jumlah = $data['jumlahPengeluaran'];
+            $keterangan = $data['namaPengeluaran'];
+            $tgl = $data['tanggal'];
+
+            if ($kodeProject== null) {
+                $kodeProject = 'pribadi';
+            }else{
+                $kodeProject = 'PROJECT00'.$kodeProject;
+            }?>
+        <tr>
+            <td><?php echo $id; ?></td>
+            <td><?php echo $namauser; ?></td>
+            <td><?php echo $kodeProject; ?></td>
+            <td><?php echo $jumlah; ?></td>
+            <td><?php echo $keterangan; ?></td>
+            <td><?php echo $tgl; ?></td>
+        </tr>
+    <?php endforeach; ?>      
+</tbody>
 </table>

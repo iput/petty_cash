@@ -34,6 +34,20 @@
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables/js/dataTables.bootstrap.min.js"; ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables/js/jquery.dataTables.min.js"; ?>"></script>
 
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.dropdown').hover(            
+    function() {
+    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+    $(this).toggleClass('open');        
+    },
+    function() {
+    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+    $(this).toggleClass('open');       
+    });
+});
+</script>
+
 <script>
     sendEvent = function (sel, step) {
         $(sel).trigger('next.m.' + step);

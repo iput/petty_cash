@@ -15,12 +15,9 @@
                     <div class="alert alert-warning" style="display: none"></div>
                     <button style="margin-bottom: 10px;" type = "button" class="btn btn-primary btn-flat" data-toggle ="modal" data-target="#modal_tambah_pengeluaran"><span class="glyphicon glyphicon-plus"></span>&nbsp;Tambah Pengeluaran</button>
                 <div class="col-md-1.75 pull-right" style="margin-bottom: 10px;">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-flat">Cetak Dokumen</button>
-                        <button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" haspopup="true" aria-expanded="false">
-                            <span class="caret"></span>
-                            <span class="sr-only">Toggle Dropdown</span>
-                        </button>
+                    <div class="dropdown btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle btn-flat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Cetak Data Transaksi&nbsp;<span class="caret"></span>
+                    </button>
                         <ul class="dropdown-menu">
                             <li><a href="<?php echo base_url('C_pengeluaran/cetak_excel'); ?>"><span class="fa fa-file-excel-o"></span> Excel</a></li>
                             <li><a href="<?php echo base_url('C_pengeluaran/cetak_pdf'); ?>" target="blank" ><span class="fa fa-file-pdf-o"></span> PDF</a></li>
