@@ -70,12 +70,14 @@ class C_Project extends CI_Controller {
             $post = $this->input->post();
             $namaProject = $post['txt_nm_project'];
             $nmProject = $this->m_project->get_nmProject($namaProject);
+            
             if ($nmProject){
             $this->session->set_flashdata('pesan_gagal', '&nbsp;<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;Nama Project sudah Ada');
                 redirect('C_project');    
             }
             else{
             $settingAnggaran = $post['combo_anggaran'];
+            
             if ($settingAnggaran == null) {
                 $settingAnggaran = 'harian';
             }

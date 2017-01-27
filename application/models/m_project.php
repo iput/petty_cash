@@ -76,8 +76,11 @@ class M_project extends CI_Model {
         $this->db->select('namaProject');
         $this->db->from('tb_project');
         $this->db->where('namaProject', $nama);
-        $data = $this->db->get();
-        return $data;
+
+        $output = $this->db->get();
+        $result = $output->result_array();
+
+        return $result;
     }
 
 }

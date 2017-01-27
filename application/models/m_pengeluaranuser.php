@@ -86,6 +86,12 @@ class M_pengeluaranuser extends CI_Model {
             return $data;
         }
     }
+
+    public function total_project($id){
+        $hasil = $this->db->query('select tb_user.username, tb_project.namaProject, tb_project.anggaran, tb_project.settingAnggaran, SUM(tb_pengeluaran.jumlahPengeluaran) AS total_pengeluaran FROM tb_pengeluaran, tb_project, tb_user WHERE tb_pengeluaran.idUser = '.$id.' and tb_pengeluaran.idProject = tb_project.idProject and tb_pengeluaran.idUser = tb_user.idUser GROUP BY tb_pengeluaran.idProject');
+      $data = $hasil->result_array();
+        return $data;   
+    }
 }
 
 ?>

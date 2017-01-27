@@ -48,6 +48,12 @@ class S_beranda extends CI_Controller {
         $this->load->view('data_master/user_excel', $data);
     }
 
+    public function cetak_pdf_project(){
+        $id = $this->session->userdata('idUser');
+        $data ['transaksi'] = $this->m_pengeluaranuser->total_project($id);
+        $this->load->view('data_master/user_pengeluaran_project_pdf', $data);   
+    }
+
 }
 
 ?>
