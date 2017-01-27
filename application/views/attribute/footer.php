@@ -12,12 +12,6 @@
 <!-- jQuery 2.2.3 -->
 <script src="<?php echo base_url() . "assets/plugins/jQuery/jquery-2.2.3.min.js"; ?>"></script>
 
-<!-- jQuery UI 1.11.4 -->
-
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-    $.widget.bridge('uibutton', $.ui.button);
-</script>
 <!-- Bootstrap 3.3.6 -->
 <script src="<?php echo base_url() . "assets/bootstrap/js/bootstrap.min.js"; ?>"></script>
 <!-- Sparkline -->
@@ -233,18 +227,16 @@
         $('#tabel_project').dataTable();
     });
 </script>
-<script>
-// proses menampilkan info berhasil
-$(document).ready(function() {
-$('.alert-success').hide();
-<?php if ($this->session->flashdata('msg')) { ?>
-    $('.alert-success').html('<?php echo $this->session->flashdata('msg'); ?>').fadeIn().delay(1000).fadeOut('slow');
-    });
-<?php } ?>
-</script>
 
+<!-- alert fungsi -->
 <script type="text/javascript">
     $(document).ready(function(){
+
+        $('.alert-success').hide();
+        <?php if ($this->session->flashdata('msg')): ?>
+            $('.alert-success').html('<?php echo $this->session->flashdata('msg'); ?>').fadeIn().delay(1000).fadeOut('slow');
+        <?php endif ?>
+
         $('.alert-danger').hide();
         <?php if ($this->session->flashdata('msg_hapus')): ?>
             $('.alert-danger').html('<?php echo $this->session->flashdata('msg_hapus'); ?>').fadeIn().delay(1000).fadeOut('slow');
@@ -324,13 +316,14 @@ $('.alert-success').hide();
 <script src="<?php echo base_url('assets/plugins/chart/highcharts.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/plugins/chart/exporting.js'); ?>" type="text/javascript"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
-<?php
-foreach ($report as $result) {
-    $bulan[] = $result->bulan;
-    $value[] = (float) $result->pengeluaran;
-}
-?>
+    $(document).ready(function(){
+    <?php
+        foreach ($report as $result) {
+            $bulan[] = $result->bulan;
+            $value[] = (float) $result->pengeluaran;
+        }
+    ?>
+
         var chart1;
         chart1 = new Highcharts.Chart({
             chart: {
@@ -364,5 +357,46 @@ foreach ($report as $result) {
     });
 </script>
 
+<script type="text/javascript">
+    $(document).ready(function(){
+        <?php
+        foreach ($stats_project as $result) {
+            $nama_p[] = $result->project_p;
+            $nilai_p[] = (float) $result->pengeluaran_p;
+        }
+    ?>
+
+        var chart1;
+        chart1 = new Highcharts.Chart({
+            chart: {
+                renderTo: 'data_statistik',
+                type: 'column'
+            },
+            title: {
+                text: 'Data Pengeluaran project dihitung Perbulan'
+            },
+            plotOptions: {
+                column: {
+                    depth: 25
+                }
+            },
+            credits: {
+                enabled: false
+            },
+            xAxis: {
+                categories: <?php echo json_encode($nama_p); ?>
+            },
+            yAxis: {
+                title: {
+                    text: 'Jumlah Pengeluaran'
+                }
+            },
+            series: [{
+                    name: 'Jumlah Pengeluaran project dihitung per bulan',
+                    data: <?php echo json_encode($nilai_p); ?>
+                }]
+        });
+    });
+</script>
 </body>
 </html>

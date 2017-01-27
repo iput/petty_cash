@@ -20,6 +20,15 @@ class C_statistik extends CI_Controller {
         $this->load->view('attribute/footer', $data);
     }
 
+    public function get_stats_project()
+    {
+        $data['stats_project'] = $this->m_statistik->get_projectP();
+
+        $this->load->view('attribute/header');
+        $this->load->view('admin/v_statistik');
+        $this->load->view('attribute/footer', $data); 
+    }
+
 }
 
 ?>
