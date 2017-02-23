@@ -14,6 +14,10 @@ class S_setting extends CI_Controller {
 
     public function index() {
         if ($this->session->userdata('username')) {
+            $data['stat'] = "active";
+            $data['stat2'] ="";
+            $data['stat3'] ="";
+            $data['stat4'] ="";
             $this->load->view('attribute/header_user');
             $this->load->view('user/u_setting');
             $this->load->view('attribute/footer_user');

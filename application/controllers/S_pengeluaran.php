@@ -19,7 +19,11 @@ class S_pengeluaran extends CI_Controller {
         if ($this->session->userdata('username') && $this->session->userdata('idUser')) {
             $id = $this->session->userdata('idUser');
             $data_u['idUser'] = $this->m_get->get_userproject($id);
-            $this->load->view('attribute/header_user');
+            $data['stat'] = "";
+            $data['stat2'] ="active";
+            $data['stat3'] ="";
+            $data['stat4'] ="";
+            $this->load->view('attribute/header_user', $data);
             $this->load->view('user/u_pengeluaran', $data_u);
             $this->load->view('attribute/footer_user');
         } else {

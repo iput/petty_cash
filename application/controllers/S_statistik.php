@@ -17,8 +17,11 @@ class S_statistik extends CI_Controller {
             $parameter = $this->session->userdata('idUser');
              $data['report'] = $this->datauser->tampil_statistik($parameter);
 
-             
-            $this->load->view('attribute/header_user');
+            $data['stat'] = "";
+            $data['stat2'] ="";
+            $data['stat3'] ="active";
+            $data['stat4'] ="";
+            $this->load->view('attribute/header_user', $data);
             $this->load->view('user/u_statistika');
             $this->load->view('attribute/footer_user', $data);
         } else {

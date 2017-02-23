@@ -15,9 +15,26 @@ class S_beranda extends CI_Controller {
     public function index() {
         if ($this->session->userdata('username') && $this->session->userdata('idUser')) {            
             $data_in['transaksi'] = $this->m_pengeluaranuser->get_pengeluaran_user($this->session->userdata('idUser'));
-            $this->load->view('attribute/header_user');
+            $data['stat'] = "active";
+            $data['stat2'] ="";
+            $data['stat3'] ="";
+            $data['stat4'] ="";
+            $this->load->view('attribute/header_user', $data);
             $this->load->view('user/u_beranda');
             $this->load->view('tabel_user/tabel_user', $data_in);
+            $this->load->view('attribute/footer_user');
+//            echo json_encode($data_in);
+        } else {
+            $this->load->view('v_login');
+        }
+    }
+
+    public function reset_password()
+    {
+        if ($this->session->userdata('username') && $this->session->userdata('idUser')) {            
+            $data_in['transaksi'] = $this->m_pengeluaranuser->get_pengeluaran_user($this->session->userdata('idUser'));
+            $this->load->view('attribute/header_user');
+            $this->load->view('user/u_ganti_password');
             $this->load->view('attribute/footer_user');
 //            echo json_encode($data_in);
         } else {

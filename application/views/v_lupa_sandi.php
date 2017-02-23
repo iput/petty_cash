@@ -59,7 +59,7 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-xs-8">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat" onclick="return confirm('Apakah anda yakin data yang anda masukan sudah valid ?');">Kirim Konfirmasi Sandi</button>
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">Kirim Konfirmasi Sandi</button>
                         </div>
                         <!-- /.col -->
                     </div>

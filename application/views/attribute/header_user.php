@@ -95,17 +95,17 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="header">MENU NAVIGASI UTAMA</li>
-                        <li class="treeview">
+                        <li class="treeview <?php echo $stat; ?>">
                             <a href="<?php echo base_url("s_beranda/index"); ?>">
                                 <i class="fa fa-home"></i><span>&nbsp;Beranda</span>
                             </a>
                         </li>
-                        <li class="treeview">
+                        <li class="treeview <?php echo $stat2; ?>">
                             <a href="<?php echo base_url("s_pengeluaran/index"); ?>">
                                 <i class="fa fa-edit"></i><span>&nbsp;Pengeluaran</span>
                             </a>
                         </li>
-                        <li class="treeview">
+                        <li class="treeview <?php echo $stat3; ?>">
                             <a href="<?php echo base_url("s_statistik/index"); ?>">
                                 <i class="fa fa-fw fa-bar-chart-o"></i><span>&nbsp;Statistik</span>
                                 <span class="pull-right-container">
@@ -117,9 +117,9 @@
                                 <li><a href="<?php echo base_url('s_statistik/get_stats_project_user'); ?>"><i class="fa fa-calendar"></i>&nbsp;Pengeluaran project</a></li>
                             </ul>
                         </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-gears"></i><span>&nbsp;Setting</span>
+                        <li class="treeview <?php echo $stat4; ?>">
+                            <a href="<?php echo base_url('S_beranda/reset_password'); ?>">
+                                <i class="fa fa-gears"></i><span>&nbsp;Ganti Password</span>
                             </a>
                         </li>
                 </section>

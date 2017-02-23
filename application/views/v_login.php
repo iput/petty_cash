@@ -52,6 +52,14 @@
                         <input type="password" name="txt_log_password" class="form-control" placeholder="Password" required="" maxlength="8">
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
+                    <div class="form-group has-feedback">
+                        <select class="form-control" name="combo_level">
+                            <option value="null">Pilih level user</option>
+                            <option value="admin">Administrator</option>
+                            <option value="manager">Project Manager</option>
+                            <option value="user">User</option>
+                        </select>
+                    </div>
                     <div class="row">
                         <div class="col-xs-8">
 
